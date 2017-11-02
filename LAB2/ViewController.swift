@@ -11,7 +11,7 @@ import JTAppleCalendar
 
 class ViewController: UIViewController {
 
-    @IBOutlet var calendarView: JTAppleCalendarView!
+    //@IBOutlet var calendarView: JTAppleCalendarView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

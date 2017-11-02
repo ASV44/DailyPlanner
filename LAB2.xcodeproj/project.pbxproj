@@ -10,6 +10,7 @@
 		2E34C10FD9218D61B354D452 /* Pods_LAB2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6F680BACEE4259F74ED44D7 /* Pods_LAB2.framework */; };
 		689458F93AE18B588D27E488 /* Pods_LAB2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86307AC41B01D931EE933676 /* Pods_LAB2Tests.framework */; };
 		D60035561F9CFC9700C66502 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60035551F9CFC9700C66502 /* CellView.swift */; };
+		D6A7352C1FAA62B60021AD42 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A7352B1FAA62B60021AD42 /* DateView.swift */; };
 		D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D191F8E11010064808B /* AppDelegate.swift */; };
 		D6EE7D1C1F8E11010064808B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D1B1F8E11010064808B /* ViewController.swift */; };
 		D6EE7D1F1F8E11010064808B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EE7D1D1F8E11010064808B /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		B20401E4DB84307C9F9781B4 /* Pods-LAB2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LAB2.release.xcconfig"; path = "Pods/Target Support Files/Pods-LAB2/Pods-LAB2.release.xcconfig"; sourceTree = "<group>"; };
 		D4F27C7117BC7AA4AC5FD78D /* Pods-LAB2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LAB2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LAB2/Pods-LAB2.debug.xcconfig"; sourceTree = "<group>"; };
 		D60035551F9CFC9700C66502 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		D6A7352B1FAA62B60021AD42 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		D6EE7D161F8E11010064808B /* LAB2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAB2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EE7D191F8E11010064808B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6EE7D1B1F8E11010064808B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				D6EE7D191F8E11010064808B /* AppDelegate.swift */,
 				D6EE7D1B1F8E11010064808B /* ViewController.swift */,
+				D6A7352B1FAA62B60021AD42 /* DateView.swift */,
 				D60035551F9CFC9700C66502 /* CellView.swift */,
 				D6EE7D1D1F8E11010064808B /* Main.storyboard */,
 				D6EE7D201F8E11010064808B /* Assets.xcassets */,
@@ -461,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6A7352C1FAA62B60021AD42 /* DateView.swift in Sources */,
 				D6EE7D1C1F8E11010064808B /* ViewController.swift in Sources */,
 				D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */,
 				D60035561F9CFC9700C66502 /* CellView.swift in Sources */,
