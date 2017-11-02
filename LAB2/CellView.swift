@@ -12,4 +12,13 @@ import JTAppleCalendar
 class CellView: JTAppleCell {
     
     @IBOutlet weak var dayLabel: UILabel!
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        dayLabel.font = dayLabel.font.withSize(12)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 }

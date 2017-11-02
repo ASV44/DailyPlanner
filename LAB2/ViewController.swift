@@ -13,6 +13,9 @@ class ViewController: UIViewController {
 
     //@IBOutlet var calendarView: JTAppleCalendarView!
     
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var day: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,11 @@ class ViewController: UIViewController {
 //        calendarView.dataSource = self
 //        calendarView.delegate = self
 //        calendarView.registerCellViewXib(file: "CellView") // Registering your cell is manditory
+        
+        let screenSize = UIScreen.main.bounds
+        //print(screenSize)
+        date.font = date.font.withSize(screenSize.width * 0.12)
+        day.font = day.font.withSize(screenSize.width * 0.0483)
     }
 
     override func didReceiveMemoryWarning() {
