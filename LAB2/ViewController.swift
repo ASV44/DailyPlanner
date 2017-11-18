@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UISearchBarDelegate {
 
     //@IBOutlet var calendarView: JTAppleCalendarView!
     
@@ -21,6 +21,22 @@ class ViewController: UIViewController {
     let formatter = DateFormatter()
     
     @IBOutlet weak var monthYearLabel: UILabel!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    @IBOutlet weak var searchBarHeight: NSLayoutConstraint!
+    @IBOutlet weak var searchBarWidth: NSLayoutConstraint!
+    @IBOutlet weak var searchBarTrailing: NSLayoutConstraint!
+    @IBOutlet weak var searchBarTop: NSLayoutConstraint!
+    
+    @IBOutlet weak var calendarViewTrailing: NSLayoutConstraint!
+    @IBOutlet weak var calendarViewLeading: NSLayoutConstraint!
+    
+    
+    @IBOutlet weak var monthYearTop: NSLayoutConstraint!
+    @IBOutlet weak var stackCalendarViewTop: NSLayoutConstraint!
+    
+    @IBOutlet var mainView: UIView!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -39,6 +55,15 @@ class ViewController: UIViewController {
         print(screenSize)
         date.font = date.font.withSize(screenSize.width * 0.12)
         day.font = day.font.withSize(screenSize.width * 0.0483)
+        
+        searchBar.delegate = self
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        searchBarHeight.constant = 0.076 * screenSize.height
+        mainView.translatesAutoresizingMaskIntoConstraints = false
+        
+        monthYearTop.constant = 0.02038 * screenSize.height
+        stackCalendarViewTop.constant = 0.024 * screenSize.height
         
         setupCalendar()
     }
@@ -114,6 +139,44 @@ class ViewController: UIViewController {
         self.day.text = day
     }
 
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let screenSize = UIScreen.main.bounds
+
+        let initialPosition = searchBar.frame
+        
+        searchBar.layer.cornerRadius = 15
+        searchBar.layer.borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1).cgColor
+//        searchBar.clipsToBounds = true
+        
+        let pading = 0.0241 * screenSize.width
+        let trailing = self.calendarViewTrailing.constant + pading
+        let leading = self.calendarViewLeading.constant + pading + trailing
+        
+        UIView.animate(withDuration: 1,
+                       animations: {
+                        searchBar.frame = CGRect(x: trailing,
+                                                 y: initialPosition.minY,
+                                                 width: screenSize.width - leading,
+                                                 height: initialPosition.height)
+        },
+                       
+                       completion: { finished in
+                        self.updateSearchBarConstrains(trailing: trailing, width: searchBar.frame.width) })
+//                        UIView.animate(withDuration: 2,
+//                                       animations: {
+//                        }) } )
+        
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("***************")
+    }
+    
+    func updateSearchBarConstrains(trailing: CGFloat, width: CGFloat) {
+        searchBarWidth.constant = width
+        searchBarTrailing.constant = trailing
+    }
 }
 
 extension ViewController: JTAppleCalendarViewDataSource {
@@ -136,7 +199,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
         formatter.dateFormat = "yyyy MM dd"
         
         let startDate = formatter.date(from: "2016 02 01")! // You can use date generated from a formatter
-        let endDate = formatter.date(from: "2017 02 01")!                              // You can also use dates created from this function
+        //let endDate = formatter.date(from: "2017 02 01")!                              // You can also use dates created from this function
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: Date(),
                                                  firstDayOfWeek: .monday)
