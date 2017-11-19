@@ -12,8 +12,6 @@ class PlannerView: UIView {
     
     private let gradient : CAGradientLayer = CAGradientLayer()
     
-    @IBOutlet weak var addButton : UIButton!
-    
     @IBOutlet weak var addButtonBottom: NSLayoutConstraint!
     @IBOutlet weak var addButtonTrailing: NSLayoutConstraint!
     
@@ -38,4 +36,5 @@ class PlannerView: UIView {
         dateTop.constant = 0.0271 * screenSize.height
         dayTop.constant = 0.00995 * screenSize.height
     }
+    
 }

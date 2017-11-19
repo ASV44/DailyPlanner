@@ -35,6 +35,9 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="f8T-oQ-LK9" userLabel="CalendarStackView">
@@ -183,6 +186,9 @@
                                                     <constraint firstAttribute="width" constant="20" id="nWU-6Q-u78"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="plus"/>
+                                                <connections>
+                                                    <action selector="addButtonListener:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bY0-ov-lDN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.70588235294117641" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
@@ -195,7 +201,6 @@
                                             <constraint firstAttribute="trailing" secondItem="yoR-eE-ppV" secondAttribute="trailing" constant="24" id="mlA-CR-i7u"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="addButton" destination="yoR-eE-ppV" id="49R-gH-rqm"/>
                                             <outlet property="addButtonBottom" destination="Hc2-6G-gkc" id="Bad-vP-WJh"/>
                                             <outlet property="addButtonTrailing" destination="mlA-CR-i7u" id="Pwm-TI-FLV"/>
                                             <outlet property="dateTop" destination="AnJ-Am-fE2" id="kTe-D7-yx8"/>
@@ -248,11 +253,74 @@
                         <outlet property="searchBarTrailing" destination="2MJ-6y-aMi" id="UGV-pN-RCZ"/>
                         <outlet property="searchBarWidth" destination="pT8-Wy-nlq" id="hSh-kO-Nc1"/>
                         <outlet property="stackCalendarViewTop" destination="s8d-xd-Job" id="WfD-mm-PPT"/>
+                        <segue destination="Bsh-tm-Tqn" kind="show" identifier="AddEvent" id="eNe-bU-2Pl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="132.06521739130434"/>
+        </scene>
+        <!--Add Event View Controller-->
+        <scene sceneID="amh-Um-Pwf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gS4-Xk-WLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="Bsh-tm-Tqn" customClass="AddEventViewController" customModule="LAB2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4rY-JS-lot">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv8-KE-JXp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="0.0" y="320" width="414" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-m6-iXx">
+                                <rect key="frame" x="0.0" y="20" width="414" height="242"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="532743178.77578098">
+                                    <!--2017-11-19 00:12:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-jx-cg3">
+                                <rect key="frame" x="0.0" y="656" width="414" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.70588235294117641" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add Event">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addEventListener:" destination="Bsh-tm-Tqn" eventType="touchUpInside" id="Vsv-yt-s1u"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9X-02-Dvn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="0.0" y="425" width="414" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Description"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event Description"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="JBq-Xb-F6Y"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateTimePicker" destination="eaf-m6-iXx" id="Tla-Xh-WYg"/>
+                        <outlet property="eventDescription" destination="B9X-02-Dvn" id="F2N-Wp-hcj"/>
+                        <outlet property="eventTitle" destination="Jv8-KE-JXp" id="Vh1-ZZ-TOQ"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="902.89855072463774" y="127.98913043478262"/>
         </scene>
     </scenes>
     <resources>

@@ -38,6 +38,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet var mainView: UIView!
     
+    var initialSearchBarFrame: CGRect!
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -64,6 +66,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         monthYearTop.constant = 0.02038 * screenSize.height
         stackCalendarViewTop.constant = 0.024 * screenSize.height
+        
+        initialSearchBarFrame = CGRect(x: searchBarTrailing.constant, y: searchBar.frame.minY,
+                                       width: searchBar.frame.width, height: searchBarWidth.constant)
         
         setupCalendar()
     }
@@ -142,12 +147,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let screenSize = UIScreen.main.bounds
-
-        let initialPosition = searchBar.frame
         
-        searchBar.layer.cornerRadius = 15
-        searchBar.layer.borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1).cgColor
-//        searchBar.clipsToBounds = true
+        let borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1)
+        borderColorAnimation(for: searchBar.layer, from: UIColor.white, to: borderColor, withDuration: 3)
         
         let pading = 0.0241 * screenSize.width
         let trailing = self.calendarViewTrailing.constant + pading
@@ -156,27 +158,66 @@ class ViewController: UIViewController, UISearchBarDelegate {
         UIView.animate(withDuration: 1,
                        animations: {
                         searchBar.frame = CGRect(x: trailing,
-                                                 y: initialPosition.minY,
+                                                 y: self.initialSearchBarFrame.minY,
                                                  width: screenSize.width - leading,
-                                                 height: initialPosition.height)
-        },
-                       
+                                                 height: searchBar.frame.height)
+                        },
                        completion: { finished in
+                        searchBar.layer.borderColor = borderColor.cgColor
                         self.updateSearchBarConstrains(trailing: trailing, width: searchBar.frame.width) })
-//                        UIView.animate(withDuration: 2,
-//                                       animations: {
-//                        }) } )
         
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("***************")
+        let screenSize = UIScreen.main.bounds
+        
+        let borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1)
+        borderColorAnimation(for: searchBar.layer, from: borderColor, to: UIColor.white, withDuration: 1.5)
+        UIView.animate(withDuration: 1,
+                       animations: {
+                        searchBar.frame = CGRect(x: screenSize.width - self.initialSearchBarFrame.width - self.initialSearchBarFrame.minX,
+                                                 y: self.initialSearchBarFrame.minY,
+                                                 width: self.initialSearchBarFrame.width,
+                                                 height: self.searchBarHeight.constant)
+                        },
+                       completion: { finished in
+                        searchBar.layer.borderColor = UIColor.white.cgColor
+                        self.updateSearchBarConstrains(trailing: self.initialSearchBarFrame.minX, width: self.initialSearchBarFrame.width) })
     }
     
     func updateSearchBarConstrains(trailing: CGFloat, width: CGFloat) {
         searchBarWidth.constant = width
         searchBarTrailing.constant = trailing
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func borderColorAnimation(for layer: CALayer, from fromValue: UIColor, to toValue: UIColor, withDuration duration: CFTimeInterval) {
+        let color = CABasicAnimation(keyPath: "borderColor")
+        color.fromValue = fromValue.cgColor
+        color.toValue = toValue.cgColor
+        color.duration = duration
+        color.repeatCount = 1
+        layer.add(color, forKey: "borderColor")
+    }
+    
+    @IBAction func addButtonListener(_ sender: Any) {
+        self.performSegue(withIdentifier: "AddEvent", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddEvent"{
+            let vc = segue.destination as! AddEventViewController
+            vc.selectedDate = calendarView.selectedDates[0]
+        }
+    }
+    
 }
 
 extension ViewController: JTAppleCalendarViewDataSource {
@@ -193,6 +234,10 @@ extension ViewController: JTAppleCalendarViewDataSource {
 }
 
 extension ViewController: JTAppleCalendarViewDelegate {
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        
+    }
+    
     //Display cell
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
 
@@ -210,6 +255,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleTextSelected(view: cell, cellState: cellState)
         setupPlannerViews(for: date, with: cellState)
+        searchBar.endEditing(true)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -218,5 +264,6 @@ extension ViewController: JTAppleCalendarViewDelegate {
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewOfCalendar(from: visibleDates)
+        searchBar.endEditing(true)
     }
 }
