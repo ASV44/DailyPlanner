@@ -46,4 +46,15 @@ class AddEventViewController: UIViewController {
     }
     @IBAction func addEventListener(_ sender: Any) {
     }
+    
+    @IBAction func backToCalendar(_ sender: Any) {
+        performSegue(withIdentifier: "backToCalendar", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToCalendar"{
+            let vc = segue.destination as! ViewController
+            vc.mainView.translatesAutoresizingMaskIntoConstraints = true
+        }
+    }
 }

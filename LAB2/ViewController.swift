@@ -63,13 +63,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
         searchBar.layer.borderColor = UIColor.white.cgColor
         searchBarHeight.constant = 0.076 * screenSize.height
         mainView.translatesAutoresizingMaskIntoConstraints = false
-        
-        monthYearTop.constant = 0.02038 * screenSize.height
-        stackCalendarViewTop.constant = 0.024 * screenSize.height
-        
         initialSearchBarFrame = CGRect(x: searchBarTrailing.constant, y: searchBar.frame.minY,
                                        width: searchBar.frame.width, height: searchBarWidth.constant)
-        
+        monthYearTop.constant = 0.02038 * screenSize.height
+        stackCalendarViewTop.constant = 0.024 * screenSize.height
         setupCalendar()
     }
     
@@ -215,6 +212,13 @@ class ViewController: UIViewController, UISearchBarDelegate {
         if segue.identifier == "AddEvent"{
             let vc = segue.destination as! AddEventViewController
             vc.selectedDate = calendarView.selectedDates[0]
+        }
+    }
+    
+    @IBAction func reInit(for segue: UIStoryboardSegue) {
+        if segue.identifier == "backToCalendar"{
+            let vc = segue.source as! AddEventViewController
+            //vc.dismiss(animated: true, completion: nil)
         }
     }
     
