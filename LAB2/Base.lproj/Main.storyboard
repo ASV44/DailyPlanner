@@ -247,6 +247,7 @@
                         <outlet property="mainView" destination="jfz-JC-dph" id="IV2-Om-yRx"/>
                         <outlet property="monthYearLabel" destination="ZFJ-E4-s8V" id="cCU-Co-wC6"/>
                         <outlet property="monthYearTop" destination="BF5-xT-MfL" id="9zk-TK-aMJ"/>
+                        <outlet property="plannerView" destination="Pt8-RN-S1W" id="s0j-HQ-Shn"/>
                         <outlet property="searchBar" destination="ASg-de-1ir" id="fbc-Cs-NfF"/>
                         <outlet property="searchBarHeight" destination="vzw-0Q-WD5" id="30d-L6-7uH"/>
                         <outlet property="searchBarTop" destination="9Zy-fv-dUT" id="5Wx-n0-k0Z"/>
@@ -336,7 +337,7 @@
                         <outlet property="dateTimePicker" destination="eaf-m6-iXx" id="Tla-Xh-WYg"/>
                         <outlet property="eventDescription" destination="B9X-02-Dvn" id="F2N-Wp-hcj"/>
                         <outlet property="eventTitle" destination="Jv8-KE-JXp" id="Vh1-ZZ-TOQ"/>
-                        <segue destination="deC-l5-KaD" kind="unwind" identifier="backToCalendar" unwindAction="reInitFor:" id="tNT-h1-Dje"/>
+                        <segue destination="deC-l5-KaD" kind="unwind" identifier="backToCalendar" unwindAction="getEventDataFor:" id="tNT-h1-Dje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gS4-Xk-WLa" userLabel="First Responder" sceneMemberID="firstResponder"/>

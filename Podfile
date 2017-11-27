@@ -8,6 +8,7 @@ target 'LAB2' do
   # Pods for LAB2
   pod 'JTAppleCalendar', '~> 7.0'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
+  pod 'SwiftyJSON'
 
   target 'LAB2Tests' do
     inherit! :search_paths
