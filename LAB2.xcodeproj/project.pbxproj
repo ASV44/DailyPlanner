@@ -13,6 +13,8 @@
 		D68F7F8B1FC10CC2004F31D9 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68F7F8A1FC10CC2004F31D9 /* AddEventViewController.swift */; };
 		D6A7352C1FAA62B60021AD42 /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A7352B1FAA62B60021AD42 /* PlannerView.swift */; };
 		D6A897331FAC917B00BCDBCA /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A897321FAC917B00BCDBCA /* AppUtility.swift */; };
+		D6B64B811FDB78E0009DB65F /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B64B801FDB78E0009DB65F /* NotificationCenter.swift */; };
+		D6B64B831FDB7A38009DB65F /* clockAlarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = D6B64B821FDB7A38009DB65F /* clockAlarm.caf */; };
 		D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D191F8E11010064808B /* AppDelegate.swift */; };
 		D6EE7D1C1F8E11010064808B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D1B1F8E11010064808B /* ViewController.swift */; };
 		D6EE7D1F1F8E11010064808B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EE7D1D1F8E11010064808B /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		D68F7F8A1FC10CC2004F31D9 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		D6A7352B1FAA62B60021AD42 /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
 		D6A897321FAC917B00BCDBCA /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		D6B64B801FDB78E0009DB65F /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		D6B64B821FDB7A38009DB65F /* clockAlarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = clockAlarm.caf; sourceTree = "<group>"; };
 		D6EE7D161F8E11010064808B /* LAB2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LAB2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EE7D191F8E11010064808B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6EE7D1B1F8E11010064808B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D6EE7D191F8E11010064808B /* AppDelegate.swift */,
+				D6B64B801FDB78E0009DB65F /* NotificationCenter.swift */,
 				D6EE7D1B1F8E11010064808B /* ViewController.swift */,
 				D6A7352B1FAA62B60021AD42 /* PlannerView.swift */,
 				D60035551F9CFC9700C66502 /* CellView.swift */,
@@ -155,6 +160,7 @@
 				D6EE7D201F8E11010064808B /* Assets.xcassets */,
 				D6EE7D221F8E11010064808B /* LaunchScreen.storyboard */,
 				D6EE7D251F8E11010064808B /* Info.plist */,
+				D6B64B821FDB7A38009DB65F /* clockAlarm.caf */,
 			);
 			path = LAB2;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				D6EE7D241F8E11010064808B /* LaunchScreen.storyboard in Resources */,
 				D6EE7D211F8E11010064808B /* Assets.xcassets in Resources */,
 				D6EE7D1F1F8E11010064808B /* Main.storyboard in Resources */,
+				D6B64B831FDB7A38009DB65F /* clockAlarm.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +483,7 @@
 			files = (
 				D6A7352C1FAA62B60021AD42 /* PlannerView.swift in Sources */,
 				D68F7F8B1FC10CC2004F31D9 /* AddEventViewController.swift in Sources */,
+				D6B64B811FDB78E0009DB65F /* NotificationCenter.swift in Sources */,
 				D6EE7D1C1F8E11010064808B /* ViewController.swift in Sources */,
 				D6A897331FAC917B00BCDBCA /* AppUtility.swift in Sources */,
 				D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */,

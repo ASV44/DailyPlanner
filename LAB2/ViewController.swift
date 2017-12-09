@@ -9,6 +9,7 @@
 import UIKit
 import JTAppleCalendar
 import SwiftyJSON
+import UserNotifications
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -58,7 +59,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         let screenSize = UIScreen.main.bounds
-        print(screenSize)
+        //print(screenSize)
         date.font = date.font.withSize(screenSize.width * 0.12)
         day.font = day.font.withSize(screenSize.width * 0.0483)
         
@@ -302,6 +303,9 @@ class ViewController: UIViewController, UISearchBarDelegate {
         addEventToDay(title: events[keyDate][0]["title"].stringValue)
     }
     
+    @IBAction func settingsButton(_ sender: Any) {
+        
+    }
 }
 
 extension ViewController: JTAppleCalendarViewDataSource {

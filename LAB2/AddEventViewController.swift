@@ -9,8 +9,9 @@
 import UIKit
 import SkyFloatingLabelTextField
 import SwiftyJSON
+import UserNotifications
 
-class AddEventViewController: UIViewController {
+class AddEventViewController: UIViewController, UITextFieldDelegate {
     
     var selectedDate: Date!
     
@@ -37,6 +38,11 @@ class AddEventViewController: UIViewController {
         dateTimePicker.locale = Locale(identifier: "en_GB")
         dateTimePicker.minimumDate = self.selectedDate
         dateTimePicker.maximumDate = setTimeOfDate(selectedDate, hour: 23, minute: 59)
+        
+        eventTitle.delegate = self
+        eventDescription.delegate = self
+        eventTitle.returnKeyType = UIReturnKeyType.done
+        eventDescription.returnKeyType = UIReturnKeyType.done
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,7 +77,7 @@ class AddEventViewController: UIViewController {
         eventInfo["time"] = JSON(formatter.string(from: date))
         eventInfo["title"] = JSON(eventTitle.text!)
         eventInfo["description"] = JSON(eventDescription.text!)
-
+        showAlert()
         self.backToCalendar(self)
     }
     
@@ -83,6 +89,64 @@ class AddEventViewController: UIViewController {
         if segue.identifier == "backToCalendar"{
             let vc = segue.destination as! ViewController
             vc.mainView.translatesAutoresizingMaskIntoConstraints = true
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func showAlert() {
+        if #available(iOS 10.0, *) {
+            
+            let center = UNUserNotificationCenter.current()
+            let options: UNAuthorizationOptions = [.alert, .sound];
+            
+            center.requestAuthorization(options: options) {
+                (granted, error) in
+                if !granted {
+                    print("Something went wrong")
+                }
+            }
+            
+            let content = UNMutableNotificationContent()
+            content.title = eventTitle.text!
+            content.body = eventDescription.text!
+            content.sound = UNNotificationSound(named: "clockAlarm.caf")
+            
+            let calendar = Calendar.current
+            var components = calendar.dateComponents([.hour, .minute, .day, .month, .year], from: dateTimePicker.date)
+            print(components)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+            print(trigger.dateComponents)
+            
+            let identifier = "localNotification"
+            let request = UNNotificationRequest(identifier: identifier,
+                                                content: content, trigger: trigger)
+            center.add(request, withCompletionHandler: { (error) in
+                if let error = error {
+                    // Something went wrong
+                }
+            })
+            
+        }
+        else {
+            
+            // ios 9
+            
+            let type: UIUserNotificationType = [UIUserNotificationType.badge, UIUserNotificationType.alert, UIUserNotificationType.sound]
+            let setting = UIUserNotificationSettings(types: type, categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(setting)
+            UIApplication.shared.registerForRemoteNotifications()
+            
+            let notification = UILocalNotification()
+//            notification.fireDate = NSDate(timeIntervalSinceNow: TimeInterval(delay)) as Date
+//            notification.alertBody = "Nottification with Delay"
+//            notification.alertAction = "This notification has \(delay) second delay"
+//            notification.soundName = UILocalNotificationDefaultSoundName
+//            UIApplication.shared.scheduleLocalNotification(notification)
+            
         }
     }
 }
