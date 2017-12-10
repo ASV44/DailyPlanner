@@ -41,9 +41,16 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var plannerView: PlannerView!
     @IBOutlet var mainView: UIView!
     
+    
+    @IBOutlet weak var plannerStackView: UIStackView!
+    
     var events: JSON!
     
     var initialSearchBarFrame: CGRect!
+    
+    var eventState: AddEventViewController.State!
+    var eventToEdit: JSON!
+    var eventToEditIndex: Int!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -53,6 +60,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         // AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
         
     }
+    
+    // TODO: Refactor everything, this is a very bad code
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,6 +221,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func addButtonListener(_ sender: Any) {
+        self.eventState = AddEventViewController.State.ADD
         self.performSegue(withIdentifier: "AddEvent", sender: self)
     }
     
@@ -219,6 +229,14 @@ class ViewController: UIViewController, UISearchBarDelegate {
         if segue.identifier == "AddEvent"{
             let vc = segue.destination as! AddEventViewController
             vc.selectedDate = calendarView.selectedDates[0]
+            vc.state = self.eventState!
+            switch self.eventState! {
+            case AddEventViewController.State.EDIT:
+                vc.eventToEdit = self.eventToEdit
+                break
+            default:
+                break
+            }
         }
     }
     
@@ -237,21 +255,58 @@ class ViewController: UIViewController, UISearchBarDelegate {
         if(!events[date].exists()) {
             events[date] = JSON([])
         }
-        events[date].appendArray(json: eventInfo)
+        switch self.eventState! {
+        case AddEventViewController.State.ADD:
+            events[date].appendArray(json: eventInfo)
+            break
+        case AddEventViewController.State.EDIT:
+            events[date][eventToEditIndex] = eventInfo
+            break
+        default:
+            break
+        }
         print(events)
         saveToFile()
-        addEventToDay(title: eventInfo["title"].string!)
+        clearPlannerView()
+        showEvents(date: calendarView.selectedDates[0])
+//        addEventToDay(title: eventInfo["title"].string!)
     }
     
     func addEventToDay(title: String) {
         let screenSize = UIScreen.main.bounds
-        let label = UILabel(frame: CGRect(x: screenSize.width / 3, y: self.plannerView.frame.height / 2, width: 0, height: 0))
+//        let label = UILabel(frame: CGRect(x: screenSize.width / 3, y: self.plannerView.frame.height / 2, width: 0, height: 0))
+        let label = UILabel(frame: CGRect(x: screenSize.width / 2, y: 0, width: 0, height: 0))
         label.textAlignment = .center
         label.textColor = UIColor.white
         label.text = title
         label.sizeToFit()
-        self.plannerView.addSubview(label)
+        //self.plannerView.addSubview(label)
+        plannerStackView.addArrangedSubview(label)
         label.accessibilityIdentifier = "eventTitle"
+        
+        let tap = UILongPressGestureRecognizer(target: self, action: #selector(labelOnCLick))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+    }
+    
+    @objc func labelOnCLick(sender:UILongPressGestureRecognizer) {
+        if sender.state == .ended {
+            let label = sender.view as! UILabel
+            self.eventState = AddEventViewController.State.EDIT
+            formatter.dateFormat = "dd-MM-yyyy"
+            let selectedDate = calendarView.selectedDates[0]
+            let date = formatter.string(from: selectedDate)
+            for i in 0...events[date].count {
+                if events[date][i]["title"].stringValue == label.text! {
+                    self.eventToEdit = events[date][i]
+                    self.eventToEditIndex = i
+                }
+            }
+            performSegue(withIdentifier: "AddEvent", sender: self)
+        }
+        else if sender.state == .began {
+            
+        }
     }
     
     func saveToFile() {
@@ -288,7 +343,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     func clearPlannerView() {
-        let subViews = self.plannerView.subviews
+        //let subViews = self.plannerView.subviews
+        let subViews = self.plannerStackView.subviews
         for subview in subViews{
             if subview.accessibilityIdentifier == "eventTitle" {
                 subview.removeFromSuperview()
@@ -300,7 +356,10 @@ class ViewController: UIViewController, UISearchBarDelegate {
         formatter.dateFormat = "dd-MM-yyyy"
         let keyDate = formatter.string(from: date)
         //print(events[keyDate][0]["description"].stringValue)
-        addEventToDay(title: events[keyDate][0]["title"].stringValue)
+        for i in 0...events[keyDate].count {
+            addEventToDay(title: events[keyDate][i]["title"].stringValue)
+        }
+        
     }
     
     @IBAction func settingsButton(_ sender: Any) {

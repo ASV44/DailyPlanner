@@ -18,10 +18,15 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dateTimePicker: UIDatePicker!
     @IBOutlet weak var eventTitle: SkyFloatingLabelTextField!
     @IBOutlet weak var eventDescription: SkyFloatingLabelTextField!
+    @IBOutlet weak var addEventButton: UIButton!
     
     let formatter: DateFormatter = DateFormatter()
     
     var eventInfo = JSON()
+    
+    enum State { case ADD, EDIT }
+    var eventToEdit: JSON!
+    var state: State!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -33,7 +38,6 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         formatter.dateFormat = "dd-MM-yyyy HH:mm"
-        print(formatter.string(from: self.selectedDate))
         setCurrentTime()
         dateTimePicker.locale = Locale(identifier: "en_GB")
         dateTimePicker.minimumDate = self.selectedDate
@@ -43,6 +47,19 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         eventDescription.delegate = self
         eventTitle.returnKeyType = UIReturnKeyType.done
         eventDescription.returnKeyType = UIReturnKeyType.done
+        
+        if state == .EDIT {
+            // TODO: delete old notification when event is edited
+            eventTitle.text! = eventToEdit["title"].string!
+            eventDescription.text! = eventToEdit["description"] .string!
+            let time = eventToEdit["time"].string!
+            let delimiter = time.index(of: ":")!
+            let hour = time[time.startIndex..<delimiter]
+            let minutes = time[time.index(after: delimiter)..<time.endIndex]
+            let date = setTimeOfDate(self.selectedDate, hour: Int(hour)!, minute: Int(minutes)!)
+            dateTimePicker.setDate(date, animated: false)
+            addEventButton.setTitle("Edit", for: UIControlState.normal)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
