@@ -8,6 +8,8 @@
 
 import UIKit
 import JTAppleCalendar
+import SwiftyJSON
+import UserNotifications
 
 class ViewController: UIViewController, UISearchBarDelegate {
 
@@ -36,9 +38,19 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var monthYearTop: NSLayoutConstraint!
     @IBOutlet weak var stackCalendarViewTop: NSLayoutConstraint!
     
+    @IBOutlet weak var plannerView: PlannerView!
     @IBOutlet var mainView: UIView!
     
+    
+    @IBOutlet weak var plannerStackView: UIStackView!
+    
+    var events: JSON!
+    
     var initialSearchBarFrame: CGRect!
+    
+    var eventState: AddEventViewController.State!
+    var eventToEdit: JSON!
+    var eventToEditIndex: Int!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -49,12 +61,14 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
     }
     
+    // TODO: Refactor everything, this is a very bad code
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let screenSize = UIScreen.main.bounds
-        print(screenSize)
+        //print(screenSize)
         date.font = date.font.withSize(screenSize.width * 0.12)
         day.font = day.font.withSize(screenSize.width * 0.0483)
         
@@ -68,6 +82,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         monthYearTop.constant = 0.02038 * screenSize.height
         stackCalendarViewTop.constant = 0.024 * screenSize.height
         setupCalendar()
+        
+        uploadFromFile()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -205,6 +221,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func addButtonListener(_ sender: Any) {
+        self.eventState = AddEventViewController.State.ADD
         self.performSegue(withIdentifier: "AddEvent", sender: self)
     }
     
@@ -212,16 +229,142 @@ class ViewController: UIViewController, UISearchBarDelegate {
         if segue.identifier == "AddEvent"{
             let vc = segue.destination as! AddEventViewController
             vc.selectedDate = calendarView.selectedDates[0]
+            vc.state = self.eventState!
+            switch self.eventState! {
+            case AddEventViewController.State.EDIT:
+                vc.eventToEdit = self.eventToEdit
+                break
+            default:
+                break
+            }
         }
     }
     
-    @IBAction func reInit(for segue: UIStoryboardSegue) {
+    @IBAction func getEventData(for segue: UIStoryboardSegue) {
         if segue.identifier == "backToCalendar"{
             let vc = segue.source as! AddEventViewController
-            //vc.dismiss(animated: true, completion: nil)
+            //print(vc.eventInfo)
+            addNewEvent(vc.eventInfo)
         }
     }
     
+    func addNewEvent(_ eventInfo: JSON) {
+        formatter.dateFormat = "dd-MM-yyyy"
+        let selectedDate = calendarView.selectedDates[0]
+        let date = formatter.string(from: selectedDate)
+        if(!events[date].exists()) {
+            events[date] = JSON([])
+        }
+        switch self.eventState! {
+        case AddEventViewController.State.ADD:
+            events[date].appendArray(json: eventInfo)
+            break
+        case AddEventViewController.State.EDIT:
+            events[date][eventToEditIndex] = eventInfo
+            break
+        default:
+            break
+        }
+        print(events)
+        saveToFile()
+        clearPlannerView()
+        showEvents(date: calendarView.selectedDates[0])
+//        addEventToDay(title: eventInfo["title"].string!)
+    }
+    
+    func addEventToDay(title: String) {
+        let screenSize = UIScreen.main.bounds
+//        let label = UILabel(frame: CGRect(x: screenSize.width / 3, y: self.plannerView.frame.height / 2, width: 0, height: 0))
+        let label = UILabel(frame: CGRect(x: screenSize.width / 2, y: 0, width: 0, height: 0))
+        label.textAlignment = .center
+        label.textColor = UIColor.white
+        label.text = title
+        label.sizeToFit()
+        //self.plannerView.addSubview(label)
+        plannerStackView.addArrangedSubview(label)
+        label.accessibilityIdentifier = "eventTitle"
+        
+        let tap = UILongPressGestureRecognizer(target: self, action: #selector(labelOnCLick))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
+    }
+    
+    @objc func labelOnCLick(sender:UILongPressGestureRecognizer) {
+        if sender.state == .ended {
+            let label = sender.view as! UILabel
+            self.eventState = AddEventViewController.State.EDIT
+            formatter.dateFormat = "dd-MM-yyyy"
+            let selectedDate = calendarView.selectedDates[0]
+            let date = formatter.string(from: selectedDate)
+            for i in 0...events[date].count {
+                if events[date][i]["title"].stringValue == label.text! {
+                    self.eventToEdit = events[date][i]
+                    self.eventToEditIndex = i
+                }
+            }
+            performSegue(withIdentifier: "AddEvent", sender: self)
+        }
+        else if sender.state == .began {
+            
+        }
+    }
+    
+    func saveToFile() {
+        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
+        
+        let jsonFilePath = documentsDirectoryPath.appendingPathComponent("calendarEvents.json")
+        do {
+            let data = try events.rawData()
+            try data.write(to: jsonFilePath, options: [])
+        }
+        catch {
+            print(error)
+        }
+        
+    }
+    
+    func uploadFromFile() {
+        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
+        let jsonFilePath = documentsDirectoryPath.appendingPathComponent("calendarEvents.json")
+
+        if FileManager.default.fileExists(atPath: jsonFilePath.path) {
+            do {
+                let data = try Data(contentsOf: jsonFilePath, options: .alwaysMapped)
+                events = JSON(data)
+            } catch {
+                print(error)
+            }
+        }
+        else {
+            events = JSON()
+        }
+    }
+    
+    func clearPlannerView() {
+        //let subViews = self.plannerView.subviews
+        let subViews = self.plannerStackView.subviews
+        for subview in subViews{
+            if subview.accessibilityIdentifier == "eventTitle" {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
+    func showEvents(date: Date) {
+        formatter.dateFormat = "dd-MM-yyyy"
+        let keyDate = formatter.string(from: date)
+        //print(events[keyDate][0]["description"].stringValue)
+        for i in 0...events[keyDate].count {
+            addEventToDay(title: events[keyDate][i]["title"].stringValue)
+        }
+        
+    }
+    
+    @IBAction func settingsButton(_ sender: Any) {
+        
+    }
 }
 
 extension ViewController: JTAppleCalendarViewDataSource {
@@ -260,14 +403,32 @@ extension ViewController: JTAppleCalendarViewDelegate {
         handleTextSelected(view: cell, cellState: cellState)
         setupPlannerViews(for: date, with: cellState)
         searchBar.endEditing(true)
+        showEvents(date: date)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleTextSelected(view: cell, cellState: cellState)
+        clearPlannerView()
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewOfCalendar(from: visibleDates)
         searchBar.endEditing(true)
+    }
+}
+
+extension JSON{
+    mutating func appendArray(json:JSON){
+        if var arr = self.array{
+            arr.append(json)
+            self = JSON(arr);
+        }
+    }
+    
+    mutating func appendDictionary(key:String,json:JSON){
+        if var dict = self.dictionary{
+            dict[key] = json;
+            self = JSON(dict);
+        }
     }
 }
