@@ -56,31 +56,25 @@ class ViewController: UIViewController, UISearchBarDelegate {
         super.viewDidAppear(animated)
         
         AppUtility.lockOrientation(.portrait)
-        // Or to rotate and lock
-        // AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
-        
     }
     
     // TODO: Refactor everything, this is a very bad code
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         let screenSize = UIScreen.main.bounds
-        //print(screenSize)
-        date.font = date.font.withSize(screenSize.width * 0.12)
-        day.font = day.font.withSize(screenSize.width * 0.0483)
+        print(screenSize)
         
         searchBar.delegate = self
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.white.cgColor
-        searchBarHeight.constant = 0.076 * screenSize.height
+//        searchBarHeight.constant = 0.076 * screenSize.height
         mainView.translatesAutoresizingMaskIntoConstraints = false
-        initialSearchBarFrame = CGRect(x: searchBarTrailing.constant, y: searchBar.frame.minY,
-                                       width: searchBar.frame.width, height: searchBarWidth.constant)
-        monthYearTop.constant = 0.02038 * screenSize.height
-        stackCalendarViewTop.constant = 0.024 * screenSize.height
+//        initialSearchBarFrame = CGRect(x: searchBarTrailing.constant, y: searchBar.frame.minY,
+//                                       width: searchBar.frame.width, height: searchBarWidth.constant)
+//        monthYearTop.constant = 0.02038 * screenSize.height
+//        stackCalendarViewTop.constant = 0.024 * screenSize.height
         setupCalendar()
         
         uploadFromFile()
@@ -145,16 +139,17 @@ class ViewController: UIViewController, UISearchBarDelegate {
                 validCell.dayLabel.textColor = .black
             }
             else {
-                validCell.dayLabel.textColor = UIColor(red: 0.9176, green: 0.9176, blue: 0.9176, alpha: 1)
+                let gray: CGFloat = 216 / 255
+                validCell.dayLabel.textColor = UIColor(red: gray, green: gray, blue: gray, alpha: 1)
             }
         }
     }
     
     func setupPlannerViews(for date: Date, with cellState: CellState) {
-        self.date.text = cellState.text
+        self.plannerView.date.text = cellState.text
         formatter.dateFormat = "EEEE"
         let day = formatter.string(from: date)
-        self.day.text = day
+        self.plannerView.day.text = day
     }
 
 
@@ -273,20 +268,20 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     func addEventToDay(title: String) {
-        let screenSize = UIScreen.main.bounds
-//        let label = UILabel(frame: CGRect(x: screenSize.width / 3, y: self.plannerView.frame.height / 2, width: 0, height: 0))
-        let label = UILabel(frame: CGRect(x: screenSize.width / 2, y: 0, width: 0, height: 0))
-        label.textAlignment = .center
-        label.textColor = UIColor.white
-        label.text = title
-        label.sizeToFit()
-        //self.plannerView.addSubview(label)
-        plannerStackView.addArrangedSubview(label)
-        label.accessibilityIdentifier = "eventTitle"
-        
-        let tap = UILongPressGestureRecognizer(target: self, action: #selector(labelOnCLick))
-        label.isUserInteractionEnabled = true
-        label.addGestureRecognizer(tap)
+//        let screenSize = UIScreen.main.bounds
+////        let label = UILabel(frame: CGRect(x: screenSize.width / 3, y: self.plannerView.frame.height / 2, width: 0, height: 0))
+//        let label = UILabel(frame: CGRect(x: screenSize.width / 2, y: 0, width: 0, height: 0))
+//        label.textAlignment = .center
+//        label.textColor = UIColor.white
+//        label.text = title
+//        label.sizeToFit()
+//        //self.plannerView.addSubview(label)
+//        plannerStackView.addArrangedSubview(label)
+//        label.accessibilityIdentifier = "eventTitle"
+//        
+//        let tap = UILongPressGestureRecognizer(target: self, action: #selector(labelOnCLick))
+//        label.isUserInteractionEnabled = true
+//        label.addGestureRecognizer(tap)
     }
     
     @objc func labelOnCLick(sender:UILongPressGestureRecognizer) {
@@ -310,10 +305,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     func saveToFile() {
-        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
+        let jsonFilePath = getFileUrl("calendarEvents.json", in: .documentDirectory, with: .userDomainMask)
         
-        let jsonFilePath = documentsDirectoryPath.appendingPathComponent("calendarEvents.json")
         do {
             let data = try events.rawData()
             try data.write(to: jsonFilePath, options: [])
@@ -325,9 +318,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     func uploadFromFile() {
-        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
-        let jsonFilePath = documentsDirectoryPath.appendingPathComponent("calendarEvents.json")
+        let jsonFilePath = getFileUrl("calendarEvents.json", in: .documentDirectory, with: .userDomainMask)
 
         if FileManager.default.fileExists(atPath: jsonFilePath.path) {
             do {
@@ -342,14 +333,25 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    func getFileUrl(_ name: String,
+                    in directory: FileManager.SearchPathDirectory,
+                    with domainMask: FileManager.SearchPathDomainMask) -> URL {
+        
+        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(directory, domainMask, true).first!
+        let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
+        let filePath = documentsDirectoryPath.appendingPathComponent(name)
+        
+        return filePath
+    }
+    
     func clearPlannerView() {
         //let subViews = self.plannerView.subviews
-        let subViews = self.plannerStackView.subviews
-        for subview in subViews{
-            if subview.accessibilityIdentifier == "eventTitle" {
-                subview.removeFromSuperview()
-            }
-        }
+//        let subViews = self.plannerStackView.subviews
+//        for subview in subViews{
+//            if subview.accessibilityIdentifier == "eventTitle" {
+//                subview.removeFromSuperview()
+//            }
+//        }
     }
     
     func showEvents(date: Date) {
