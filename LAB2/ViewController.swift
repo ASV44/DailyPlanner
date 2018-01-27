@@ -19,28 +19,15 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var day: UILabel!
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var calendarStackView: UIStackView!
     
     let formatter = DateFormatter()
     
     @IBOutlet weak var monthYearLabel: UILabel!
-    
     @IBOutlet weak var searchBar: UISearchBar!
-
-    @IBOutlet weak var searchBarHeight: NSLayoutConstraint!
-    @IBOutlet weak var searchBarWidth: NSLayoutConstraint!
-    @IBOutlet weak var searchBarTrailing: NSLayoutConstraint!
-    @IBOutlet weak var searchBarTop: NSLayoutConstraint!
-    
-    @IBOutlet weak var calendarViewTrailing: NSLayoutConstraint!
-    @IBOutlet weak var calendarViewLeading: NSLayoutConstraint!
-    
-    
-    @IBOutlet weak var monthYearTop: NSLayoutConstraint!
-    @IBOutlet weak var stackCalendarViewTop: NSLayoutConstraint!
     
     @IBOutlet weak var plannerView: PlannerView!
     @IBOutlet var mainView: UIView!
-    
     
     @IBOutlet weak var plannerStackView: UIStackView!
     
@@ -63,18 +50,15 @@ class ViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let screenSize = UIScreen.main.bounds
-        print(screenSize)
+//        let screenSize = UIScreen.main.bounds
+//        print(screenSize)
         
         searchBar.delegate = self
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.white.cgColor
-//        searchBarHeight.constant = 0.076 * screenSize.height
         mainView.translatesAutoresizingMaskIntoConstraints = false
-//        initialSearchBarFrame = CGRect(x: searchBarTrailing.constant, y: searchBar.frame.minY,
-//                                       width: searchBar.frame.width, height: searchBarWidth.constant)
-//        monthYearTop.constant = 0.02038 * screenSize.height
-//        stackCalendarViewTop.constant = 0.024 * screenSize.height
+        initialSearchBarFrame = searchBar.frame
+        
         setupCalendar()
         
         uploadFromFile()
@@ -151,51 +135,36 @@ class ViewController: UIViewController, UISearchBarDelegate {
         let day = formatter.string(from: date)
         self.plannerView.day.text = day
     }
-
-
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         let screenSize = UIScreen.main.bounds
         
         let borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1)
         borderColorAnimation(for: searchBar.layer, from: UIColor.white, to: borderColor, withDuration: 3)
+                
+        let frame = calendarStackView.convert(calendarView.frame, to: mainView)
         
         let pading = 0.0241 * screenSize.width
-        let trailing = self.calendarViewTrailing.constant + pading
-        let leading = self.calendarViewLeading.constant + pading + trailing
-        
+
         UIView.animate(withDuration: 1,
                        animations: {
-                        searchBar.frame = CGRect(x: trailing,
-                                                 y: self.initialSearchBarFrame.minY,
-                                                 width: screenSize.width - leading,
-                                                 height: searchBar.frame.height)
-                        },
+                        searchBar.frame = CGRect(x: frame.origin.x + pading,
+                                                 y: searchBar.frame.origin.y,
+                                                 width: frame.width - 2 * pading,
+                                                 height: searchBar.frame.height)},
                        completion: { finished in
-                        searchBar.layer.borderColor = borderColor.cgColor
-                        self.updateSearchBarConstrains(trailing: trailing, width: searchBar.frame.width) })
+                        searchBar.layer.borderColor = borderColor.cgColor})
         
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        let screenSize = UIScreen.main.bounds
-        
         let borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1)
         borderColorAnimation(for: searchBar.layer, from: borderColor, to: UIColor.white, withDuration: 1.5)
+        
         UIView.animate(withDuration: 1,
-                       animations: {
-                        searchBar.frame = CGRect(x: screenSize.width - self.initialSearchBarFrame.width - self.initialSearchBarFrame.minX,
-                                                 y: self.initialSearchBarFrame.minY,
-                                                 width: self.initialSearchBarFrame.width,
-                                                 height: self.searchBarHeight.constant)
-                        },
+                       animations: {searchBar.frame = self.initialSearchBarFrame},
                        completion: { finished in
-                        searchBar.layer.borderColor = UIColor.white.cgColor
-                        self.updateSearchBarConstrains(trailing: self.initialSearchBarFrame.minX, width: self.initialSearchBarFrame.width) })
-    }
-    
-    func updateSearchBarConstrains(trailing: CGFloat, width: CGFloat) {
-        searchBarWidth.constant = width
-        searchBarTrailing.constant = trailing
+                        searchBar.layer.borderColor = UIColor.white.cgColor})
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
