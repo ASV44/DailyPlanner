@@ -88,7 +88,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         return calendar.date(from: comp)!
     }
     
-    @IBAction func addEventListener(_ sender: Any) {
+    @IBAction func addButtonClick(_ sender: Any) {
         formatter.dateFormat = "HH:mm"
         let date = dateTimePicker.date
         eventInfo["time"] = JSON(formatter.string(from: date))

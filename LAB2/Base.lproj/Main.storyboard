@@ -196,6 +196,7 @@
                                                 <state key="normal" backgroundImage="plus"/>
                                                 <connections>
                                                     <action selector="addButtonListener:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bY0-ov-lDN"/>
+                                                    <segue destination="Bsh-tm-Tqn" kind="show" identifier="AddEvent" id="1jN-SZ-jZL"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5PP-yn-dmL">
@@ -252,7 +253,6 @@
                         <outlet property="monthYearLabel" destination="ZFJ-E4-s8V" id="cCU-Co-wC6"/>
                         <outlet property="plannerView" destination="Pt8-RN-S1W" id="s0j-HQ-Shn"/>
                         <outlet property="searchBar" destination="ASg-de-1ir" id="fbc-Cs-NfF"/>
-                        <segue destination="Bsh-tm-Tqn" kind="show" identifier="AddEvent" id="eNe-bU-2Pl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -267,9 +267,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv8-KE-JXp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="0.0" y="379" width="414" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv8-KE-JXp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="0.0" y="339" width="414" height="58.333333333333314"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -278,20 +277,48 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-jx-cg3">
-                                <rect key="frame" x="0.0" y="656" width="414" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-jx-cg3">
+                                <rect key="frame" x="0.0" y="658" width="414" height="43"/>
                                 <color key="backgroundColor" red="0.0" green="0.70588235294117641" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YrK-jx-cg3" secondAttribute="height" multiplier="414:43" id="0W6-3O-WVf"/>
+                                </constraints>
                                 <state key="normal" title="Add Event">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addEventListener:" destination="Bsh-tm-Tqn" eventType="touchUpInside" id="Vsv-yt-s1u"/>
+                                    <action selector="addButtonClick:" destination="Bsh-tm-Tqn" eventType="touchUpInside" id="Vsv-yt-s1u"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9X-02-Dvn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="0.0" y="509" width="414" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-m6-iXx">
+                                <rect key="frame" x="0.0" y="64" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eaf-m6-iXx" secondAttribute="height" multiplier="23:12" id="RAj-VG-nH5"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="532743178.77578098">
+                                    <!--2017-11-19 00:12:58 +0000-->
+                                </date>
+                            </datePicker>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pt2-A0-6xI">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Your Event" id="I6f-4g-36L">
+                                        <barButtonItem key="leftBarButtonItem" image="BackButton" style="plain" id="2CE-KH-tJ0">
+                                            <connections>
+                                                <action selector="backToCalendar:" destination="Bsh-tm-Tqn" id="d25-ci-2nf"/>
+                                                <segue destination="deC-l5-KaD" kind="unwind" identifier="backToCalendar" unwindAction="getEventDataFor:" id="WT2-tR-xiJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9X-02-Dvn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="0.0" y="476.66666666666669" width="414" height="58.333333333333314"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -300,35 +327,26 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event Description"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NkB-dI-kDw">
-                                <rect key="frame" x="0.0" y="26" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Add Your Event" id="COH-L6-o2k">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="wfb-Td-AsA">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KlA-B4-npZ">
-                                                <rect key="frame" x="20" y="9.6666666666666643" width="98" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Calendar" image="BackButton">
-                                                    <color key="titleColor" red="0.0" green="0.49803921568627452" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="backToCalendar:" destination="Bsh-tm-Tqn" eventType="touchUpInside" id="j45-P3-TSx"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-m6-iXx">
-                                <rect key="frame" x="0.0" y="70" width="414" height="242"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="532743178.77578098">
-                                    <!--2017-11-19 00:12:58 +0000-->
-                                </date>
-                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eaf-m6-iXx" firstAttribute="top" secondItem="pt2-A0-6xI" secondAttribute="bottom" id="0aX-dr-mz7"/>
+                            <constraint firstItem="eaf-m6-iXx" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="0jc-rB-iEO"/>
+                            <constraint firstItem="Jv8-KE-JXp" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="F8L-YO-yiy"/>
+                            <constraint firstItem="B9X-02-Dvn" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="MDu-9r-b2A"/>
+                            <constraint firstItem="B9X-02-Dvn" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="Mrx-FU-2w9"/>
+                            <constraint firstItem="eaf-m6-iXx" firstAttribute="top" secondItem="pt2-A0-6xI" secondAttribute="bottom" id="NqO-j0-f6k"/>
+                            <constraint firstItem="eaf-m6-iXx" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="SIa-kJ-1hY"/>
+                            <constraint firstItem="pt2-A0-6xI" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="WUc-X0-nvO"/>
+                            <constraint firstItem="pt2-A0-6xI" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="d6T-f2-VMF"/>
+                            <constraint firstItem="Jv8-KE-JXp" firstAttribute="centerY" secondItem="4rY-JS-lot" secondAttribute="centerY" id="g3t-ol-jRz"/>
+                            <constraint firstItem="Jv8-KE-JXp" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="gJ1-RN-ROz"/>
+                            <constraint firstItem="YrK-jx-cg3" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="i1W-ak-bmb"/>
+                            <constraint firstItem="YrK-jx-cg3" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="rbK-ch-78d"/>
+                            <constraint firstItem="pt2-A0-6xI" firstAttribute="top" secondItem="JBq-Xb-F6Y" secondAttribute="top" id="ttU-Lo-n0J"/>
+                            <constraint firstItem="B9X-02-Dvn" firstAttribute="top" secondItem="Jv8-KE-JXp" secondAttribute="bottom" multiplier="1.2" id="wpn-iy-kW3"/>
+                            <constraint firstItem="JBq-Xb-F6Y" firstAttribute="bottom" secondItem="YrK-jx-cg3" secondAttribute="bottom" multiplier="1.05" id="xxJ-fH-N6z"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JBq-Xb-F6Y"/>
                     </view>
                     <connections>
@@ -336,13 +354,12 @@
                         <outlet property="dateTimePicker" destination="eaf-m6-iXx" id="Tla-Xh-WYg"/>
                         <outlet property="eventDescription" destination="B9X-02-Dvn" id="F2N-Wp-hcj"/>
                         <outlet property="eventTitle" destination="Jv8-KE-JXp" id="Vh1-ZZ-TOQ"/>
-                        <segue destination="deC-l5-KaD" kind="unwind" identifier="backToCalendar" unwindAction="getEventDataFor:" id="tNT-h1-Dje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gS4-Xk-WLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="deC-l5-KaD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="902.89855072463774" y="127.98913043478262"/>
+            <point key="canvasLocation" x="997" y="131"/>
         </scene>
     </scenes>
     <resources>
