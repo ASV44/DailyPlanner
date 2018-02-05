@@ -128,7 +128,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsI-0g-RD3">
-                                                                            <rect key="frame" x="32.666666666666664" y="17.333333333333329" width="30" height="30"/>
+                                                                            <rect key="frame" x="32" y="18" width="30" height="30"/>
                                                                             <color key="backgroundColor" red="0.0" green="0.67843137254901964" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="9JJ-LC-flc"/>
@@ -141,20 +141,33 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-NO-00A">
-                                                                            <rect key="frame" x="26.333333333333329" y="22.666666666666671" width="42" height="20"/>
+                                                                            <rect key="frame" x="26" y="23" width="42" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnZ-8M-66B">
+                                                                            <rect key="frame" x="44.666666666666664" y="49.333333333333336" width="5" height="5"/>
+                                                                            <color key="backgroundColor" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="5" id="9Z8-9y-Guw"/>
+                                                                                <constraint firstAttribute="height" constant="5" id="UEf-sj-VzD"/>
+                                                                            </constraints>
+                                                                        </view>
                                                                     </subviews>
                                                                 </view>
                                                                 <constraints>
                                                                     <constraint firstItem="SsI-0g-RD3" firstAttribute="centerY" secondItem="ufG-NO-00A" secondAttribute="centerY" id="Ddg-wl-wrV"/>
+                                                                    <constraint firstItem="WnZ-8M-66B" firstAttribute="top" secondItem="ufG-NO-00A" secondAttribute="bottom" multiplier="1.17" id="GgX-rx-4h9"/>
                                                                     <constraint firstItem="ufG-NO-00A" firstAttribute="centerY" secondItem="VAv-IE-E7z" secondAttribute="centerY" id="XNg-30-5gz"/>
+                                                                    <constraint firstItem="WnZ-8M-66B" firstAttribute="centerX" secondItem="ufG-NO-00A" secondAttribute="centerX" id="g9y-fh-3Vo"/>
                                                                     <constraint firstItem="ufG-NO-00A" firstAttribute="centerX" secondItem="VAv-IE-E7z" secondAttribute="centerX" id="oOW-hn-BVC"/>
                                                                     <constraint firstItem="SsI-0g-RD3" firstAttribute="centerX" secondItem="ufG-NO-00A" secondAttribute="centerX" id="wdh-cw-3Ln"/>
                                                                 </constraints>
                                                                 <connections>
+                                                                    <outlet property="activityDot" destination="WnZ-8M-66B" id="R6m-YW-FsM"/>
+                                                                    <outlet property="activityDotHeight" destination="UEf-sj-VzD" id="cq3-J4-hZe"/>
+                                                                    <outlet property="activityDotWidth" destination="9Z8-9y-Guw" id="UjO-eV-qPi"/>
                                                                     <outlet property="dayLabel" destination="ufG-NO-00A" id="I2v-Qu-0gf"/>
                                                                     <outlet property="selectedVIewHeight" destination="O1X-0l-vWm" id="cuc-8O-i6p"/>
                                                                     <outlet property="selectedView" destination="SsI-0g-RD3" id="Pkm-4G-hYY"/>
@@ -268,13 +281,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv8-KE-JXp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="0.0" y="339" width="414" height="58.333333333333314"/>
+                                <rect key="frame" x="0.0" y="339.33333333333331" width="414" height="58"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Title"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.30344793200492859" green="0.75570023059844971" blue="0.93644559383392334" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-jx-cg3">
@@ -283,6 +311,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YrK-jx-cg3" secondAttribute="height" multiplier="414:43" id="0W6-3O-WVf"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
                                 <state key="normal" title="Add Event">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -320,11 +349,26 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9X-02-Dvn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="0.0" y="476.66666666666669" width="414" height="58.333333333333314"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Description"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event Description"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>

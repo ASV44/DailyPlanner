@@ -175,7 +175,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         searchBar.endEditing(true)
     }
     
-    func borderColorAnimation(for layer: CALayer, from fromValue: UIColor, to toValue: UIColor, withDuration duration: CFTimeInterval) {
+    func borderColorAnimation(for layer: CALayer, from fromValue: UIColor,
+                              to toValue: UIColor, withDuration duration: CFTimeInterval) {
         let color = CABasicAnimation(keyPath: "borderColor")
         color.fromValue = fromValue.cgColor
         color.toValue = toValue.cgColor
@@ -218,6 +219,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
         let date = formatter.string(from: selectedDate)
         if(!events[date].exists()) {
             events[date] = JSON([])
+            let selectedDateCell = calendarView.cellStatus(for: selectedDate)?.cell() as! CellView
+            selectedDateCell.activityDot.isHidden = false
         }
         switch self.eventState! {
         case AddEventViewController.State.ADD:
@@ -237,6 +240,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     func addEventToDay(title: String) {
+        
 //        let screenSize = UIScreen.main.bounds
 ////        let label = UILabel(frame: CGRect(x: screenSize.width / 3, y: self.plannerView.frame.height / 2, width: 0, height: 0))
 //        let label = UILabel(frame: CGRect(x: screenSize.width / 2, y: 0, width: 0, height: 0))

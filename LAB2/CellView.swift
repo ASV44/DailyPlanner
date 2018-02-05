@@ -13,9 +13,13 @@ class CellView: JTAppleCell {
     
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var selectedView: UIView!
+    @IBOutlet weak var activityDot: UIView!
     
     @IBOutlet weak var selectedViewWidth: NSLayoutConstraint!
     @IBOutlet weak var selectedVIewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var activityDotWidth: NSLayoutConstraint!
+    @IBOutlet weak var activityDotHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +28,10 @@ class CellView: JTAppleCell {
         selectedViewWidth.constant =  0.0724 * screenSize.width
         selectedVIewHeight.constant = 0.0407 * screenSize.height
         selectedView.layer.cornerRadius = 0.02038 * screenSize.height
+        
+        activityDot.isHidden = true
+        activityDotWidth.constant = 0.012 * screenSize.width
+        activityDotHeight.constant = activityDotWidth.constant
+        activityDot.layer.cornerRadius = activityDotWidth.constant / 2
     }
 }
