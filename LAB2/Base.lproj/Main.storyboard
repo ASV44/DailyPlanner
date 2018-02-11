@@ -347,7 +347,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9X-02-Dvn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="0.0" y="476.66666666666669" width="414" height="58.333333333333314"/>
+                                <rect key="frame" x="0.0" y="477" width="414" height="58.333333333333371"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -398,6 +398,7 @@
                         <outlet property="dateTimePicker" destination="eaf-m6-iXx" id="Tla-Xh-WYg"/>
                         <outlet property="eventDescription" destination="B9X-02-Dvn" id="F2N-Wp-hcj"/>
                         <outlet property="eventTitle" destination="Jv8-KE-JXp" id="Vh1-ZZ-TOQ"/>
+                        <segue destination="deC-l5-KaD" kind="unwind" identifier="addNewEvent" unwindAction="getEventDataFor:" id="rrx-MV-kO9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gS4-Xk-WLa" userLabel="First Responder" sceneMemberID="firstResponder"/>

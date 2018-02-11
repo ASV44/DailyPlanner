@@ -22,6 +22,7 @@
 		D6EE7D241F8E11010064808B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EE7D221F8E11010064808B /* LaunchScreen.storyboard */; };
 		D6EE7D2F1F8E11010064808B /* LAB2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D2E1F8E11010064808B /* LAB2Tests.swift */; };
 		D6EE7D3A1F8E11010064808B /* LAB2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D391F8E11010064808B /* LAB2UITests.swift */; };
+		D6FF620F202FB03900856A1E /* EventsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF620E202FB03900856A1E /* EventsUtils.swift */; };
 		F79341FBFDAEBD434D2298C4 /* Pods_LAB2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FC2E57B2D77D73FA5BEDFF /* Pods_LAB2UITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		D6EE7D391F8E11010064808B /* LAB2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAB2UITests.swift; sourceTree = "<group>"; };
 		D6EE7D3B1F8E11010064808B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6F680BACEE4259F74ED44D7 /* Pods_LAB2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LAB2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FF620E202FB03900856A1E /* EventsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsUtils.swift; sourceTree = "<group>"; };
 		E932953FC962C5669674881B /* Pods-LAB2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LAB2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LAB2UITests/Pods-LAB2UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 				D60035551F9CFC9700C66502 /* CellView.swift */,
 				D6A897321FAC917B00BCDBCA /* AppUtility.swift */,
 				D68F7F8A1FC10CC2004F31D9 /* AddEventViewController.swift */,
+				D6FF620E202FB03900856A1E /* EventsUtils.swift */,
 				D6EE7D1D1F8E11010064808B /* Main.storyboard */,
 				D6EE7D201F8E11010064808B /* Assets.xcassets */,
 				D6EE7D221F8E11010064808B /* LaunchScreen.storyboard */,
@@ -483,6 +486,7 @@
 			files = (
 				D6A7352C1FAA62B60021AD42 /* PlannerView.swift in Sources */,
 				D68F7F8B1FC10CC2004F31D9 /* AddEventViewController.swift in Sources */,
+				D6FF620F202FB03900856A1E /* EventsUtils.swift in Sources */,
 				D6B64B811FDB78E0009DB65F /* NotificationCenter.swift in Sources */,
 				D6EE7D1C1F8E11010064808B /* ViewController.swift in Sources */,
 				D6A897331FAC917B00BCDBCA /* AppUtility.swift in Sources */,

@@ -95,7 +95,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         eventInfo["title"] = JSON(eventTitle.text!)
         eventInfo["description"] = JSON(eventDescription.text!)
         showAlert()
-        self.backToCalendar(self)
+        performSegue(withIdentifier: "addNewEvent", sender: self)
     }
     
     @IBAction func backToCalendar(_ sender: Any) {

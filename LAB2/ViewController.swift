@@ -61,7 +61,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         setupCalendar()
         
-        uploadFromFile()
+        events = EventsUtils.getCachedEvents()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -103,12 +103,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     func handleTextSelected(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CellView else { return }
-        if cellState.isSelected {
-            validCell.selectedView.isHidden = false
-        }
-        else {
-            validCell.selectedView.isHidden = true
-        }
+        validCell.selectedView.isHidden = !cellState.isSelected
         handleTextColor(view: view, cellState: cellState)
     }
     
@@ -206,7 +201,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func getEventData(for segue: UIStoryboardSegue) {
-        if segue.identifier == "backToCalendar"{
+        if segue.identifier == "addNewEvent"{
             let vc = segue.source as! AddEventViewController
             //print(vc.eventInfo)
             addNewEvent(vc.eventInfo)
@@ -233,7 +228,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
             break
         }
         print(events)
-        saveToFile()
+        EventsUtils.cacheEvents(events)
         clearPlannerView()
         showEvents(date: calendarView.selectedDates[0])
 //        addEventToDay(title: eventInfo["title"].string!)
@@ -277,46 +272,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-    func saveToFile() {
-        let jsonFilePath = getFileUrl("calendarEvents.json", in: .documentDirectory, with: .userDomainMask)
-        
-        do {
-            let data = try events.rawData()
-            try data.write(to: jsonFilePath, options: [])
-        }
-        catch {
-            print(error)
-        }
-        
-    }
-    
-    func uploadFromFile() {
-        let jsonFilePath = getFileUrl("calendarEvents.json", in: .documentDirectory, with: .userDomainMask)
-
-        if FileManager.default.fileExists(atPath: jsonFilePath.path) {
-            do {
-                let data = try Data(contentsOf: jsonFilePath, options: .alwaysMapped)
-                events = JSON(data)
-            } catch {
-                print(error)
-            }
-        }
-        else {
-            events = JSON()
-        }
-    }
-    
-    func getFileUrl(_ name: String,
-                    in directory: FileManager.SearchPathDirectory,
-                    with domainMask: FileManager.SearchPathDomainMask) -> URL {
-        
-        let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(directory, domainMask, true).first!
-        let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
-        let filePath = documentsDirectoryPath.appendingPathComponent(name)
-        
-        return filePath
-    }
-    
     func clearPlannerView() {
         //let subViews = self.plannerView.subviews
 //        let subViews = self.plannerStackView.subviews
@@ -346,7 +301,6 @@ extension ViewController: JTAppleCalendarViewDataSource {
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! CellView
-        //configureVisibleCell(myCustomCell: myCustomCell, cellState: cellState, date: date)
         cell.dayLabel.text = cellState.text
         handleTextSelected(view: cell, cellState: cellState)
         
