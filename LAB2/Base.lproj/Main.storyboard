@@ -221,13 +221,73 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uci-sq-Rxx" userLabel="EventTableView">
+                                                <rect key="frame" x="72" y="114.6666666666667" width="278" height="200.33333333333337"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="uci-sq-Rxx" secondAttribute="height" multiplier="143:103" id="dif-9L-Nws"/>
+                                                </constraints>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QBX-wD-9pi" customClass="EventsTableCell" customModule="LAB2" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="278" height="44"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QBX-wD-9pi" id="1ez-Bp-SIc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="278" height="44"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nts-OA-Oyb" customClass="BEMCheckBox">
+                                                                    <rect key="frame" x="15" y="15" width="16" height="15"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                                                            <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
+                                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                                            <real key="value" value="2"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpC-Mk-nJL">
+                                                                    <rect key="frame" x="39" y="12" width="267" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </tableViewCellContentView>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <outlet property="checkBox" destination="nts-OA-Oyb" id="euH-uk-6Q3"/>
+                                                            <outlet property="title" destination="CpC-Mk-nJL" id="ibZ-Fg-98B"/>
+                                                        </connections>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.70588235294117641" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="fou-Mi-aqS" firstAttribute="centerX" secondItem="5PP-yn-dmL" secondAttribute="centerX" id="A5q-30-Sjj"/>
                                             <constraint firstAttribute="bottom" secondItem="yoR-eE-ppV" secondAttribute="bottom" multiplier="1.1" id="Hc2-6G-gkc"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="uci-sq-Rxx" secondAttribute="bottom" constant="32.670000000000002" id="MPE-Dn-O3Z"/>
                                             <constraint firstItem="fou-Mi-aqS" firstAttribute="top" secondItem="5PP-yn-dmL" secondAttribute="bottom" id="NaB-d6-mwG"/>
                                             <constraint firstItem="5PP-yn-dmL" firstAttribute="top" secondItem="Pt8-RN-S1W" secondAttribute="topMargin" id="OYJ-LK-Xah"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="uci-sq-Rxx" secondAttribute="trailing" constant="56" id="OmJ-xj-sRd"/>
+                                            <constraint firstItem="uci-sq-Rxx" firstAttribute="leading" secondItem="Pt8-RN-S1W" secondAttribute="leadingMargin" constant="64" id="VRu-vQ-vfz"/>
                                             <constraint firstItem="5PP-yn-dmL" firstAttribute="centerX" secondItem="Pt8-RN-S1W" secondAttribute="centerX" id="dVc-aS-zfA"/>
                                             <constraint firstAttribute="trailing" secondItem="yoR-eE-ppV" secondAttribute="trailing" multiplier="1.05" id="mlA-CR-i7u"/>
                                         </constraints>
@@ -262,6 +322,7 @@
                     <connections>
                         <outlet property="calendarStackView" destination="RmM-Hy-iN2" id="e4K-1F-gGm"/>
                         <outlet property="calendarView" destination="yEk-Qw-bBq" id="KZf-06-FJX"/>
+                        <outlet property="eventsTableView" destination="uci-sq-Rxx" id="UEM-d9-exZ"/>
                         <outlet property="mainView" destination="jfz-JC-dph" id="IV2-Om-yRx"/>
                         <outlet property="monthYearLabel" destination="ZFJ-E4-s8V" id="cCU-Co-wC6"/>
                         <outlet property="plannerView" destination="Pt8-RN-S1W" id="s0j-HQ-Shn"/>

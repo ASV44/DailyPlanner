@@ -1,18 +1,21 @@
 PODS:
+  - BEMCheckBox (1.4.1)
   - JTAppleCalendar (7.1.4)
   - SkyFloatingLabelTextField (3.3.0)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - BEMCheckBox
   - JTAppleCalendar (~> 7.0)
   - SkyFloatingLabelTextField (~> 3.0)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
   JTAppleCalendar: aaeee95e939e0b0a381fb51eb77738bd26bb10f6
   SkyFloatingLabelTextField: 771be94beca6868a6cea187f70c965ebd81d2f93
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 637431a5156aa90e94a5ece1c87d844c5ae47da5
+PODFILE CHECKSUM: 99b7beeb982e0ceaedc0a2366d8b8ed8020c2cbf
 
 COCOAPODS: 1.3.1

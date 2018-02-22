@@ -103,10 +103,8 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backToCalendar"{
-            let vc = segue.destination as! ViewController
-            vc.mainView.translatesAutoresizingMaskIntoConstraints = true
-        }
+        let vc = segue.destination as! ViewController
+        vc.mainView.translatesAutoresizingMaskIntoConstraints = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

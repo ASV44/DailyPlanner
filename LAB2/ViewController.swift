@@ -31,6 +31,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var plannerStackView: UIStackView!
     
+    @IBOutlet weak var eventsTableView: UITableView!
+    
     var events: JSON!
     
     var initialSearchBarFrame: CGRect!
@@ -50,16 +52,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let screenSize = UIScreen.main.bounds
-//        print(screenSize)
-        
-        searchBar.delegate = self
-        searchBar.layer.borderWidth = 1
-        searchBar.layer.borderColor = UIColor.white.cgColor
-        mainView.translatesAutoresizingMaskIntoConstraints = false
-        initialSearchBarFrame = searchBar.frame
-        
         setupCalendar()
+        setupSearchBar()
+        
+        eventsTableView.delegate = self
+        eventsTableView.dataSource = self
         
         events = EventsUtils.getCachedEvents()
     }
@@ -67,13 +64,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Don't forget to reset when view is being removed
         AppUtility.lockOrientation(.all)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupCalendar() {        
@@ -86,6 +81,14 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         calendarView.scrollToDate(Date(), animateScroll: false)
         calendarView.selectDates([Date()])
+    }
+    
+    func setupSearchBar() {
+        searchBar.delegate = self
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        mainView.translatesAutoresizingMaskIntoConstraints = false
+        initialSearchBarFrame = searchBar.frame
     }
     
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo) {
@@ -186,7 +189,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddEvent"{
+        if segue.identifier == "AddEvent" {
             let vc = segue.destination as! AddEventViewController
             vc.selectedDate = calendarView.selectedDates[0]
             vc.state = self.eventState!
@@ -229,27 +232,7 @@ class ViewController: UIViewController, UISearchBarDelegate {
         }
         print(events)
         EventsUtils.cacheEvents(events)
-        clearPlannerView()
-        showEvents(date: calendarView.selectedDates[0])
-//        addEventToDay(title: eventInfo["title"].string!)
-    }
-    
-    func addEventToDay(title: String) {
-        
-//        let screenSize = UIScreen.main.bounds
-////        let label = UILabel(frame: CGRect(x: screenSize.width / 3, y: self.plannerView.frame.height / 2, width: 0, height: 0))
-//        let label = UILabel(frame: CGRect(x: screenSize.width / 2, y: 0, width: 0, height: 0))
-//        label.textAlignment = .center
-//        label.textColor = UIColor.white
-//        label.text = title
-//        label.sizeToFit()
-//        //self.plannerView.addSubview(label)
-//        plannerStackView.addArrangedSubview(label)
-//        label.accessibilityIdentifier = "eventTitle"
-//        
-//        let tap = UILongPressGestureRecognizer(target: self, action: #selector(labelOnCLick))
-//        label.isUserInteractionEnabled = true
-//        label.addGestureRecognizer(tap)
+        eventsTableView.reloadData()
     }
     
     @objc func labelOnCLick(sender:UILongPressGestureRecognizer) {
@@ -270,26 +253,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         else if sender.state == .began {
             
         }
-    }
-    
-    func clearPlannerView() {
-        //let subViews = self.plannerView.subviews
-//        let subViews = self.plannerStackView.subviews
-//        for subview in subViews{
-//            if subview.accessibilityIdentifier == "eventTitle" {
-//                subview.removeFromSuperview()
-//            }
-//        }
-    }
-    
-    func showEvents(date: Date) {
-        formatter.dateFormat = "dd-MM-yyyy"
-        let keyDate = formatter.string(from: date)
-        //print(events[keyDate][0]["description"].stringValue)
-        for i in 0...events[keyDate].count {
-            addEventToDay(title: events[keyDate][i]["title"].stringValue)
-        }
-        
     }
     
     @IBAction func settingsButton(_ sender: Any) {
@@ -332,17 +295,50 @@ extension ViewController: JTAppleCalendarViewDelegate {
         handleTextSelected(view: cell, cellState: cellState)
         setupPlannerViews(for: date, with: cellState)
         searchBar.endEditing(true)
-        showEvents(date: date)
+        eventsTableView.reloadData()
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleTextSelected(view: cell, cellState: cellState)
-        clearPlannerView()
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewOfCalendar(from: visibleDates)
         searchBar.endEditing(true)
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard calendarView.selectedDates.count > 0 else {
+            return 0
+        }
+        formatter.dateFormat = "dd-MM-yyyy"
+        let keyDate = formatter.string(from: calendarView.selectedDates[0])
+        
+        return events[keyDate].count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = self.eventsTableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
+
+        return cell
+    }
+
+
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You tapped cell number \(indexPath.row).")
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let eventCell = cell as! EventsTableCell
+        formatter.dateFormat = "dd-MM-yyyy"
+        let keyDate = formatter.string(from: calendarView.selectedDates[0])
+        
+        eventCell.title.text = events[keyDate][indexPath.item]["title"].stringValue
     }
 }
 
