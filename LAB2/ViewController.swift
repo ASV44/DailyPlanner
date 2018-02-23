@@ -11,7 +11,7 @@ import JTAppleCalendar
 import SwiftyJSON
 import UserNotifications
 
-class ViewController: UIViewController, UISearchBarDelegate {
+class ViewController: UIViewController {
 
     //@IBOutlet var calendarView: JTAppleCalendarView!
     
@@ -112,19 +112,20 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     func handleTextColor(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CellView else { return }
+        let gray: CGFloat = 216 / 255
         
-        if cellState.isSelected {
-            validCell.dayLabel.textColor = .white
-        }
-        else {
-            if cellState.dateBelongsTo == .thisMonth {
-                validCell.dayLabel.textColor = .black
-            }
-            else {
-                let gray: CGFloat = 216 / 255
-                validCell.dayLabel.textColor = UIColor(red: gray, green: gray, blue: gray, alpha: 1)
-            }
-        }
+        let color = cellState.isSelected ? .white :
+                    cellState.dateBelongsTo == .thisMonth ? .black :
+                    UIColor(red: gray, green: gray, blue: gray, alpha: 1)
+        
+        validCell.dayLabel.textColor = color
+    }
+    
+    func handleEvents(view: JTAppleCell?,for date: Date) {
+        guard let validCell = view as? CellView else { return }
+        let keyDate = getEventKet(for: date)
+        let hideStatus = events[keyDate].exists() ? false : true
+        validCell.activityDot.isHidden = hideStatus
     }
     
     func setupPlannerViews(for date: Date, with cellState: CellState) {
@@ -132,55 +133,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
         formatter.dateFormat = "EEEE"
         let day = formatter.string(from: date)
         self.plannerView.day.text = day
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        let screenSize = UIScreen.main.bounds
-        
-        let borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1)
-        borderColorAnimation(for: searchBar.layer, from: UIColor.white, to: borderColor, withDuration: 3)
-                
-        let frame = calendarStackView.convert(calendarView.frame, to: mainView)
-        
-        let pading = 0.0241 * screenSize.width
-
-        UIView.animate(withDuration: 1,
-                       animations: {
-                        searchBar.frame = CGRect(x: frame.origin.x + pading,
-                                                 y: searchBar.frame.origin.y,
-                                                 width: frame.width - 2 * pading,
-                                                 height: searchBar.frame.height)},
-                       completion: { finished in
-                        searchBar.layer.borderColor = borderColor.cgColor})
-        
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        let borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1)
-        borderColorAnimation(for: searchBar.layer, from: borderColor, to: UIColor.white, withDuration: 1.5)
-        
-        UIView.animate(withDuration: 1,
-                       animations: {searchBar.frame = self.initialSearchBarFrame},
-                       completion: { finished in
-                        searchBar.layer.borderColor = UIColor.white.cgColor})
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    func borderColorAnimation(for layer: CALayer, from fromValue: UIColor,
-                              to toValue: UIColor, withDuration duration: CFTimeInterval) {
-        let color = CABasicAnimation(keyPath: "borderColor")
-        color.fromValue = fromValue.cgColor
-        color.toValue = toValue.cgColor
-        color.duration = duration
-        color.repeatCount = 1
-        layer.add(color, forKey: "borderColor")
     }
     
     @IBAction func addButtonListener(_ sender: Any) {
@@ -213,11 +165,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
     
     func addNewEvent(_ eventInfo: JSON) {
         formatter.dateFormat = "dd-MM-yyyy"
-        let selectedDate = calendarView.selectedDates[0]
-        let date = formatter.string(from: selectedDate)
+        let date = getEventKet(for: calendarView.selectedDates[0])
         if(!events[date].exists()) {
             events[date] = JSON([])
-            let selectedDateCell = calendarView.cellStatus(for: selectedDate)?.cell() as! CellView
+            let cellState = calendarView.cellStatus(for: calendarView.selectedDates[0])
+            let selectedDateCell = cellState?.cell() as! CellView
             selectedDateCell.activityDot.isHidden = false
         }
         switch self.eventState! {
@@ -226,8 +178,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
             break
         case AddEventViewController.State.EDIT:
             events[date][eventToEditIndex] = eventInfo
-            break
-        default:
             break
         }
         print(events)
@@ -258,20 +208,27 @@ class ViewController: UIViewController, UISearchBarDelegate {
     @IBAction func settingsButton(_ sender: Any) {
         
     }
+    
+    func getEventKet(for date: Date) -> String {
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter.string(from: date)
+    }
 }
 
+// MARK: Implement JTAppleCalendar Data source
 extension ViewController: JTAppleCalendarViewDataSource {
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! CellView
         cell.dayLabel.text = cellState.text
         handleTextSelected(view: cell, cellState: cellState)
-        
+        handleEvents(view: cell, for: date)
         return cell
     }
 
 }
 
+// MARK: Implement JTAppleCalendar Delegate
 extension ViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         
@@ -308,13 +265,33 @@ extension ViewController: JTAppleCalendarViewDelegate {
     }
 }
 
+// MARK: Implement UISearchBar Delegate
+extension ViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let frame = calendarStackView.convert(calendarView.frame, to: mainView)
+        AnimationUtils.searchBarSelect(searchBar, to: frame)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        AnimationUtils.searchBarDeselect(searchBar, to: initialSearchBarFrame)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+}
+
+// MARK: Implement UITableView Data source for planner view
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard calendarView.selectedDates.count > 0 else {
             return 0
         }
-        formatter.dateFormat = "dd-MM-yyyy"
-        let keyDate = formatter.string(from: calendarView.selectedDates[0])
+        let keyDate = getEventKet(for: calendarView.selectedDates[0])
         
         return events[keyDate].count
     }
@@ -328,6 +305,7 @@ extension ViewController: UITableViewDataSource {
 
 }
 
+// MARK: Implement UITableView delegate for planner view
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
@@ -335,8 +313,8 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let eventCell = cell as! EventsTableCell
-        formatter.dateFormat = "dd-MM-yyyy"
-        let keyDate = formatter.string(from: calendarView.selectedDates[0])
+        
+        let keyDate = getEventKet(for: calendarView.selectedDates[0])
         
         eventCell.title.text = events[keyDate][indexPath.item]["title"].stringValue
     }
