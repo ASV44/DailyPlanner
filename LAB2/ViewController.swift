@@ -183,15 +183,15 @@ class ViewController: UIViewController {
         eventsTableView.reloadData()
     }
     
-    @objc func labelOnCLick(sender:UILongPressGestureRecognizer) {
+    @objc func modifyEvent(sender: UILongPressGestureRecognizer) {
         if sender.state == .ended {
-            let label = sender.view as! UILabel
+            let cell = sender.view as! EventsTableCell
             self.eventState = AddEventViewController.State.EDIT
             formatter.dateFormat = "dd-MM-yyyy"
             let selectedDate = calendarView.selectedDates[0]
             let date = formatter.string(from: selectedDate)
             for i in 0...events[date].count {
-                if events[date][i]["title"].stringValue == label.text! {
+                if events[date][i]["title"].stringValue == cell.title.text! {
                     self.eventToEdit = events[date][i]
                     self.eventToEditIndex = i
                 }
@@ -316,6 +316,7 @@ extension ViewController: UITableViewDelegate {
         let eventCell = cell as! EventsTableCell
         let keyDate = getEventKey(for: calendarView.selectedDates[0])
         
+        eventCell.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action:  #selector(modifyEvent(sender:))))
         eventCell.keyDate = keyDate
         eventCell.item = indexPath.item
         eventCell.addCheckBoxListener(self.markEvent)
@@ -326,6 +327,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension JSON {
+    
     mutating func appendArray(json:JSON){
         if var arr = self.array{
             arr.append(json)
