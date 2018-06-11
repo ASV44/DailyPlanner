@@ -88,14 +88,15 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         return calendar.date(from: comp)!
     }
     
-    @IBAction func addEventListener(_ sender: Any) {
+    @IBAction func addButtonClick(_ sender: Any) {
         formatter.dateFormat = "HH:mm"
         let date = dateTimePicker.date
         eventInfo["time"] = JSON(formatter.string(from: date))
         eventInfo["title"] = JSON(eventTitle.text!)
         eventInfo["description"] = JSON(eventDescription.text!)
+        eventInfo["done"] = JSON(false)
         showAlert()
-        self.backToCalendar(self)
+        performSegue(withIdentifier: "addNewEvent", sender: self)
     }
     
     @IBAction func backToCalendar(_ sender: Any) {
@@ -103,10 +104,8 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backToCalendar"{
-            let vc = segue.destination as! ViewController
-            vc.mainView.translatesAutoresizingMaskIntoConstraints = true
-        }
+        let vc = segue.destination as! ViewController
+        vc.mainView.translatesAutoresizingMaskIntoConstraints = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -7,147 +7,180 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05B202FBAF43FE9A89266946D4CF6DB0 /* Pods-LAB2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8EB5243346ADDB468956CC624DA1FF3 /* Pods-LAB2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03BC7C44A0DD8215B92B20511FEABCE1 /* BEMCheckBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 144086EBF9F1DEB774C2A98E7949EA2C /* BEMCheckBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0BBA2946C9C7519BEADB498BF4C2313B /* Pods-LAB2UITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BE108D248F1747B0AD4290CA05232AC8 /* Pods-LAB2UITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12767DC9C3D8C0363E1C1B05C3A40AB8 /* Pods-LAB2-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8EB5243346ADDB468956CC624DA1FF3 /* Pods-LAB2-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1859B28E8E7E4CEF12A8410981F096E7 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F2B6AAD4F591AD26F9904C7C11BAEC /* SkyFloatingLabelTextField.swift */; };
+		18F57873BAE949F334DA9D57D020B121 /* BEMAnimationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E72C0265F784301F2F5836944D83EA6C /* BEMAnimationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20909B18A454E0797F343764AD7FCA11 /* BEMCheckBoxGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE424FD6559CAA21106BFA29C6395E /* BEMCheckBoxGroup.m */; };
 		249F703B201D2C448F32F2F0C26ED468 /* Pods-LAB2Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CD7E639FC37479FDBC6009AC7EF5F1 /* Pods-LAB2Tests-dummy.m */; };
-		263C6E809BD48B9ACB1CB43832E4709E /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320F50246C5BADBB28548E80715ADC8F /* UITextField+fixCaretPosition.swift */; };
-		2C2F0EED386CE9086960CBC966831E63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		3150DC89B627CCDF7AE9AB1B38AA0C05 /* JTAppleCalendarDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DB272ABAA6053D327E9619C1A1996 /* JTAppleCalendarDelegateProtocol.swift */; };
+		3150DC89B627CCDF7AE9AB1B38AA0C05 /* JTAppleCalendarDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96229E9567D1C96A71057344A494D11F /* JTAppleCalendarDelegateProtocol.swift */; };
 		347702B71DB5CAB327BEAB97E60BEE73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		371C1A65A79396D04E7BD098BB52F3AE /* UserInteractionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E24795259870F3430922FEAA227641D /* UserInteractionFunctions.swift */; };
-		38D4A5248839D51C7FB99C224F278DE2 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB35898370E370781296FB7319FFC84 /* SwiftyJSON-dummy.m */; };
-		427D11134EFAC3BF948DEB7AB3D7A98D /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB0E0E5E49552AD1DA7647234D8C316 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
-		44EAE458BED20531212FAE3246B6350C /* JTAppleCalendarLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57903072EFEB929561815CD5078F191F /* JTAppleCalendarLayoutProtocol.swift */; };
+		371C1A65A79396D04E7BD098BB52F3AE /* UserInteractionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DEB3F5E4D76EE5513424158075F3CF /* UserInteractionFunctions.swift */; };
+		3F4B331558094E9EBADCB4BBE25519C0 /* BEMPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1287EA3568F279DE5A03C98F659F1FAA /* BEMPathManager.m */; };
+		3FC5789BE5F688AB01673107F2B6C0CC /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9D025CCA20D6F2BF0ACA625A3AC058 /* UITextField+fixCaretPosition.swift */; };
+		44EAE458BED20531212FAE3246B6350C /* JTAppleCalendarLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF26F1AA4D694BC091C2EBC57E598C7F /* JTAppleCalendarLayoutProtocol.swift */; };
 		4832AB42968A6419900BD248639B0D92 /* Pods-LAB2Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E8CE2A512CD7E66F2F64F71FD1C77E0 /* Pods-LAB2Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52CB24003B0C56C788739EF3F2D92DBF /* JTAppleCalendarVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B03071F50D8777EA297BDB1CCA41F /* JTAppleCalendarVariables.swift */; };
-		62AE4C01F0FD029C69064E885E8CECB2 /* InternalActionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00F5F6376EFCAF380485044500D4E7 /* InternalActionFunctions.swift */; };
+		48A25B7F3BC083998F5F827F25091C82 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BF3834234E1B06608F39C98DA45FE8 /* SwiftyJSON.swift */; };
+		5287C91D9B935896B0F83EC38B45230E /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F8BA13164696A8F518A2C19806C237 /* SkyFloatingLabelTextField-dummy.m */; };
+		52CB24003B0C56C788739EF3F2D92DBF /* JTAppleCalendarVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A20531663C3924B648781EDA6A23BC /* JTAppleCalendarVariables.swift */; };
+		55CF856B8BA12BB2472B08B6D5D9125A /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2855823841816BFDF5D94649F53F0F8B /* BEMCheckBox.m */; };
+		58DEC7ED6A137DAD9B18702643F6D9EA /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C42B7AA23995822F6239E91FEFF58D /* SkyFloatingLabelTextFieldWithIcon.swift */; };
+		62AE4C01F0FD029C69064E885E8CECB2 /* InternalActionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6BB37B159224DDFA143B64533EF1EE /* InternalActionFunctions.swift */; };
+		652BC72B1E9E4AF7A83497E2FE1B4FBF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		6A06EB1980CCD9BC51F309E50E0ABCC0 /* Pods-LAB2UITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E3725D517C9EBC4C9A26F22D5978DB /* Pods-LAB2UITests-dummy.m */; };
-		6BDBDA4A350A1FE97268CECBC3669C64 /* SkyFloatingLabelTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B401C641F9CCCEBBEA7150BFA397ED22 /* SkyFloatingLabelTextField-dummy.m */; };
-		6DE3875930E2A44854A28CFEC04F1992 /* JTAppleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18850E3312DCC9FCFDA0B4E194113B1 /* JTAppleCell.swift */; };
-		732791936803EA17C15C484FE363E66D /* GlobalFunctionsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BDA76ED7936232D9F49CA25779A2A6 /* GlobalFunctionsAndExtensions.swift */; };
-		7573593FBE25F85B79E10A7333E583E7 /* JTAppleCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F6472961B3E18E95EE0F796ED9410901 /* JTAppleCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		778689D7552D8CE0FB9B84DE4CCBD20F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD81046902B8EE880046ED7D3CC2E14C /* SwiftyJSON.swift */; };
-		7BF6D2DE88FA18F3A0A1ECE15A8F3E6E /* UICollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B8E23FBE85F4696DDD9BD7287A2EDB /* UICollectionViewDelegates.swift */; };
+		6DE3875930E2A44854A28CFEC04F1992 /* JTAppleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD05D69F2CD23B10C8E8F2AE91975AA /* JTAppleCell.swift */; };
+		732791936803EA17C15C484FE363E66D /* GlobalFunctionsAndExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784713EAFA7D32D3FF8CEF7A3961066 /* GlobalFunctionsAndExtensions.swift */; };
+		7573593FBE25F85B79E10A7333E583E7 /* JTAppleCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 70F64CCE3871A92953546F7669FADB3B /* JTAppleCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7BF6D2DE88FA18F3A0A1ECE15A8F3E6E /* UICollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A539BAA7B09A0BFC8C8192B28EECB9E /* UICollectionViewDelegates.swift */; };
+		7CED86A10D481706E8E143BC85F3D11E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		7F9666701692372AA26628F01171A66A /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 36E440E635B76F3BB29936FF8970A6DE /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8160AFBA5F2BB3FF055076CAFEA4588B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		89C3EC32079226CDBA9AD664CFD3DB7B /* JTAppleCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59393C35926B839939671CCEE0CE258 /* JTAppleCalendarView.swift */; };
+		89C3EC32079226CDBA9AD664CFD3DB7B /* JTAppleCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DCABB90B9C6E49DBCE910908B6680 /* JTAppleCalendarView.swift */; };
+		8A6B44636886520707544BC52CCD2ABF /* BEMPathManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA85E0C2B2430F6803CF2A963819AF6 /* BEMPathManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8ADC502C197B0650DC951CE3D2DE7DC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		9D51A8ADC90310C8270F5C86B7CEB379 /* UIScrollViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833B7CE0BF17AA37C483C107C5E5B704 /* UIScrollViewDelegates.swift */; };
-		9FC6C8FF22D45590A4CC466CDE175749 /* JTAppleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D26D7CFA9D49F96B194DDB6EA9C5F1B /* JTAppleCollectionReusableView.swift */; };
-		A03D986CA7ABC4AE3B957EAAF58AADB9 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C7EF7F8F013EB514C9DCBF045CCF82 /* SkyFloatingLabelTextField.swift */; };
-		A9A110279F3650CD3BD01F3BF50FC5AA /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E842CAB162857C331505F80F0D71FC68 /* CalendarStructs.swift */; };
-		B95FE078CFD340D8F475DE83245F927C /* InternalQueryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FDABDB3F14F8A4FF713E07EA068698 /* InternalQueryFunctions.swift */; };
-		C1B6669E99C4AE54D8A0E5265C1F67FB /* JTAppleCalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0551D1871D592FFE53550E89D57D2F /* JTAppleCalendarLayout.swift */; };
-		D1969B8330B48EA94CEA594E9C2360ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		E824E5686FA7E8303C4601097FBAC23F /* JTCalendarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45459B2DACC2C07785FE5CB544C9D455 /* JTCalendarProtocols.swift */; };
-		EB35BA37B762A4230CFD9E2EA85AD47D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		F26B49C7AA5A13394AB1FF26C94D63CD /* SkyFloatingLabelTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57DF7684D4A1766E0ACFE48960AEBEF6 /* SkyFloatingLabelTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F48D67E8C6C06BCA116013C81D71B565 /* Pods-LAB2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E80596F48E43C820BE61F594EB7B8FE9 /* Pods-LAB2-dummy.m */; };
-		F55B8DE0B244AB07C9C09EF47C0FA289 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FCBF1C403D12E7CA58550827032913A4 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F7F8FE98FBE2455E87F7E41D20FA4194 /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A7D8E5E234ACFFE132DAB79B33909 /* CalendarEnums.swift */; };
-		FE1689779B1ABFD6586C76E20297224D /* JTAppleCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5053EB926CA0F0E637382636F41DFDA7 /* JTAppleCalendar-dummy.m */; };
+		8C06BDB6FCFB9277ECED803DFB61B5EA /* Pods-LAB2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E80596F48E43C820BE61F594EB7B8FE9 /* Pods-LAB2-dummy.m */; };
+		9683CF33601226C536734D01623386E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		9A8BC36CCD3769C0DCEB4213A5019BB7 /* BEMCheckBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F0AFF5508F03E8470C40883363F474F /* BEMCheckBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D51A8ADC90310C8270F5C86B7CEB379 /* UIScrollViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F7D3C7917A2082AF97C030C1D4DAF /* UIScrollViewDelegates.swift */; };
+		9FC6C8FF22D45590A4CC466CDE175749 /* JTAppleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE5AEE92FE94255D44B3517BB5E8BF0 /* JTAppleCollectionReusableView.swift */; };
+		A80BA46B97BD1273DAA97821F4DFB963 /* BEMCheckBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A49C9F0243315F528439D179E244CAD /* BEMCheckBox-dummy.m */; };
+		A9A110279F3650CD3BD01F3BF50FC5AA /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F953099ACB97B28FDA4ECD5D662297 /* CalendarStructs.swift */; };
+		AC08ACC8E35090E01239B8163297A0EA /* BEMCheckBoxGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C75EFD3F210773F53015DB169612E57 /* BEMCheckBoxGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B95FE078CFD340D8F475DE83245F927C /* InternalQueryFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCBC38E86D94AC628AEC6EAE506C36F /* InternalQueryFunctions.swift */; };
+		BF5BB6C5CBF58128AE6C9AA5950F2AB1 /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26E33C3064AFD7ACD3008B0FA09E22 /* BEMAnimationManager.m */; };
+		C1B6669E99C4AE54D8A0E5265C1F67FB /* JTAppleCalendarLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0685CED4D2C1E0107F6CA7D0E6217D6 /* JTAppleCalendarLayout.swift */; };
+		CEAB5CF9BAFDF5380F23943EF598EF62 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AA9294D5E70AD227B97E6575C2320052 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E824E5686FA7E8303C4601097FBAC23F /* JTCalendarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92F0F9752B0A62C245B0DE36EE70C66 /* JTCalendarProtocols.swift */; };
+		F1B77A4A25851236305F5AF3030E23DB /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C137E903458AEF7AD2BE7B7195B7B2 /* SwiftyJSON-dummy.m */; };
+		F7F8FE98FBE2455E87F7E41D20FA4194 /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF4554CD95CF5005AFE46857DE71762 /* CalendarEnums.swift */; };
+		FE1689779B1ABFD6586C76E20297224D /* JTAppleCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF953FF0438B7324247B6956E3AE5585 /* JTAppleCalendar-dummy.m */; };
+		FF5448C9373B98358D18337EDBE47DB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3EA070144A6897CD6150F1B062FFE576 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1F24D7CA1DCB52C280B9055EDB6A908C;
-			remoteInfo = SwiftyJSON;
-		};
-		865A71A458582CE9321814870D455342 /* PBXContainerItemProxy */ = {
+		018AA465530B274ECA34BE05F0924223 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4D5B8B1BE64F80268007C79821DDDC20;
 			remoteInfo = JTAppleCalendar;
 		};
-		D0104B02D0944AA3C473BDDCD0C6C79F /* PBXContainerItemProxy */ = {
+		0A3A3D62CBE7C9907C9AC560492C73B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2D8692B17719E0EBB0ADA4EF087AF483;
+			remoteGlobalIDString = BC19A72FB7D1DB0B2CC5F6C5CF2400F4;
+			remoteInfo = BEMCheckBox;
+		};
+		51A3C1BB4B075A5B61A7F83528796D6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46FE750A18BB4D5520992211826613B9;
+			remoteInfo = SwiftyJSON;
+		};
+		F0D456509F25158E1108E6CBAF598281 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E06704627029ACA8E3B039184372B46;
 			remoteInfo = SkyFloatingLabelTextField;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		006DB272ABAA6053D327E9619C1A1996 /* JTAppleCalendarDelegateProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarDelegateProtocol.swift; path = Sources/JTAppleCalendarDelegateProtocol.swift; sourceTree = "<group>"; };
+		07F953099ACB97B28FDA4ECD5D662297 /* CalendarStructs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarStructs.swift; path = Sources/CalendarStructs.swift; sourceTree = "<group>"; };
 		0ABB34CC32ACEC19DF233C970A6FB5BD /* Pods-LAB2UITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LAB2UITests-resources.sh"; sourceTree = "<group>"; };
+		1287EA3568F279DE5A03C98F659F1FAA /* BEMPathManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMPathManager.m; path = Classes/BEMPathManager.m; sourceTree = "<group>"; };
+		144086EBF9F1DEB774C2A98E7949EA2C /* BEMCheckBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BEMCheckBox-umbrella.h"; sourceTree = "<group>"; };
+		14C42B7AA23995822F6239E91FEFF58D /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		1D52406C8797D0523A6D589FD0C0C837 /* Pods_LAB2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LAB2.framework; path = "Pods-LAB2.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F87D3D92B38E23F1B14DAB7D4F3FA1D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		229549E90F2AB29587E6043CD00A18D3 /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
-		28FDABDB3F14F8A4FF713E07EA068698 /* InternalQueryFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalQueryFunctions.swift; path = Sources/InternalQueryFunctions.swift; sourceTree = "<group>"; };
-		320F50246C5BADBB28548E80715ADC8F /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
-		3537A6FD2F098818260B09F9F0F6A977 /* SkyFloatingLabelTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.xcconfig; sourceTree = "<group>"; };
+		200F7D3C7917A2082AF97C030C1D4DAF /* UIScrollViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIScrollViewDelegates.swift; path = Sources/UIScrollViewDelegates.swift; sourceTree = "<group>"; };
+		210F215E2DD30A524541E9E86B580894 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		2855823841816BFDF5D94649F53F0F8B /* BEMCheckBox.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBox.m; path = Classes/BEMCheckBox.m; sourceTree = "<group>"; };
+		2AD05D69F2CD23B10C8E8F2AE91975AA /* JTAppleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCell.swift; path = Sources/JTAppleCell.swift; sourceTree = "<group>"; };
+		2CD0BCECBED1873ECAF4E740439C8A9E /* Pods_LAB2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LAB2UITests.framework; path = "Pods-LAB2UITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A493A435C97FE36315676132AE496F /* BEMCheckBox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BEMCheckBox-prefix.pch"; sourceTree = "<group>"; };
+		36E440E635B76F3BB29936FF8970A6DE /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
+		3979385C847FAF8B59873822A434B42F /* JTAppleCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTAppleCalendar.modulemap; sourceTree = "<group>"; };
+		3A539BAA7B09A0BFC8C8192B28EECB9E /* UICollectionViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICollectionViewDelegates.swift; path = Sources/UICollectionViewDelegates.swift; sourceTree = "<group>"; };
 		3D24EC5E4A328322B638133767C782F9 /* Pods-LAB2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LAB2UITests.release.xcconfig"; sourceTree = "<group>"; };
-		3D26D7CFA9D49F96B194DDB6EA9C5F1B /* JTAppleCollectionReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCollectionReusableView.swift; path = Sources/JTAppleCollectionReusableView.swift; sourceTree = "<group>"; };
-		3E24795259870F3430922FEAA227641D /* UserInteractionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserInteractionFunctions.swift; path = Sources/UserInteractionFunctions.swift; sourceTree = "<group>"; };
-		45459B2DACC2C07785FE5CB544C9D455 /* JTCalendarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTCalendarProtocols.swift; path = Sources/JTCalendarProtocols.swift; sourceTree = "<group>"; };
-		47B8E23FBE85F4696DDD9BD7287A2EDB /* UICollectionViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UICollectionViewDelegates.swift; path = Sources/UICollectionViewDelegates.swift; sourceTree = "<group>"; };
-		47F8411B8962ED8CE13F5335246A220B /* JTAppleCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTAppleCalendar.xcconfig; sourceTree = "<group>"; };
-		49AA286DA18C15DDCD9A9B0F627EABA4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A4A7D8E5E234ACFFE132DAB79B33909 /* CalendarEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarEnums.swift; path = Sources/CalendarEnums.swift; sourceTree = "<group>"; };
-		4A526A2D1BD472131C20E253D3E2D8DF /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTAppleCalendar.framework; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5053EB926CA0F0E637382636F41DFDA7 /* JTAppleCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTAppleCalendar-dummy.m"; sourceTree = "<group>"; };
+		4E098622ED9A5DE4F6FAD5478F4E9861 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		5024FEE431FD5B651E1DF16FE8203A9F /* JTAppleCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTAppleCalendar.xcconfig; sourceTree = "<group>"; };
+		50F2B6AAD4F591AD26F9904C7C11BAEC /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		52DA79F37290D6688B40CEF85CC8B0BA /* Pods-LAB2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LAB2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		555E33C7771C13E2BBA996E44428E5C1 /* Pods-LAB2-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LAB2-acknowledgements.markdown"; sourceTree = "<group>"; };
+		56F8BA13164696A8F518A2C19806C237 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
 		573CDBDCF6565BBD9BE92F50F16FF662 /* Pods-LAB2UITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LAB2UITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		57903072EFEB929561815CD5078F191F /* JTAppleCalendarLayoutProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayoutProtocol.swift; path = Sources/JTAppleCalendarLayoutProtocol.swift; sourceTree = "<group>"; };
-		57DF7684D4A1766E0ACFE48960AEBEF6 /* SkyFloatingLabelTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-umbrella.h"; sourceTree = "<group>"; };
+		59129F949BD9A09CE49334E2923535AA /* Pods_LAB2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LAB2Tests.framework; path = "Pods-LAB2Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D9C64F79AF3DDDDDC72A1D6455272A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE5B20DC2F2E87E83B4EEF28564BFA8 /* Pods-LAB2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LAB2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		609718D74AF7706BEFA3959A2AB63575 /* Pods-LAB2-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LAB2-resources.sh"; sourceTree = "<group>"; };
-		6461FE9404B9348A31A54F05CF3F2D78 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6507C96F8718F5CD5477B326A9AC39C0 /* Pods_LAB2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LAB2.framework; path = "Pods-LAB2.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6A17681E14C3B80E113194C9CD1F2969 /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
-		6B0551D1871D592FFE53550E89D57D2F /* JTAppleCalendarLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayout.swift; path = Sources/JTAppleCalendarLayout.swift; sourceTree = "<group>"; };
-		7FB0E0E5E49552AD1DA7647234D8C316 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
+		67A20531663C3924B648781EDA6A23BC /* JTAppleCalendarVariables.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarVariables.swift; path = Sources/JTAppleCalendarVariables.swift; sourceTree = "<group>"; };
+		6A49C9F0243315F528439D179E244CAD /* BEMCheckBox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BEMCheckBox-dummy.m"; sourceTree = "<group>"; };
+		6E34C959C5C73E6A145C3E09ED35D17E /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F0AFF5508F03E8470C40883363F474F /* BEMCheckBox.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMCheckBox.h; path = Classes/BEMCheckBox.h; sourceTree = "<group>"; };
+		70F64CCE3871A92953546F7669FADB3B /* JTAppleCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-umbrella.h"; sourceTree = "<group>"; };
+		7C75EFD3F210773F53015DB169612E57 /* BEMCheckBoxGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMCheckBoxGroup.h; path = Classes/BEMCheckBoxGroup.h; sourceTree = "<group>"; };
 		81CB5DE3F8ED62553B8702E24794C9D7 /* Pods-LAB2Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LAB2Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		833B7CE0BF17AA37C483C107C5E5B704 /* UIScrollViewDelegates.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIScrollViewDelegates.swift; path = Sources/UIScrollViewDelegates.swift; sourceTree = "<group>"; };
 		83A55E1AC28ECD8C6E5F9F3E3DB6E07B /* Pods-LAB2UITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LAB2UITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		89C137E903458AEF7AD2BE7B7195B7B2 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
 		8B8D7879D98631EBED92797F7186C5B4 /* Pods-LAB2-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LAB2-frameworks.sh"; sourceTree = "<group>"; };
-		8DB35898370E370781296FB7319FFC84 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		8B9D025CCA20D6F2BF0ACA625A3AC058 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
+		8C0DFBECA60A03E48DBB1D72FE31078C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E8CE2A512CD7E66F2F64F71FD1C77E0 /* Pods-LAB2Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LAB2Tests-umbrella.h"; sourceTree = "<group>"; };
-		90C7EF7F8F013EB514C9DCBF045CCF82 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
+		8FA85E0C2B2430F6803CF2A963819AF6 /* BEMPathManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMPathManager.h; path = Classes/BEMPathManager.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		941F6ADDC15C00E9D39B4FDDF435CBEB /* BEMCheckBox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = BEMCheckBox.modulemap; sourceTree = "<group>"; };
 		943DEE99DF8C740E6044FDF49FAD86E9 /* Pods-LAB2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LAB2.debug.xcconfig"; sourceTree = "<group>"; };
+		94DEB3F5E4D76EE5513424158075F3CF /* UserInteractionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserInteractionFunctions.swift; path = Sources/UserInteractionFunctions.swift; sourceTree = "<group>"; };
+		96229E9567D1C96A71057344A494D11F /* JTAppleCalendarDelegateProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarDelegateProtocol.swift; path = Sources/JTAppleCalendarDelegateProtocol.swift; sourceTree = "<group>"; };
 		990AEC959D83C2047EDBA85D24A051EE /* Pods-LAB2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LAB2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9953F0F5AE5C7FCDF1CAB4895731E001 /* BEMCheckBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BEMCheckBox.framework; path = BEMCheckBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B08201C6FE16EA5959F22888EA8DAD7 /* Pods-LAB2Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-LAB2Tests.modulemap"; sourceTree = "<group>"; };
-		A18850E3312DCC9FCFDA0B4E194113B1 /* JTAppleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCell.swift; path = Sources/JTAppleCell.swift; sourceTree = "<group>"; };
+		9C6BB37B159224DDFA143B64533EF1EE /* InternalActionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalActionFunctions.swift; path = Sources/InternalActionFunctions.swift; sourceTree = "<group>"; };
+		9DA0EA3730DD2E7E15B39AC965DABA81 /* JTAppleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JTAppleCalendar.framework; path = JTAppleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F30A7D985E6C82BD18FA018114CA587 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SkyFloatingLabelTextField.framework; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A26604CBFB360F434D7653C31A002FA4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2FB971B07F4D467ED7F6BC9DB25C23F /* Pods-LAB2UITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LAB2UITests-frameworks.sh"; sourceTree = "<group>"; };
+		AA9294D5E70AD227B97E6575C2320052 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		AC96B61FC481FFE8E213046C1310864E /* Pods-LAB2.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-LAB2.modulemap"; sourceTree = "<group>"; };
 		AD8730984AF7F8EF391A21A83954D080 /* Pods-LAB2-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LAB2-acknowledgements.plist"; sourceTree = "<group>"; };
-		B0BDA76ED7936232D9F49CA25779A2A6 /* GlobalFunctionsAndExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalFunctionsAndExtensions.swift; path = Sources/GlobalFunctionsAndExtensions.swift; sourceTree = "<group>"; };
-		B0C52A93F281015296FE9CB95EB93EA0 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SkyFloatingLabelTextField.framework; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE69D574B8E3DBF4F6FCF4A3938DF2BE /* SkyFloatingLabelTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SkyFloatingLabelTextField-prefix.pch"; sourceTree = "<group>"; };
+		AF953FF0438B7324247B6956E3AE5585 /* JTAppleCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTAppleCalendar-dummy.m"; sourceTree = "<group>"; };
 		B1B629DE8107E3EB454E22FDEE65BD6E /* Pods-LAB2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LAB2.release.xcconfig"; sourceTree = "<group>"; };
-		B2E9FD39D8FD5B9B5BF7E6F5C24E7E6D /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B401C641F9CCCEBBEA7150BFA397ED22 /* SkyFloatingLabelTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SkyFloatingLabelTextField-dummy.m"; sourceTree = "<group>"; };
-		B57B03071F50D8777EA297BDB1CCA41F /* JTAppleCalendarVariables.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarVariables.swift; path = Sources/JTAppleCalendarVariables.swift; sourceTree = "<group>"; };
-		B79D513B4FB562EE9206D07022994D6E /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		B3EAC95B90E93363D2FFBB5354FF9392 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4BF3834234E1B06608F39C98DA45FE8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		B8EB5243346ADDB468956CC624DA1FF3 /* Pods-LAB2-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LAB2-umbrella.h"; sourceTree = "<group>"; };
-		BD81046902B8EE880046ED7D3CC2E14C /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
+		B8F9054447B92C9C03D35AC1EE49948A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBCBC38E86D94AC628AEC6EAE506C36F /* InternalQueryFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalQueryFunctions.swift; path = Sources/InternalQueryFunctions.swift; sourceTree = "<group>"; };
 		BE108D248F1747B0AD4290CA05232AC8 /* Pods-LAB2UITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LAB2UITests-umbrella.h"; sourceTree = "<group>"; };
+		BE26E33C3064AFD7ACD3008B0FA09E22 /* BEMAnimationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMAnimationManager.m; path = Classes/BEMAnimationManager.m; sourceTree = "<group>"; };
+		BF26F1AA4D694BC091C2EBC57E598C7F /* JTAppleCalendarLayoutProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayoutProtocol.swift; path = Sources/JTAppleCalendarLayoutProtocol.swift; sourceTree = "<group>"; };
+		C0685CED4D2C1E0107F6CA7D0E6217D6 /* JTAppleCalendarLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarLayout.swift; path = Sources/JTAppleCalendarLayout.swift; sourceTree = "<group>"; };
 		C2384FF1F5F76F1C969665EFC2463D37 /* Pods-LAB2Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LAB2Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C39FDFFE4369E131C190A5CA067C334D /* Pods-LAB2Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LAB2Tests-frameworks.sh"; sourceTree = "<group>"; };
-		C77684A1F1E49BD17ECBCB2B5FBA53D4 /* JTAppleCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTAppleCalendar.modulemap; sourceTree = "<group>"; };
-		C8A4BB18525461BC723C1627C0DCBCCB /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		CB5C0482F87703D4DA47E449D72D259C /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
-		D59393C35926B839939671CCEE0CE258 /* JTAppleCalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarView.swift; path = Sources/JTAppleCalendarView.swift; sourceTree = "<group>"; };
+		C925DFCF3E7D0B047C46D08148283C99 /* SkyFloatingLabelTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SkyFloatingLabelTextField.modulemap; sourceTree = "<group>"; };
+		CAE5AEE92FE94255D44B3517BB5E8BF0 /* JTAppleCollectionReusableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCollectionReusableView.swift; path = Sources/JTAppleCollectionReusableView.swift; sourceTree = "<group>"; };
+		CAF4554CD95CF5005AFE46857DE71762 /* CalendarEnums.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarEnums.swift; path = Sources/CalendarEnums.swift; sourceTree = "<group>"; };
+		D15DCABB90B9C6E49DBCE910908B6680 /* JTAppleCalendarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTAppleCalendarView.swift; path = Sources/JTAppleCalendarView.swift; sourceTree = "<group>"; };
+		D4093D66E8D8E523D8529635A7FB6F63 /* BEMCheckBox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BEMCheckBox.xcconfig; sourceTree = "<group>"; };
+		D8BE424FD6559CAA21106BFA29C6395E /* BEMCheckBoxGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBoxGroup.m; path = Classes/BEMCheckBoxGroup.m; sourceTree = "<group>"; };
 		E0DB95AF5F42B2F3765D9AC014248452 /* Pods-LAB2Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LAB2Tests-resources.sh"; sourceTree = "<group>"; };
+		E4882E3DB60C2D0A30DB7AAB870138C4 /* SkyFloatingLabelTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SkyFloatingLabelTextField.xcconfig; sourceTree = "<group>"; };
+		E72C0265F784301F2F5836944D83EA6C /* BEMAnimationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMAnimationManager.h; path = Classes/BEMAnimationManager.h; sourceTree = "<group>"; };
+		E784713EAFA7D32D3FF8CEF7A3961066 /* GlobalFunctionsAndExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GlobalFunctionsAndExtensions.swift; path = Sources/GlobalFunctionsAndExtensions.swift; sourceTree = "<group>"; };
 		E80596F48E43C820BE61F594EB7B8FE9 /* Pods-LAB2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LAB2-dummy.m"; sourceTree = "<group>"; };
-		E842CAB162857C331505F80F0D71FC68 /* CalendarStructs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarStructs.swift; path = Sources/CalendarStructs.swift; sourceTree = "<group>"; };
+		E92F0F9752B0A62C245B0DE36EE70C66 /* JTCalendarProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JTCalendarProtocols.swift; path = Sources/JTCalendarProtocols.swift; sourceTree = "<group>"; };
+		E987334EE7614A668946944D8743F5AF /* JTAppleCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-prefix.pch"; sourceTree = "<group>"; };
 		E9E3725D517C9EBC4C9A26F22D5978DB /* Pods-LAB2UITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LAB2UITests-dummy.m"; sourceTree = "<group>"; };
-		EC42B5045BEFAACE5104D18E9861869C /* Pods_LAB2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LAB2UITests.framework; path = "Pods-LAB2UITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0437A6ACC0B3D63E7FD65AF45491419 /* JTAppleCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-prefix.pch"; sourceTree = "<group>"; };
-		F2E36F8A0FA8544BBEFAB6FA1E853E57 /* Pods_LAB2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LAB2Tests.framework; path = "Pods-LAB2Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6472961B3E18E95EE0F796ED9410901 /* JTAppleCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTAppleCalendar-umbrella.h"; sourceTree = "<group>"; };
-		F7E98164E9AA4AF57F619BD4541292CE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7694A10835993ED4A7718C02A3168EC /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		F8678242A855A1E4B2C0DBD2BE28A917 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9CD7E639FC37479FDBC6009AC7EF5F1 /* Pods-LAB2Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LAB2Tests-dummy.m"; sourceTree = "<group>"; };
-		FCBF1C403D12E7CA58550827032913A4 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		FEDAC6DBFDBE772DB69A9C722DB87E29 /* Pods-LAB2UITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-LAB2UITests.modulemap"; sourceTree = "<group>"; };
-		FF00F5F6376EFCAF380485044500D4E7 /* InternalActionFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InternalActionFunctions.swift; path = Sources/InternalActionFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +189,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8160AFBA5F2BB3FF055076CAFEA4588B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F3EE5C24DBC8CF6E39D136821D9AD7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF5448C9373B98358D18337EDBE47DB1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,33 +216,61 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		843F6099473DA1CA4DD6ED4C4D1B916D /* Frameworks */ = {
+		82D21F5AF7E36878FA74BFA5B614114A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1969B8330B48EA94CEA594E9C2360ED /* Foundation.framework in Frameworks */,
+				652BC72B1E9E4AF7A83497E2FE1B4FBF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E5F49E0B3FCC225F8B4361931D85D709 /* Frameworks */ = {
+		886144D0A0D660D917E6D8AE49C78EB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB35BA37B762A4230CFD9E2EA85AD47D /* Foundation.framework in Frameworks */,
+				7CED86A10D481706E8E143BC85F3D11E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F83EAF984D3B8D1236B39A2933B55B59 /* Frameworks */ = {
+		A5871E60B05C46BEA0C1298BB414F8C8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C2F0EED386CE9086960CBC966831E63 /* Foundation.framework in Frameworks */,
+				9683CF33601226C536734D01623386E9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0447F40BBB9F819CEBE84D97AB692CB4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				941F6ADDC15C00E9D39B4FDDF435CBEB /* BEMCheckBox.modulemap */,
+				D4093D66E8D8E523D8529635A7FB6F63 /* BEMCheckBox.xcconfig */,
+				6A49C9F0243315F528439D179E244CAD /* BEMCheckBox-dummy.m */,
+				34A493A435C97FE36315676132AE496F /* BEMCheckBox-prefix.pch */,
+				144086EBF9F1DEB774C2A98E7949EA2C /* BEMCheckBox-umbrella.h */,
+				8C0DFBECA60A03E48DBB1D72FE31078C /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/BEMCheckBox";
+			sourceTree = "<group>";
+		};
+		204688A31B892CF0798F59526D98D907 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9953F0F5AE5C7FCDF1CAB4895731E001 /* BEMCheckBox.framework */,
+				9DA0EA3730DD2E7E15B39AC965DABA81 /* JTAppleCalendar.framework */,
+				1D52406C8797D0523A6D589FD0C0C837 /* Pods_LAB2.framework */,
+				59129F949BD9A09CE49334E2923535AA /* Pods_LAB2Tests.framework */,
+				2CD0BCECBED1873ECAF4E740439C8A9E /* Pods_LAB2UITests.framework */,
+				9F30A7D985E6C82BD18FA018114CA587 /* SkyFloatingLabelTextField.framework */,
+				6E34C959C5C73E6A145C3E09ED35D17E /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		330EE47BFCB47E4F9FB47EF6CF0562F8 /* Pods-LAB2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,18 +299,35 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		4E9FD33039AB5C7670FF8FF58114F752 /* Support Files */ = {
+		64B3E7B64303CF9B10654A0AF5060C22 /* BEMCheckBox */ = {
 			isa = PBXGroup;
 			children = (
-				6461FE9404B9348A31A54F05CF3F2D78 /* Info.plist */,
-				C8A4BB18525461BC723C1627C0DCBCCB /* SwiftyJSON.modulemap */,
-				CB5C0482F87703D4DA47E449D72D259C /* SwiftyJSON.xcconfig */,
-				8DB35898370E370781296FB7319FFC84 /* SwiftyJSON-dummy.m */,
-				B79D513B4FB562EE9206D07022994D6E /* SwiftyJSON-prefix.pch */,
-				FCBF1C403D12E7CA58550827032913A4 /* SwiftyJSON-umbrella.h */,
+				E72C0265F784301F2F5836944D83EA6C /* BEMAnimationManager.h */,
+				BE26E33C3064AFD7ACD3008B0FA09E22 /* BEMAnimationManager.m */,
+				6F0AFF5508F03E8470C40883363F474F /* BEMCheckBox.h */,
+				2855823841816BFDF5D94649F53F0F8B /* BEMCheckBox.m */,
+				7C75EFD3F210773F53015DB169612E57 /* BEMCheckBoxGroup.h */,
+				D8BE424FD6559CAA21106BFA29C6395E /* BEMCheckBoxGroup.m */,
+				8FA85E0C2B2430F6803CF2A963819AF6 /* BEMPathManager.h */,
+				1287EA3568F279DE5A03C98F659F1FAA /* BEMPathManager.m */,
+				0447F40BBB9F819CEBE84D97AB692CB4 /* Support Files */,
+			);
+			name = BEMCheckBox;
+			path = BEMCheckBox;
+			sourceTree = "<group>";
+		};
+		65906F0BAAF5F2E0091F8FCFE2BE0BD5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A26604CBFB360F434D7653C31A002FA4 /* Info.plist */,
+				3979385C847FAF8B59873822A434B42F /* JTAppleCalendar.modulemap */,
+				5024FEE431FD5B651E1DF16FE8203A9F /* JTAppleCalendar.xcconfig */,
+				AF953FF0438B7324247B6956E3AE5585 /* JTAppleCalendar-dummy.m */,
+				E987334EE7614A668946944D8743F5AF /* JTAppleCalendar-prefix.pch */,
+				70F64CCE3871A92953546F7669FADB3B /* JTAppleCalendar-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SwiftyJSON";
+			path = "../Target Support Files/JTAppleCalendar";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -249,34 +335,50 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				9A4A2D61DE69166F1DCE4318A00DB328 /* Pods */,
-				FA29D02F4BF50EB7BA0D9EE0E5F69BA6 /* Products */,
+				D2BDF0647F6690C41787FAA866822031 /* Pods */,
+				204688A31B892CF0798F59526D98D907 /* Products */,
 				3B6067FBE036F14EBF4D1A8A40575593 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9A4A2D61DE69166F1DCE4318A00DB328 /* Pods */ = {
+		8E0AF60A69F507A6F055532782CF961A /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CF0B8C4DFA1A01A1BBA83E7606C66510 /* JTAppleCalendar */,
-				F647AD0879FEAA388F5C5155F85E48D3 /* SkyFloatingLabelTextField */,
-				F2D8CE71DE9F2F6F4A81B0B15D1BF397 /* SwiftyJSON */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B11D117924650CA5D77CB5C52A7A6145 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				49AA286DA18C15DDCD9A9B0F627EABA4 /* Info.plist */,
-				6A17681E14C3B80E113194C9CD1F2969 /* SkyFloatingLabelTextField.modulemap */,
-				3537A6FD2F098818260B09F9F0F6A977 /* SkyFloatingLabelTextField.xcconfig */,
-				B401C641F9CCCEBBEA7150BFA397ED22 /* SkyFloatingLabelTextField-dummy.m */,
-				229549E90F2AB29587E6043CD00A18D3 /* SkyFloatingLabelTextField-prefix.pch */,
-				57DF7684D4A1766E0ACFE48960AEBEF6 /* SkyFloatingLabelTextField-umbrella.h */,
+				B3EAC95B90E93363D2FFBB5354FF9392 /* Info.plist */,
+				C925DFCF3E7D0B047C46D08148283C99 /* SkyFloatingLabelTextField.modulemap */,
+				E4882E3DB60C2D0A30DB7AAB870138C4 /* SkyFloatingLabelTextField.xcconfig */,
+				56F8BA13164696A8F518A2C19806C237 /* SkyFloatingLabelTextField-dummy.m */,
+				AE69D574B8E3DBF4F6FCF4A3938DF2BE /* SkyFloatingLabelTextField-prefix.pch */,
+				36E440E635B76F3BB29936FF8970A6DE /* SkyFloatingLabelTextField-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SkyFloatingLabelTextField";
+			sourceTree = "<group>";
+		};
+		91AB432A656FC73CEC830D752CDACC76 /* SkyFloatingLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				50F2B6AAD4F591AD26F9904C7C11BAEC /* SkyFloatingLabelTextField.swift */,
+				14C42B7AA23995822F6239E91FEFF58D /* SkyFloatingLabelTextFieldWithIcon.swift */,
+				8B9D025CCA20D6F2BF0ACA625A3AC058 /* UITextField+fixCaretPosition.swift */,
+				8E0AF60A69F507A6F055532782CF961A /* Support Files */,
+			);
+			name = SkyFloatingLabelTextField;
+			path = SkyFloatingLabelTextField;
+			sourceTree = "<group>";
+		};
+		B0C304043DCE159F8175A00B4CED7BA2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8F9054447B92C9C03D35AC1EE49948A /* Info.plist */,
+				F7694A10835993ED4A7718C02A3168EC /* SwiftyJSON.modulemap */,
+				4E098622ED9A5DE4F6FAD5478F4E9861 /* SwiftyJSON.xcconfig */,
+				89C137E903458AEF7AD2BE7B7195B7B2 /* SwiftyJSON-dummy.m */,
+				210F215E2DD30A524541E9E86B580894 /* SwiftyJSON-prefix.pch */,
+				AA9294D5E70AD227B97E6575C2320052 /* SwiftyJSON-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyJSON";
 			sourceTree = "<group>";
 		};
 		BACE658943967CFFC3B664C23D7EFC7E /* Pods-LAB2UITests */ = {
@@ -305,29 +407,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CF0B8C4DFA1A01A1BBA83E7606C66510 /* JTAppleCalendar */ = {
+		D2BDF0647F6690C41787FAA866822031 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4A4A7D8E5E234ACFFE132DAB79B33909 /* CalendarEnums.swift */,
-				E842CAB162857C331505F80F0D71FC68 /* CalendarStructs.swift */,
-				B0BDA76ED7936232D9F49CA25779A2A6 /* GlobalFunctionsAndExtensions.swift */,
-				FF00F5F6376EFCAF380485044500D4E7 /* InternalActionFunctions.swift */,
-				28FDABDB3F14F8A4FF713E07EA068698 /* InternalQueryFunctions.swift */,
-				006DB272ABAA6053D327E9619C1A1996 /* JTAppleCalendarDelegateProtocol.swift */,
-				6B0551D1871D592FFE53550E89D57D2F /* JTAppleCalendarLayout.swift */,
-				57903072EFEB929561815CD5078F191F /* JTAppleCalendarLayoutProtocol.swift */,
-				B57B03071F50D8777EA297BDB1CCA41F /* JTAppleCalendarVariables.swift */,
-				D59393C35926B839939671CCEE0CE258 /* JTAppleCalendarView.swift */,
-				A18850E3312DCC9FCFDA0B4E194113B1 /* JTAppleCell.swift */,
-				3D26D7CFA9D49F96B194DDB6EA9C5F1B /* JTAppleCollectionReusableView.swift */,
-				45459B2DACC2C07785FE5CB544C9D455 /* JTCalendarProtocols.swift */,
-				47B8E23FBE85F4696DDD9BD7287A2EDB /* UICollectionViewDelegates.swift */,
-				833B7CE0BF17AA37C483C107C5E5B704 /* UIScrollViewDelegates.swift */,
-				3E24795259870F3430922FEAA227641D /* UserInteractionFunctions.swift */,
-				DE12B65A9D617A2964337931804A3F5A /* Support Files */,
+				64B3E7B64303CF9B10654A0AF5060C22 /* BEMCheckBox */,
+				E7AD2C9DCB1D262D86C122001DA2E161 /* JTAppleCalendar */,
+				91AB432A656FC73CEC830D752CDACC76 /* SkyFloatingLabelTextField */,
+				FA5929930D5D16F45ADDEB3F891BFF8C /* SwiftyJSON */,
 			);
-			name = JTAppleCalendar;
-			path = JTAppleCalendar;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -336,20 +424,6 @@
 				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		DE12B65A9D617A2964337931804A3F5A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F7E98164E9AA4AF57F619BD4541292CE /* Info.plist */,
-				C77684A1F1E49BD17ECBCB2B5FBA53D4 /* JTAppleCalendar.modulemap */,
-				47F8411B8962ED8CE13F5335246A220B /* JTAppleCalendar.xcconfig */,
-				5053EB926CA0F0E637382636F41DFDA7 /* JTAppleCalendar-dummy.m */,
-				F0437A6ACC0B3D63E7FD65AF45491419 /* JTAppleCalendar-prefix.pch */,
-				F6472961B3E18E95EE0F796ED9410901 /* JTAppleCalendar-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/JTAppleCalendar";
 			sourceTree = "<group>";
 		};
 		E6A62092EAE890DF69B064502B10DA08 /* Pods-LAB2Tests */ = {
@@ -370,65 +444,61 @@
 			path = "Target Support Files/Pods-LAB2Tests";
 			sourceTree = "<group>";
 		};
-		F2D8CE71DE9F2F6F4A81B0B15D1BF397 /* SwiftyJSON */ = {
+		E7AD2C9DCB1D262D86C122001DA2E161 /* JTAppleCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				BD81046902B8EE880046ED7D3CC2E14C /* SwiftyJSON.swift */,
-				4E9FD33039AB5C7670FF8FF58114F752 /* Support Files */,
+				CAF4554CD95CF5005AFE46857DE71762 /* CalendarEnums.swift */,
+				07F953099ACB97B28FDA4ECD5D662297 /* CalendarStructs.swift */,
+				E784713EAFA7D32D3FF8CEF7A3961066 /* GlobalFunctionsAndExtensions.swift */,
+				9C6BB37B159224DDFA143B64533EF1EE /* InternalActionFunctions.swift */,
+				BBCBC38E86D94AC628AEC6EAE506C36F /* InternalQueryFunctions.swift */,
+				96229E9567D1C96A71057344A494D11F /* JTAppleCalendarDelegateProtocol.swift */,
+				C0685CED4D2C1E0107F6CA7D0E6217D6 /* JTAppleCalendarLayout.swift */,
+				BF26F1AA4D694BC091C2EBC57E598C7F /* JTAppleCalendarLayoutProtocol.swift */,
+				67A20531663C3924B648781EDA6A23BC /* JTAppleCalendarVariables.swift */,
+				D15DCABB90B9C6E49DBCE910908B6680 /* JTAppleCalendarView.swift */,
+				2AD05D69F2CD23B10C8E8F2AE91975AA /* JTAppleCell.swift */,
+				CAE5AEE92FE94255D44B3517BB5E8BF0 /* JTAppleCollectionReusableView.swift */,
+				E92F0F9752B0A62C245B0DE36EE70C66 /* JTCalendarProtocols.swift */,
+				3A539BAA7B09A0BFC8C8192B28EECB9E /* UICollectionViewDelegates.swift */,
+				200F7D3C7917A2082AF97C030C1D4DAF /* UIScrollViewDelegates.swift */,
+				94DEB3F5E4D76EE5513424158075F3CF /* UserInteractionFunctions.swift */,
+				65906F0BAAF5F2E0091F8FCFE2BE0BD5 /* Support Files */,
+			);
+			name = JTAppleCalendar;
+			path = JTAppleCalendar;
+			sourceTree = "<group>";
+		};
+		FA5929930D5D16F45ADDEB3F891BFF8C /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				B4BF3834234E1B06608F39C98DA45FE8 /* SwiftyJSON.swift */,
+				B0C304043DCE159F8175A00B4CED7BA2 /* Support Files */,
 			);
 			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
-		F647AD0879FEAA388F5C5155F85E48D3 /* SkyFloatingLabelTextField */ = {
-			isa = PBXGroup;
-			children = (
-				90C7EF7F8F013EB514C9DCBF045CCF82 /* SkyFloatingLabelTextField.swift */,
-				7FB0E0E5E49552AD1DA7647234D8C316 /* SkyFloatingLabelTextFieldWithIcon.swift */,
-				320F50246C5BADBB28548E80715ADC8F /* UITextField+fixCaretPosition.swift */,
-				B11D117924650CA5D77CB5C52A7A6145 /* Support Files */,
-			);
-			name = SkyFloatingLabelTextField;
-			path = SkyFloatingLabelTextField;
-			sourceTree = "<group>";
-		};
-		FA29D02F4BF50EB7BA0D9EE0E5F69BA6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4A526A2D1BD472131C20E253D3E2D8DF /* JTAppleCalendar.framework */,
-				6507C96F8718F5CD5477B326A9AC39C0 /* Pods_LAB2.framework */,
-				F2E36F8A0FA8544BBEFAB6FA1E853E57 /* Pods_LAB2Tests.framework */,
-				EC42B5045BEFAACE5104D18E9861869C /* Pods_LAB2UITests.framework */,
-				B0C52A93F281015296FE9CB95EB93EA0 /* SkyFloatingLabelTextField.framework */,
-				B2E9FD39D8FD5B9B5BF7E6F5C24E7E6D /* SwiftyJSON.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0026DEEE4683CAC822F91966A6696FC4 /* Headers */ = {
+		0246B5E4508300BBBDC3ACD53C3B774B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F26B49C7AA5A13394AB1FF26C94D63CD /* SkyFloatingLabelTextField-umbrella.h in Headers */,
+				CEAB5CF9BAFDF5380F23943EF598EF62 /* SwiftyJSON-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5C826BC6A33BBC248772BFEC778DBE10 /* Headers */ = {
+		6027F6767D4F0F08AD5CBCE9E4192827 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F55B8DE0B244AB07C9C09EF47C0FA289 /* SwiftyJSON-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6AE7AA73B84C62A92C63D2527B1E8969 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05B202FBAF43FE9A89266946D4CF6DB0 /* Pods-LAB2-umbrella.h in Headers */,
+				18F57873BAE949F334DA9D57D020B121 /* BEMAnimationManager.h in Headers */,
+				03BC7C44A0DD8215B92B20511FEABCE1 /* BEMCheckBox-umbrella.h in Headers */,
+				9A8BC36CCD3769C0DCEB4213A5019BB7 /* BEMCheckBox.h in Headers */,
+				AC08ACC8E35090E01239B8163297A0EA /* BEMCheckBoxGroup.h in Headers */,
+				8A6B44636886520707544BC52CCD2ABF /* BEMPathManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +507,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BBA2946C9C7519BEADB498BF4C2313B /* Pods-LAB2UITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AAE4E5F4CB797AD06FC165D037E7880A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F9666701692372AA26628F01171A66A /* SkyFloatingLabelTextField-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B105E67C8663961340FD0F906DCAD994 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12767DC9C3D8C0363E1C1B05C3A40AB8 /* Pods-LAB2-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,23 +545,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1F24D7CA1DCB52C280B9055EDB6A908C /* SwiftyJSON */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DF47770CCCC5A269CA7A836EF4E3A090 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
-			buildPhases = (
-				525E2318ABF258E1E2AAE27CF365A28A /* Sources */,
-				E5F49E0B3FCC225F8B4361931D85D709 /* Frameworks */,
-				5C826BC6A33BBC248772BFEC778DBE10 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftyJSON;
-			productName = SwiftyJSON;
-			productReference = B2E9FD39D8FD5B9B5BF7E6F5C24E7E6D /* SwiftyJSON.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		21846263984DDDFB2818B05C8123C97F /* Pods-LAB2Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D3739FE6141434288BFB6118EED052E /* Build configuration list for PBXNativeTarget "Pods-LAB2Tests" */;
@@ -490,16 +559,16 @@
 			);
 			name = "Pods-LAB2Tests";
 			productName = "Pods-LAB2Tests";
-			productReference = F2E36F8A0FA8544BBEFAB6FA1E853E57 /* Pods_LAB2Tests.framework */;
+			productReference = 59129F949BD9A09CE49334E2923535AA /* Pods_LAB2Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2D8692B17719E0EBB0ADA4EF087AF483 /* SkyFloatingLabelTextField */ = {
+		2E06704627029ACA8E3B039184372B46 /* SkyFloatingLabelTextField */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 947DDE28A78A54AC19BBDA2FB39DAB8F /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */;
+			buildConfigurationList = B8FCFCD564381530B31856015EEEB049 /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */;
 			buildPhases = (
-				7F1DAAE70CBF378D5261D2A4DC8823D6 /* Sources */,
-				F83EAF984D3B8D1236B39A2933B55B59 /* Frameworks */,
-				0026DEEE4683CAC822F91966A6696FC4 /* Headers */,
+				EC3AD5A5D109ED7C6AEB265035F28399 /* Sources */,
+				A5871E60B05C46BEA0C1298BB414F8C8 /* Frameworks */,
+				AAE4E5F4CB797AD06FC165D037E7880A /* Headers */,
 			);
 			buildRules = (
 			);
@@ -507,7 +576,45 @@
 			);
 			name = SkyFloatingLabelTextField;
 			productName = SkyFloatingLabelTextField;
-			productReference = B0C52A93F281015296FE9CB95EB93EA0 /* SkyFloatingLabelTextField.framework */;
+			productReference = 9F30A7D985E6C82BD18FA018114CA587 /* SkyFloatingLabelTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		46F714DC342651A9253A877536976D68 /* Pods-LAB2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCED71DE06F1ACB80F030C89CFE6854B /* Build configuration list for PBXNativeTarget "Pods-LAB2" */;
+			buildPhases = (
+				B68D31DF6FA4B32DDC2903D71D78421A /* Sources */,
+				82D21F5AF7E36878FA74BFA5B614114A /* Frameworks */,
+				B105E67C8663961340FD0F906DCAD994 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD55407FE4D6A16C55BC1B46F24CE6B2 /* PBXTargetDependency */,
+				366B207BD6969BFFFDC1B2E15E794DA1 /* PBXTargetDependency */,
+				76EE466D60C346590792432A1D508663 /* PBXTargetDependency */,
+				ED5AD33C2A57FA5366A2C430B1D4237A /* PBXTargetDependency */,
+			);
+			name = "Pods-LAB2";
+			productName = "Pods-LAB2";
+			productReference = 1D52406C8797D0523A6D589FD0C0C837 /* Pods_LAB2.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		46FE750A18BB4D5520992211826613B9 /* SwiftyJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0DD948E553EDAFDAA7F27D2F0D5026C /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildPhases = (
+				58986DDB60A7B8DDF48BDF063DA7658A /* Sources */,
+				886144D0A0D660D917E6D8AE49C78EB2 /* Frameworks */,
+				0246B5E4508300BBBDC3ACD53C3B774B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyJSON;
+			productName = SwiftyJSON;
+			productReference = 6E34C959C5C73E6A145C3E09ED35D17E /* SwiftyJSON.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		4D5B8B1BE64F80268007C79821DDDC20 /* JTAppleCalendar */ = {
@@ -524,27 +631,24 @@
 			);
 			name = JTAppleCalendar;
 			productName = JTAppleCalendar;
-			productReference = 4A526A2D1BD472131C20E253D3E2D8DF /* JTAppleCalendar.framework */;
+			productReference = 9DA0EA3730DD2E7E15B39AC965DABA81 /* JTAppleCalendar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		60F7504410787AF0B3C81A1E6757E932 /* Pods-LAB2 */ = {
+		BC19A72FB7D1DB0B2CC5F6C5CF2400F4 /* BEMCheckBox */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAD227D01DF770C90530C5341ECBDD64 /* Build configuration list for PBXNativeTarget "Pods-LAB2" */;
+			buildConfigurationList = 020E578A97CC1DF9DC645C21BD1D2A8D /* Build configuration list for PBXNativeTarget "BEMCheckBox" */;
 			buildPhases = (
-				79CE95B31B714CFA41D42E2519221A0D /* Sources */,
-				843F6099473DA1CA4DD6ED4C4D1B916D /* Frameworks */,
-				6AE7AA73B84C62A92C63D2527B1E8969 /* Headers */,
+				3166FED8D0EB704FBAF3616D4369ABD7 /* Sources */,
+				3F3EE5C24DBC8CF6E39D136821D9AD7A /* Frameworks */,
+				6027F6767D4F0F08AD5CBCE9E4192827 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C905F5B22A91997E77F0AAF15FEEB4F7 /* PBXTargetDependency */,
-				EDC664034345A3369FA2E258B8F4F104 /* PBXTargetDependency */,
-				52C026D9240010F405CF4BE5F56CD3E6 /* PBXTargetDependency */,
 			);
-			name = "Pods-LAB2";
-			productName = "Pods-LAB2";
-			productReference = 6507C96F8718F5CD5477B326A9AC39C0 /* Pods_LAB2.framework */;
+			name = BEMCheckBox;
+			productName = BEMCheckBox;
+			productReference = 9953F0F5AE5C7FCDF1CAB4895731E001 /* BEMCheckBox.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F2101498E35E25E879297540CF59F15A /* Pods-LAB2UITests */ = {
@@ -561,7 +665,7 @@
 			);
 			name = "Pods-LAB2UITests";
 			productName = "Pods-LAB2UITests";
-			productReference = EC42B5045BEFAACE5104D18E9861869C /* Pods_LAB2UITests.framework */;
+			productReference = 2CD0BCECBED1873ECAF4E740439C8A9E /* Pods_LAB2UITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -581,46 +685,40 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = FA29D02F4BF50EB7BA0D9EE0E5F69BA6 /* Products */;
+			productRefGroup = 204688A31B892CF0798F59526D98D907 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				BC19A72FB7D1DB0B2CC5F6C5CF2400F4 /* BEMCheckBox */,
 				4D5B8B1BE64F80268007C79821DDDC20 /* JTAppleCalendar */,
-				60F7504410787AF0B3C81A1E6757E932 /* Pods-LAB2 */,
+				46F714DC342651A9253A877536976D68 /* Pods-LAB2 */,
 				21846263984DDDFB2818B05C8123C97F /* Pods-LAB2Tests */,
 				F2101498E35E25E879297540CF59F15A /* Pods-LAB2UITests */,
-				2D8692B17719E0EBB0ADA4EF087AF483 /* SkyFloatingLabelTextField */,
-				1F24D7CA1DCB52C280B9055EDB6A908C /* SwiftyJSON */,
+				2E06704627029ACA8E3B039184372B46 /* SkyFloatingLabelTextField */,
+				46FE750A18BB4D5520992211826613B9 /* SwiftyJSON */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		525E2318ABF258E1E2AAE27CF365A28A /* Sources */ = {
+		3166FED8D0EB704FBAF3616D4369ABD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38D4A5248839D51C7FB99C224F278DE2 /* SwiftyJSON-dummy.m in Sources */,
-				778689D7552D8CE0FB9B84DE4CCBD20F /* SwiftyJSON.swift in Sources */,
+				BF5BB6C5CBF58128AE6C9AA5950F2AB1 /* BEMAnimationManager.m in Sources */,
+				A80BA46B97BD1273DAA97821F4DFB963 /* BEMCheckBox-dummy.m in Sources */,
+				55CF856B8BA12BB2472B08B6D5D9125A /* BEMCheckBox.m in Sources */,
+				20909B18A454E0797F343764AD7FCA11 /* BEMCheckBoxGroup.m in Sources */,
+				3F4B331558094E9EBADCB4BBE25519C0 /* BEMPathManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79CE95B31B714CFA41D42E2519221A0D /* Sources */ = {
+		58986DDB60A7B8DDF48BDF063DA7658A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F48D67E8C6C06BCA116013C81D71B565 /* Pods-LAB2-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7F1DAAE70CBF378D5261D2A4DC8823D6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6BDBDA4A350A1FE97268CECBC3669C64 /* SkyFloatingLabelTextField-dummy.m in Sources */,
-				A03D986CA7ABC4AE3B957EAAF58AADB9 /* SkyFloatingLabelTextField.swift in Sources */,
-				427D11134EFAC3BF948DEB7AB3D7A98D /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
-				263C6E809BD48B9ACB1CB43832E4709E /* UITextField+fixCaretPosition.swift in Sources */,
+				F1B77A4A25851236305F5AF3030E23DB /* SwiftyJSON-dummy.m in Sources */,
+				48A25B7F3BC083998F5F827F25091C82 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +754,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B68D31DF6FA4B32DDC2903D71D78421A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C06BDB6FCFB9277ECED803DFB61B5EA /* Pods-LAB2-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D61AD65BD341994ADFDBEA13E2CB19B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -664,33 +770,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC3AD5A5D109ED7C6AEB265035F28399 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5287C91D9B935896B0F83EC38B45230E /* SkyFloatingLabelTextField-dummy.m in Sources */,
+				1859B28E8E7E4CEF12A8410981F096E7 /* SkyFloatingLabelTextField.swift in Sources */,
+				58DEC7ED6A137DAD9B18702643F6D9EA /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
+				3FC5789BE5F688AB01673107F2B6C0CC /* UITextField+fixCaretPosition.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		52C026D9240010F405CF4BE5F56CD3E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftyJSON;
-			target = 1F24D7CA1DCB52C280B9055EDB6A908C /* SwiftyJSON */;
-			targetProxy = 3EA070144A6897CD6150F1B062FFE576 /* PBXContainerItemProxy */;
-		};
-		C905F5B22A91997E77F0AAF15FEEB4F7 /* PBXTargetDependency */ = {
+		366B207BD6969BFFFDC1B2E15E794DA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JTAppleCalendar;
 			target = 4D5B8B1BE64F80268007C79821DDDC20 /* JTAppleCalendar */;
-			targetProxy = 865A71A458582CE9321814870D455342 /* PBXContainerItemProxy */;
+			targetProxy = 018AA465530B274ECA34BE05F0924223 /* PBXContainerItemProxy */;
 		};
-		EDC664034345A3369FA2E258B8F4F104 /* PBXTargetDependency */ = {
+		76EE466D60C346590792432A1D508663 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SkyFloatingLabelTextField;
-			target = 2D8692B17719E0EBB0ADA4EF087AF483 /* SkyFloatingLabelTextField */;
-			targetProxy = D0104B02D0944AA3C473BDDCD0C6C79F /* PBXContainerItemProxy */;
+			target = 2E06704627029ACA8E3B039184372B46 /* SkyFloatingLabelTextField */;
+			targetProxy = F0D456509F25158E1108E6CBAF598281 /* PBXContainerItemProxy */;
+		};
+		ED5AD33C2A57FA5366A2C430B1D4237A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftyJSON;
+			target = 46FE750A18BB4D5520992211826613B9 /* SwiftyJSON */;
+			targetProxy = 51A3C1BB4B075A5B61A7F83528796D6E /* PBXContainerItemProxy */;
+		};
+		FD55407FE4D6A16C55BC1B46F24CE6B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BEMCheckBox;
+			target = BC19A72FB7D1DB0B2CC5F6C5CF2400F4 /* BEMCheckBox */;
+			targetProxy = 0A3A3D62CBE7C9907C9AC560492C73B7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		158F70C6707FCA8FC955B1A409BB5B41 /* Release */ = {
+		0A3AEA7B5DB8B1F451058730418153CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3537A6FD2F098818260B09F9F0F6A977 /* SkyFloatingLabelTextField.xcconfig */;
+			baseConfigurationReference = D4093D66E8D8E523D8529635A7FB6F63 /* BEMCheckBox.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -701,17 +824,16 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BEMCheckBox/BEMCheckBox-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BEMCheckBox/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_NAME = SkyFloatingLabelTextField;
+				MODULEMAP_FILE = "Target Support Files/BEMCheckBox/BEMCheckBox.modulemap";
+				PRODUCT_NAME = BEMCheckBox;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -720,38 +842,7 @@
 			};
 			name = Release;
 		};
-		1A0E6D13E179C41EC4C436741F621C0C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3537A6FD2F098818260B09F9F0F6A977 /* SkyFloatingLabelTextField.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
-				PRODUCT_NAME = SkyFloatingLabelTextField;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		2A42423924C285FAD5231E1BF80F40DE /* Release */ = {
+		0B685F8626F73CC6E401F1A4328D8913 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1B629DE8107E3EB454E22FDEE65BD6E /* Pods-LAB2.release.xcconfig */;
 			buildSettings = {
@@ -785,9 +876,70 @@
 			};
 			name = Release;
 		};
-		39837445A46A10F0E5568A746C386491 /* Debug */ = {
+		229507FE948D1D871F2758D88499286D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB5C0482F87703D4DA47E449D72D259C /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = E4882E3DB60C2D0A30DB7AAB870138C4 /* SkyFloatingLabelTextField.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_NAME = SkyFloatingLabelTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		22B6F226264FEB192AE86B67802A1619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4093D66E8D8E523D8529635A7FB6F63 /* BEMCheckBox.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/BEMCheckBox/BEMCheckBox-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BEMCheckBox/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/BEMCheckBox/BEMCheckBox.modulemap";
+				PRODUCT_NAME = BEMCheckBox;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4765CDD65281D52D2924C361DE8F2D77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E098622ED9A5DE4F6FAD5478F4E9861 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -808,17 +960,18 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		507CF7625AA99DCEFDCE31C23EDE914B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47F8411B8962ED8CE13F5335246A220B /* JTAppleCalendar.xcconfig */;
+			baseConfigurationReference = 5024FEE431FD5B651E1DF16FE8203A9F /* JTAppleCalendar.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -836,6 +989,37 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/JTAppleCalendar/JTAppleCalendar.modulemap";
 				PRODUCT_NAME = JTAppleCalendar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5D8D583B5C3B038CDDCE826F606A9562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E098622ED9A5DE4F6FAD5478F4E9861 /* SwiftyJSON.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
+				PRODUCT_NAME = SwiftyJSON;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -967,41 +1151,9 @@
 			};
 			name = Release;
 		};
-		7F40FF2BD923FD036C705F789AEC4991 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB5C0482F87703D4DA47E449D72D259C /* SwiftyJSON.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON.modulemap";
-				PRODUCT_NAME = SwiftyJSON;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		806C97EF3B6E05FA420F000401A8D811 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47F8411B8962ED8CE13F5335246A220B /* JTAppleCalendar.xcconfig */;
+			baseConfigurationReference = 5024FEE431FD5B651E1DF16FE8203A9F /* JTAppleCalendar.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1031,9 +1183,9 @@
 			};
 			name = Release;
 		};
-		9839B796D89F4CCE6F14E9A80FA9BFA4 /* Debug */ = {
+		8CD300C93BB144CF672F13927CBDE90B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 943DEE99DF8C740E6044FDF49FAD86E9 /* Pods-LAB2.debug.xcconfig */;
+			baseConfigurationReference = E4882E3DB60C2D0A30DB7AAB870138C4 /* SkyFloatingLabelTextField.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1044,26 +1196,24 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-LAB2/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SkyFloatingLabelTextField/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-LAB2/Pods-LAB2.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_LAB2;
+				MODULEMAP_FILE = "Target Support Files/SkyFloatingLabelTextField/SkyFloatingLabelTextField.modulemap";
+				PRODUCT_NAME = SkyFloatingLabelTextField;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1157,6 +1307,40 @@
 			};
 			name = Debug;
 		};
+		E9BA57ED44D6EE83226E797403504E3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 943DEE99DF8C740E6044FDF49FAD86E9 /* Pods-LAB2.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LAB2/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LAB2/Pods-LAB2.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_LAB2;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		FA49752EEBB411CF319F97BBFD236C0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D24EC5E4A328322B638133767C782F9 /* Pods-LAB2UITests.release.xcconfig */;
@@ -1193,6 +1377,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		020E578A97CC1DF9DC645C21BD1D2A8D /* Build configuration list for PBXNativeTarget "BEMCheckBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B6F226264FEB192AE86B67802A1619 /* Debug */,
+				0A3AEA7B5DB8B1F451058730418153CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1E78F0AF2A8CFF29D1235D29F58A4E06 /* Build configuration list for PBXNativeTarget "JTAppleCalendar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1220,20 +1413,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		947DDE28A78A54AC19BBDA2FB39DAB8F /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */ = {
+		B0DD948E553EDAFDAA7F27D2F0D5026C /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A0E6D13E179C41EC4C436741F621C0C /* Debug */,
-				158F70C6707FCA8FC955B1A409BB5B41 /* Release */,
+				5D8D583B5C3B038CDDCE826F606A9562 /* Debug */,
+				4765CDD65281D52D2924C361DE8F2D77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DF47770CCCC5A269CA7A836EF4E3A090 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+		B8FCFCD564381530B31856015EEEB049 /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39837445A46A10F0E5568A746C386491 /* Debug */,
-				7F40FF2BD923FD036C705F789AEC4991 /* Release */,
+				229507FE948D1D871F2758D88499286D /* Debug */,
+				8CD300C93BB144CF672F13927CBDE90B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCED71DE06F1ACB80F030C89CFE6854B /* Build configuration list for PBXNativeTarget "Pods-LAB2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9BA57ED44D6EE83226E797403504E3D /* Debug */,
+				0B685F8626F73CC6E401F1A4328D8913 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1243,15 +1445,6 @@
 			buildConfigurations = (
 				CC541509C92E4681DB3074C01FB7F7F1 /* Debug */,
 				FA49752EEBB411CF319F97BBFD236C0A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAD227D01DF770C90530C5341ECBDD64 /* Build configuration list for PBXNativeTarget "Pods-LAB2" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9839B796D89F4CCE6F14E9A80FA9BFA4 /* Debug */,
-				2A42423924C285FAD5231E1BF80F40DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

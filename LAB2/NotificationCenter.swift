@@ -18,17 +18,12 @@ class NotificationCenter: NSObject, UNUserNotificationCenterDelegate{
         print("Tapped in notification")
     }
     
-    //This is key callback to present notification while the app is in foreground
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         print("Notification being triggered")
-        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
-        //to distinguish between notifications
         if notification.request.identifier == "localNotification"{
-            
             completionHandler( [.alert,.sound,.badge])
-            
         }
     }
 }

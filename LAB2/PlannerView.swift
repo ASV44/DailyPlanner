@@ -12,11 +12,8 @@ class PlannerView: UIView {
     
     private let gradient : CAGradientLayer = CAGradientLayer()
     
-    @IBOutlet weak var addButtonBottom: NSLayoutConstraint!
-    @IBOutlet weak var addButtonTrailing: NSLayoutConstraint!
-    
-    @IBOutlet weak var dateTop: NSLayoutConstraint!
-    @IBOutlet weak var dayTop: NSLayoutConstraint!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var day: UILabel!
     
     override func draw(_ rect: CGRect) {
         self.gradient.frame = self.bounds
@@ -31,10 +28,8 @@ class PlannerView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         let screenSize = UIScreen.main.bounds
-        addButtonBottom.constant = 0.0398 * screenSize.height
-        addButtonTrailing.constant = 0.0579 * screenSize.width
-        dateTop.constant = 0.0271 * screenSize.height
-        dayTop.constant = 0.00995 * screenSize.height
+        date.font = date.font.withSize(screenSize.width * 0.12)
+        day.font = day.font.withSize(screenSize.width * 0.0483)
     }
     
 }
