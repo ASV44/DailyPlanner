@@ -123,9 +123,8 @@ class ViewController: UIViewController {
     
     func handleEvents(view: JTAppleCell?,for date: Date) {
         guard let validCell = view as? CellView else { return }
-        let keyDate = getEventKet(for: date)
-        let hideStatus = events[keyDate].exists() ? false : true
-        validCell.activityDot.isHidden = hideStatus
+        let keyDate = getEventKey(for: date)
+        validCell.activityDot.isHidden = !events[keyDate].exists()
     }
     
     func setupPlannerViews(for date: Date, with cellState: CellState) {
@@ -165,7 +164,7 @@ class ViewController: UIViewController {
     
     func addNewEvent(_ eventInfo: JSON) {
         formatter.dateFormat = "dd-MM-yyyy"
-        let date = getEventKet(for: calendarView.selectedDates[0])
+        let date = getEventKey(for: calendarView.selectedDates[0])
         if(!events[date].exists()) {
             events[date] = JSON([])
             let cellState = calendarView.cellStatus(for: calendarView.selectedDates[0])
@@ -180,7 +179,6 @@ class ViewController: UIViewController {
             events[date][eventToEditIndex] = eventInfo
             break
         }
-        print(events)
         EventsUtils.cacheEvents(events)
         eventsTableView.reloadData()
     }
@@ -200,18 +198,20 @@ class ViewController: UIViewController {
             }
             performSegue(withIdentifier: "AddEvent", sender: self)
         }
-        else if sender.state == .began {
-            
-        }
     }
     
     @IBAction func settingsButton(_ sender: Any) {
         
     }
     
-    func getEventKet(for date: Date) -> String {
+    func getEventKey(for date: Date) -> String {
         formatter.dateFormat = "dd-MM-yyyy"
         return formatter.string(from: date)
+    }
+    
+    func markEvent(keyDate: String, item: Int, isDone: Bool) {
+        events[keyDate][item]["done"] = JSON(isDone)
+        EventsUtils.cacheEvents(events)
     }
 }
 
@@ -291,14 +291,14 @@ extension ViewController: UITableViewDataSource {
         guard calendarView.selectedDates.count > 0 else {
             return 0
         }
-        let keyDate = getEventKet(for: calendarView.selectedDates[0])
+        let keyDate = getEventKey(for: calendarView.selectedDates[0])
         
         return events[keyDate].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = self.eventsTableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
-
+        let cell = self.eventsTableView.dequeueReusableCell(withIdentifier: "cell")!
+        
         return cell
     }
 
@@ -307,20 +307,25 @@ extension ViewController: UITableViewDataSource {
 
 // MARK: Implement UITableView delegate for planner view
 extension ViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let eventCell = cell as! EventsTableCell
+        let keyDate = getEventKey(for: calendarView.selectedDates[0])
         
-        let keyDate = getEventKet(for: calendarView.selectedDates[0])
-        
+        eventCell.keyDate = keyDate
+        eventCell.item = indexPath.item
+        eventCell.addCheckBoxListener(self.markEvent)
         eventCell.title.text = events[keyDate][indexPath.item]["title"].stringValue
+        eventCell.checkBox.on = events[keyDate][indexPath.item]["done"].boolValue
+        eventCell.checkBox.reload()
     }
 }
 
-extension JSON{
+extension JSON {
     mutating func appendArray(json:JSON){
         if var arr = self.array{
             arr.append(json)

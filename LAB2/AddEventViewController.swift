@@ -94,6 +94,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         eventInfo["time"] = JSON(formatter.string(from: date))
         eventInfo["title"] = JSON(eventTitle.text!)
         eventInfo["description"] = JSON(eventDescription.text!)
+        eventInfo["done"] = JSON(false)
         showAlert()
         performSegue(withIdentifier: "addNewEvent", sender: self)
     }
