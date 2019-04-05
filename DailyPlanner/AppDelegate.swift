@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 10.0, *)
     public static var delegate: NotificationCenter = NotificationCenter()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = AppDelegate.delegate
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
         UIApplication.shared.registerForRemoteNotifications()
     }
 

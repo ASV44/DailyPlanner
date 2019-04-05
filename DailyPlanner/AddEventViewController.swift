@@ -53,12 +53,12 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             eventTitle.text! = eventToEdit["title"].string!
             eventDescription.text! = eventToEdit["description"] .string!
             let time = eventToEdit["time"].string!
-            let delimiter = time.index(of: ":")!
+            let delimiter = time.firstIndex(of: ":")!
             let hour = time[time.startIndex..<delimiter]
             let minutes = time[time.index(after: delimiter)..<time.endIndex]
             let date = setTimeOfDate(self.selectedDate, hour: Int(hour)!, minute: Int(minutes)!)
             dateTimePicker.setDate(date, animated: false)
-            addEventButton.setTitle("Edit", for: UIControlState.normal)
+            addEventButton.setTitle("Edit", for: UIControl.State.normal)
         }
     }
     
@@ -129,10 +129,10 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             let content = UNMutableNotificationContent()
             content.title = eventTitle.text!
             content.body = eventDescription.text!
-            content.sound = UNNotificationSound(named: "clockAlarm.caf")
+            content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("clockAlarm.caf"))
             
             let calendar = Calendar.current
-            var components = calendar.dateComponents([.hour, .minute, .day, .month, .year], from: dateTimePicker.date)
+            let components = calendar.dateComponents([.hour, .minute, .day, .month, .year], from: dateTimePicker.date)
             print(components)
             let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
             print(trigger.dateComponents)
@@ -141,7 +141,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             let request = UNNotificationRequest(identifier: identifier,
                                                 content: content, trigger: trigger)
             center.add(request, withCompletionHandler: { (error) in
-                if let error = error {
+                if error != nil {
                     // Something went wrong
                 }
             })
@@ -156,7 +156,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             UIApplication.shared.registerUserNotificationSettings(setting)
             UIApplication.shared.registerForRemoteNotifications()
             
-            let notification = UILocalNotification()
+            _ = UILocalNotification()
 //            notification.fireDate = NSDate(timeIntervalSinceNow: TimeInterval(delay)) as Date
 //            notification.alertBody = "Nottification with Delay"
 //            notification.alertAction = "This notification has \(delay) second delay"
@@ -165,4 +165,9 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUNNotificationSoundName(_ input: String) -> UNNotificationSoundName {
+	return UNNotificationSoundName(rawValue: input)
 }
