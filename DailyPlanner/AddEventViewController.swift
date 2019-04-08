@@ -104,7 +104,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ViewController
+        let vc = segue.destination as! CalendarViewController
         vc.mainView.translatesAutoresizingMaskIntoConstraints = true
     }
     

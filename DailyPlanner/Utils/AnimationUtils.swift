@@ -23,14 +23,11 @@ class AnimationUtils {
     static func searchBarSelect(_ searchBar: UISearchBar, to frame: CGRect) {
         let screenSize = UIScreen.main.bounds
         let pading = 0.0241 * screenSize.width
-        
         let borderColor = UIColor(red: 0, green: 0.705, blue: 0.921, alpha: 1)
-        
         let searchBarFrame = CGRect(x: frame.origin.x + pading,
                                     y: searchBar.frame.origin.y,
                                     width: frame.width - 2 * pading,
                                     height: searchBar.frame.height)
-        
         animateSearchBar(searchBar, to: searchBarFrame, color: borderColor)
     }
     
@@ -42,7 +39,6 @@ class AnimationUtils {
         let borderColor = UIColor(cgColor: searchBar.layer.borderColor!)
         borderColorAnimation(for: searchBar.layer, from: borderColor,
                              to: color, withDuration: 1.5)
-        
         UIView.animate(withDuration: 1,
                        animations: {searchBar.frame = frame},
                        completion: { finished in

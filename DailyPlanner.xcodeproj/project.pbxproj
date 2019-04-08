@@ -18,7 +18,7 @@
 		D6B64B831FDB7A38009DB65F /* clockAlarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = D6B64B821FDB7A38009DB65F /* clockAlarm.caf */; };
 		D6EB48CD203F95F60047BE1C /* AnimationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EB48CC203F95F60047BE1C /* AnimationUtils.swift */; };
 		D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D191F8E11010064808B /* AppDelegate.swift */; };
-		D6EE7D1C1F8E11010064808B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D1B1F8E11010064808B /* ViewController.swift */; };
+		D6EE7D1C1F8E11010064808B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE7D1B1F8E11010064808B /* CalendarViewController.swift */; };
 		D6EE7D1F1F8E11010064808B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EE7D1D1F8E11010064808B /* Main.storyboard */; };
 		D6EE7D211F8E11010064808B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6EE7D201F8E11010064808B /* Assets.xcassets */; };
 		D6EE7D241F8E11010064808B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6EE7D221F8E11010064808B /* LaunchScreen.storyboard */; };
@@ -64,7 +64,7 @@
 		D6EB48CC203F95F60047BE1C /* AnimationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtils.swift; sourceTree = "<group>"; };
 		D6EE7D161F8E11010064808B /* DailyPlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyPlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6EE7D191F8E11010064808B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D6EE7D1B1F8E11010064808B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D6EE7D1B1F8E11010064808B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		D6EE7D1E1F8E11010064808B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6EE7D201F8E11010064808B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6EE7D231F8E11010064808B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			children = (
 				D6EE7D191F8E11010064808B /* AppDelegate.swift */,
 				D6B64B801FDB78E0009DB65F /* NotificationCenter.swift */,
-				D6EE7D1B1F8E11010064808B /* ViewController.swift */,
+				D6EE7D1B1F8E11010064808B /* CalendarViewController.swift */,
 				D6A7352B1FAA62B60021AD42 /* PlannerView.swift */,
 				D60035551F9CFC9700C66502 /* CellView.swift */,
 				D68F7F8A1FC10CC2004F31D9 /* AddEventViewController.swift */,
@@ -446,7 +446,7 @@
 				D62CDA3F203E310600632DE9 /* EventsTableCell.swift in Sources */,
 				D6FF620F202FB03900856A1E /* EventsUtils.swift in Sources */,
 				D6B64B811FDB78E0009DB65F /* NotificationCenter.swift in Sources */,
-				D6EE7D1C1F8E11010064808B /* ViewController.swift in Sources */,
+				D6EE7D1C1F8E11010064808B /* CalendarViewController.swift in Sources */,
 				D6A897331FAC917B00BCDBCA /* AppUtility.swift in Sources */,
 				D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */,
 				D60035561F9CFC9700C66502 /* CellView.swift in Sources */,
@@ -621,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GEW7T3V9U6;
+				DEVELOPMENT_TEAM = XBPT88T68J;
 				INFOPLIST_FILE = DailyPlanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -638,7 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GEW7T3V9U6;
+				DEVELOPMENT_TEAM = XBPT88T68J;
 				INFOPLIST_FILE = DailyPlanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
