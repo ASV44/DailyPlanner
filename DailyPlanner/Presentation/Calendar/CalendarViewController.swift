@@ -58,10 +58,15 @@ class CalendarViewController: UIViewController {
         events = EventsUtils.getCachedEvents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         AppUtility.lockOrientation(.all)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,7 +89,6 @@ class CalendarViewController: UIViewController {
         searchBar.delegate = self
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.white.cgColor
-        mainView.translatesAutoresizingMaskIntoConstraints = false
         initialSearchBarFrame = searchBar.frame
     }
     
@@ -102,13 +106,13 @@ class CalendarViewController: UIViewController {
     }
     
     func handleTextSelected(view: JTAppleCell?, cellState: CellState) {
-        guard let validCell = view as? CellView else { return }
+        guard let validCell = view as? CalendarViewCell else { return }
         validCell.selectedView.isHidden = !cellState.isSelected
         handleTextColor(view: view, cellState: cellState)
     }
     
     func handleTextColor(view: JTAppleCell?, cellState: CellState) {
-        guard let validCell = view as? CellView else { return }
+        guard let validCell = view as? CalendarViewCell else { return }
         let gray: CGFloat = 216 / 255
         
         let color = cellState.isSelected ? .white :
@@ -119,7 +123,7 @@ class CalendarViewController: UIViewController {
     }
     
     func handleEvents(view: JTAppleCell?,for date: Date) {
-        guard let validCell = view as? CellView else { return }
+        guard let validCell = view as? CalendarViewCell else { return }
         let keyDate = getEventKey(for: date)
         validCell.activityDot.isHidden = !events[keyDate].exists()
     }
@@ -129,21 +133,6 @@ class CalendarViewController: UIViewController {
         formatter.dateFormat = "EEEE"
         let day = formatter.string(from: date)
         self.plannerView.day.text = day
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddEvent" {
-            let vc = segue.destination as! AddEventViewController
-            vc.selectedDate = calendarView.selectedDates[0]
-            vc.state = self.eventState!
-            switch self.eventState! {
-            case AddEventViewController.State.EDIT:
-                vc.eventToEdit = self.eventToEdit
-                break
-            default:
-                break
-            }
-        }
     }
     
     @IBAction func getEventData(for segue: UIStoryboardSegue) {
@@ -160,7 +149,7 @@ class CalendarViewController: UIViewController {
         if(!events[date].exists()) {
             events[date] = JSON([])
             let cellState = calendarView.cellStatus(for: calendarView.selectedDates[0])
-            let selectedDateCell = cellState?.cell() as! CellView
+            let selectedDateCell = cellState?.cell() as! CalendarViewCell
             selectedDateCell.activityDot.isHidden = false
         }
         switch self.eventState! {
@@ -205,9 +194,25 @@ class CalendarViewController: UIViewController {
         events[keyDate][item]["done"] = JSON(isDone)
         EventsUtils.cacheEvents(events)
     }
+    
+    func initAddEventViewController() -> AddEventViewController  {
+        let vc = AddEventViewController.instantiate()
+        vc.selectedDate = calendarView.selectedDates[0]
+        vc.state = self.eventState!
+        switch self.eventState! {
+        case AddEventViewController.State.EDIT:
+            vc.eventToEdit = self.eventToEdit
+            break
+        default:
+            break
+        }
+        
+        return vc
+    }
+    
     @IBAction func addEvent(_ sender: UIButton) {
         self.eventState = AddEventViewController.State.ADD
-        navigationController?.pushViewController(AddEventViewController.instantiate(), animated: true)
+        navigationController?.pushViewController(initAddEventViewController(), animated: true)
     }
 }
 
@@ -215,7 +220,7 @@ class CalendarViewController: UIViewController {
 extension CalendarViewController: JTAppleCalendarViewDataSource {
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        let cell = calendar.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! CellView
+        let cell = calendar.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! CalendarViewCell
         cell.dayLabel.text = cellState.text
         handleTextSelected(view: cell, cellState: cellState)
         handleEvents(view: cell, for: date)

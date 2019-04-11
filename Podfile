@@ -11,12 +11,12 @@ target 'DailyPlanner' do
   pod 'SwiftyJSON', '~> 4.3.0'
   pod 'BEMCheckBox', '~> 1.4.1'
 
-  target 'DailyPlanner' do
+  target 'DailyPlannerTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'DailyPlanner' do
+  target 'DailyPlannerUITests' do
     inherit! :search_paths
     # Pods for testing
   end

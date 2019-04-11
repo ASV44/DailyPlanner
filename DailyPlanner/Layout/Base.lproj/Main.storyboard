@@ -137,7 +137,7 @@
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellView" id="VAv-IE-E7z" customClass="CellView" customModule="DailyPlanner" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellView" id="VAv-IE-E7z" customClass="CalendarViewCell" customModule="DailyPlanner" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="95" height="66"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -148,6 +148,7 @@
                                                                             <rect key="frame" x="32.666666666666664" y="18" width="30" height="30"/>
                                                                             <color key="backgroundColor" red="0.0" green="0.67843137254901964" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="SsI-0g-RD3" secondAttribute="height" multiplier="1:1" id="1fG-U9-mEG"/>
                                                                                 <constraint firstAttribute="width" constant="30" id="9JJ-LC-flc"/>
                                                                                 <constraint firstAttribute="height" constant="30" id="O1X-0l-vWm"/>
                                                                             </constraints>
@@ -156,6 +157,11 @@
                                                                                     <integer key="value" value="0"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
+                                                                            <variation key="default">
+                                                                                <mask key="constraints">
+                                                                                    <exclude reference="O1X-0l-vWm"/>
+                                                                                </mask>
+                                                                            </variation>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-NO-00A">
                                                                             <rect key="frame" x="26.666666666666671" y="23" width="42" height="20"/>
@@ -348,7 +354,7 @@
                         <outlet property="calendarStackView" destination="RmM-Hy-iN2" id="e4K-1F-gGm"/>
                         <outlet property="calendarView" destination="yEk-Qw-bBq" id="KZf-06-FJX"/>
                         <outlet property="eventsTableView" destination="uci-sq-Rxx" id="UEM-d9-exZ"/>
-                        <outlet property="mainView" destination="jfz-JC-dph" id="IV2-Om-yRx"/>
+                        <outlet property="mainView" destination="jfz-JC-dph" id="gpN-mu-Ctj"/>
                         <outlet property="monthYearLabel" destination="ZFJ-E4-s8V" id="cCU-Co-wC6"/>
                         <outlet property="plannerView" destination="Pt8-RN-S1W" id="s0j-HQ-Shn"/>
                         <outlet property="searchBar" destination="ASg-de-1ir" id="fbc-Cs-NfF"/>
@@ -367,7 +373,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AkG-Bk-eIJ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Xfa-Dj-4zg"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqZ-BZ-hjP" userLabel="First Responder" sceneMemberID="firstResponder"/>

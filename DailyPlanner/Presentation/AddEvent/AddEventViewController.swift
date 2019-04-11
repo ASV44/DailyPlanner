@@ -30,12 +30,11 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "Add Your Event"
         
         formatter.dateFormat = "dd-MM-yyyy HH:mm"
         setCurrentTime()
@@ -105,7 +104,7 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! CalendarViewController
-        vc.mainView.translatesAutoresizingMaskIntoConstraints = true
+//        vc.mainView.translatesAutoresizingMaskIntoConstraints = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -18,6 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s9G-gM-3CD">
+                                <rect key="frame" x="8" y="52" width="398" height="207.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="s9G-gM-3CD" secondAttribute="height" multiplier="23:12" id="xbk-pO-doS"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="532743178.77578098">
+                                    <!--2017-11-19 00:12:58 +0000-->
+                                </date>
+                            </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzV-q4-C7R" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="8" y="419" width="398" height="58"/>
                                 <nil key="textColor"/>
@@ -62,23 +71,8 @@
                                     <action selector="addButtonClick:" destination="JGm-1j-Zwd" eventType="touchUpInside" id="rqP-wl-4Yu"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="s9G-gM-3CD">
-                                <rect key="frame" x="8" y="88" width="398" height="207.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="s9G-gM-3CD" secondAttribute="height" multiplier="23:12" id="xbk-pO-doS"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="532743178.77578098">
-                                    <!--2017-11-19 00:12:58 +0000-->
-                                </date>
-                            </datePicker>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHu-Ex-HmD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Add Your Event" id="ckl-Ph-q9D"/>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TNt-WO-66h" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="8" y="572.5" width="398" height="58"/>
+                                <rect key="frame" x="8" y="572.5" width="398" height="58.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -105,16 +99,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="s9G-gM-3CD" firstAttribute="top" secondItem="CJF-nW-Hvv" secondAttribute="top" constant="8" id="3ea-QI-IBf"/>
                             <constraint firstItem="dzV-q4-C7R" firstAttribute="leading" secondItem="CJF-nW-Hvv" secondAttribute="leading" constant="8" id="4mB-YP-Mod"/>
-                            <constraint firstItem="eHu-Ex-HmD" firstAttribute="top" secondItem="CJF-nW-Hvv" secondAttribute="top" id="85G-Jh-Tku"/>
                             <constraint firstItem="CJF-nW-Hvv" firstAttribute="bottom" secondItem="uQe-kL-ej7" secondAttribute="bottom" multiplier="1.05" id="87B-oE-aQF"/>
-                            <constraint firstItem="s9G-gM-3CD" firstAttribute="top" secondItem="eHu-Ex-HmD" secondAttribute="bottom" id="BK5-rg-gwe"/>
-                            <constraint firstItem="eHu-Ex-HmD" firstAttribute="trailing" secondItem="CJF-nW-Hvv" secondAttribute="trailing" id="BVO-bC-gZH"/>
                             <constraint firstItem="CJF-nW-Hvv" firstAttribute="trailing" secondItem="dzV-q4-C7R" secondAttribute="trailing" constant="8" id="Fdy-1h-WqO"/>
-                            <constraint firstItem="eHu-Ex-HmD" firstAttribute="leading" secondItem="CJF-nW-Hvv" secondAttribute="leading" id="H6w-o2-M8M"/>
                             <constraint firstItem="dzV-q4-C7R" firstAttribute="centerY" secondItem="SZZ-RT-02V" secondAttribute="centerY" id="KZw-E5-RLZ"/>
                             <constraint firstItem="TNt-WO-66h" firstAttribute="top" secondItem="dzV-q4-C7R" secondAttribute="bottom" multiplier="1.2" id="Njw-9I-Cmr"/>
-                            <constraint firstItem="s9G-gM-3CD" firstAttribute="top" secondItem="eHu-Ex-HmD" secondAttribute="bottom" id="UUh-74-g9L"/>
                             <constraint firstItem="CJF-nW-Hvv" firstAttribute="trailing" secondItem="s9G-gM-3CD" secondAttribute="trailing" constant="8" id="aui-Z7-Fnr"/>
                             <constraint firstItem="CJF-nW-Hvv" firstAttribute="trailing" secondItem="TNt-WO-66h" secondAttribute="trailing" constant="8" id="ddN-1e-04e"/>
                             <constraint firstItem="TNt-WO-66h" firstAttribute="leading" secondItem="CJF-nW-Hvv" secondAttribute="leading" constant="8" id="epH-Mz-LhZ"/>
