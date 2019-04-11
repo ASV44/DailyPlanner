@@ -11,17 +11,17 @@ import SkyFloatingLabelTextField
 import SwiftyJSON
 import UserNotifications
 
-class AddEventViewController: UIViewController, UITextFieldDelegate {
-    
-    var selectedDate: Date!
+class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFieldDelegate {
+
+    static let storyboardName = "AddEvent"
     
     @IBOutlet weak var dateTimePicker: UIDatePicker!
     @IBOutlet weak var eventTitle: SkyFloatingLabelTextField!
     @IBOutlet weak var eventDescription: SkyFloatingLabelTextField!
     @IBOutlet weak var addEventButton: UIButton!
-    
+
+    var selectedDate: Date!
     let formatter: DateFormatter = DateFormatter()
-    
     var eventInfo = JSON()
     
     enum State { case ADD, EDIT }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hJw-hK-LfE">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7r-VA-WDI" userLabel="Header View">
-                                <rect key="frame" x="8" y="44" width="359" height="44"/>
+                                <rect key="frame" x="8" y="88" width="359" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6u-Za-DdY" userLabel="SettingsButton">
                                         <rect key="frame" x="8" y="15" width="17" height="14"/>
@@ -72,13 +72,13 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="f8T-oQ-LK9" userLabel="CalendarStackView">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="680"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUM-yM-LbC" userLabel="CalendarViewHolder">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="343"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="322"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RmM-Hy-iN2">
-                                                <rect key="frame" x="17.666666666666657" y="8" width="339.33333333333337" height="328.33333333333331"/>
+                                                <rect key="frame" x="17.666666666666657" y="8" width="339.33333333333337" height="307.66666666666669"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JlO-8E-08W" userLabel="DayLabelStackView">
                                                         <rect key="frame" x="0.0" y="0.0" width="339.33333333333331" height="20.333333333333332"/>
@@ -128,7 +128,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yEk-Qw-bBq" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                                        <rect key="frame" x="0.0" y="20.333333333333314" width="339.33333333333331" height="308"/>
+                                                        <rect key="frame" x="0.0" y="20.333333333333343" width="339.33333333333331" height="287.33333333333326"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GPv-Si-9Ra">
                                                             <size key="itemSize" width="95" height="66"/>
@@ -209,7 +209,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pt8-RN-S1W" userLabel="Planner View" customClass="PlannerView" customModule="DailyPlanner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="343" width="375" height="381"/>
+                                        <rect key="frame" x="0.0" y="322" width="375" height="358"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fou-Mi-aqS">
                                                 <rect key="frame" x="144" y="68" width="87" height="31.333333333333329"/>
@@ -218,15 +218,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoR-eE-ppV">
-                                                <rect key="frame" x="337" y="329.33333333333337" width="20" height="17"/>
+                                                <rect key="frame" x="337" y="308.33333333333337" width="20" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="O4X-rt-olu"/>
                                                     <constraint firstAttribute="width" constant="20" id="nWU-6Q-u78"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="plus"/>
                                                 <connections>
-                                                    <action selector="addButtonListener:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bY0-ov-lDN"/>
-                                                    <segue destination="Bsh-tm-Tqn" kind="show" identifier="AddEvent" id="1jN-SZ-jZL"/>
+                                                    <action selector="addEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tqo-CB-aAn"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5PP-yn-dmL">
@@ -239,17 +238,17 @@
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uci-sq-Rxx" userLabel="EventTableView">
-                                                <rect key="frame" x="31" y="107.33333333333339" width="313" height="225.33333333333337"/>
+                                                <rect key="frame" x="47" y="107.33333333333339" width="281" height="202.33333333333337"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uci-sq-Rxx" secondAttribute="height" multiplier="139:100" id="NPf-fW-3xd"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QBX-wD-9pi" customClass="EventsTableCell" customModule="DailyPlanner" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="313" height="44"/>
+                                                        <rect key="frame" x="0.0" y="28" width="281" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QBX-wD-9pi" id="1ez-Bp-SIc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="313" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="281" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpC-Mk-nJL">
@@ -344,6 +343,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GiQ-L0-95Q"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aEY-c9-wyG"/>
                     <connections>
                         <outlet property="calendarStackView" destination="RmM-Hy-iN2" id="e4K-1F-gGm"/>
                         <outlet property="calendarView" destination="yEk-Qw-bBq" id="KZf-06-FJX"/>
@@ -356,145 +356,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="131.25"/>
+            <point key="canvasLocation" x="133.59999999999999" y="130.78817733990149"/>
         </scene>
-        <!--Add Event View Controller-->
-        <scene sceneID="amh-Um-Pwf">
+        <!--Navigation Controller-->
+        <scene sceneID="qB3-2R-s8X">
             <objects>
-                <viewController id="Bsh-tm-Tqn" customClass="AddEventViewController" customModule="DailyPlanner" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4rY-JS-lot">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jv8-KE-JXp" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="0.0" y="377" width="375" height="58"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Title"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" red="0.30344793200492859" green="0.75570023059844971" blue="0.93644559383392334" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YrK-jx-cg3">
-                                <rect key="frame" x="0.0" y="702" width="375" height="39"/>
-                                <color key="backgroundColor" red="0.0" green="0.70588235294117641" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="YrK-jx-cg3" secondAttribute="height" multiplier="414:43" id="0W6-3O-WVf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
-                                <state key="normal" title="Add Event">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addButtonClick:" destination="Bsh-tm-Tqn" eventType="touchUpInside" id="Vsv-yt-s1u"/>
-                                </connections>
-                            </button>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-m6-iXx">
-                                <rect key="frame" x="0.0" y="87.999999999999986" width="375" height="195.66666666666663"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="eaf-m6-iXx" secondAttribute="height" multiplier="23:12" id="RAj-VG-nH5"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="532743178.77578098">
-                                    <!--2017-11-19 00:12:58 +0000-->
-                                </date>
-                            </datePicker>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pt2-A0-6xI">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Add Your Event" id="I6f-4g-36L">
-                                        <barButtonItem key="leftBarButtonItem" image="BackButton" style="plain" id="2CE-KH-tJ0">
-                                            <connections>
-                                                <action selector="backToCalendar:" destination="Bsh-tm-Tqn" id="d25-ci-2nf"/>
-                                                <segue destination="deC-l5-KaD" kind="unwind" identifier="backToCalendar" unwindAction="getEventDataFor:" id="WT2-tR-xiJ"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9X-02-Dvn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="0.0" y="522" width="375" height="58.666666666666629"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Description"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Event Description"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="eaf-m6-iXx" firstAttribute="top" secondItem="pt2-A0-6xI" secondAttribute="bottom" id="0aX-dr-mz7"/>
-                            <constraint firstItem="eaf-m6-iXx" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="0jc-rB-iEO"/>
-                            <constraint firstItem="Jv8-KE-JXp" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="F8L-YO-yiy"/>
-                            <constraint firstItem="B9X-02-Dvn" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="MDu-9r-b2A"/>
-                            <constraint firstItem="B9X-02-Dvn" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="Mrx-FU-2w9"/>
-                            <constraint firstItem="eaf-m6-iXx" firstAttribute="top" secondItem="pt2-A0-6xI" secondAttribute="bottom" id="NqO-j0-f6k"/>
-                            <constraint firstItem="eaf-m6-iXx" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="SIa-kJ-1hY"/>
-                            <constraint firstItem="pt2-A0-6xI" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="WUc-X0-nvO"/>
-                            <constraint firstItem="pt2-A0-6xI" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="d6T-f2-VMF"/>
-                            <constraint firstItem="Jv8-KE-JXp" firstAttribute="centerY" secondItem="4rY-JS-lot" secondAttribute="centerY" id="g3t-ol-jRz"/>
-                            <constraint firstItem="Jv8-KE-JXp" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="gJ1-RN-ROz"/>
-                            <constraint firstItem="YrK-jx-cg3" firstAttribute="trailing" secondItem="JBq-Xb-F6Y" secondAttribute="trailing" id="i1W-ak-bmb"/>
-                            <constraint firstItem="YrK-jx-cg3" firstAttribute="leading" secondItem="JBq-Xb-F6Y" secondAttribute="leading" id="rbK-ch-78d"/>
-                            <constraint firstItem="pt2-A0-6xI" firstAttribute="top" secondItem="JBq-Xb-F6Y" secondAttribute="top" id="ttU-Lo-n0J"/>
-                            <constraint firstItem="B9X-02-Dvn" firstAttribute="top" secondItem="Jv8-KE-JXp" secondAttribute="bottom" multiplier="1.2" id="wpn-iy-kW3"/>
-                            <constraint firstItem="JBq-Xb-F6Y" firstAttribute="bottom" secondItem="YrK-jx-cg3" secondAttribute="bottom" multiplier="1.05" id="xxJ-fH-N6z"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="JBq-Xb-F6Y"/>
-                    </view>
+                <navigationController id="hJw-hK-LfE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZHN-sx-dPt">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
                     <connections>
-                        <outlet property="addEventButton" destination="YrK-jx-cg3" id="olq-Gr-GMS"/>
-                        <outlet property="dateTimePicker" destination="eaf-m6-iXx" id="Tla-Xh-WYg"/>
-                        <outlet property="eventDescription" destination="B9X-02-Dvn" id="F2N-Wp-hcj"/>
-                        <outlet property="eventTitle" destination="Jv8-KE-JXp" id="Vh1-ZZ-TOQ"/>
-                        <segue destination="deC-l5-KaD" kind="unwind" identifier="addNewEvent" unwindAction="getEventDataFor:" id="rrx-MV-kO9"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AkG-Bk-eIJ"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gS4-Xk-WLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="deC-l5-KaD" userLabel="Exit" sceneMemberID="exit"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uqZ-BZ-hjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997" y="131"/>
+            <point key="canvasLocation" x="-698" y="131"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="25" height="25"/>
         <image name="plus" width="42" height="46"/>
         <image name="settingsButton" width="512" height="512"/>
     </resources>

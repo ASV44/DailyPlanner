@@ -131,11 +131,6 @@ class CalendarViewController: UIViewController {
         self.plannerView.day.text = day
     }
     
-    @IBAction func addButtonListener(_ sender: Any) {
-        self.eventState = AddEventViewController.State.ADD
-        self.performSegue(withIdentifier: "AddEvent", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddEvent" {
             let vc = segue.destination as! AddEventViewController
@@ -209,6 +204,10 @@ class CalendarViewController: UIViewController {
     func markEvent(keyDate: String, item: Int, isDone: Bool) {
         events[keyDate][item]["done"] = JSON(isDone)
         EventsUtils.cacheEvents(events)
+    }
+    @IBAction func addEvent(_ sender: UIButton) {
+        self.eventState = AddEventViewController.State.ADD
+        navigationController?.pushViewController(AddEventViewController.instantiate(), animated: true)
     }
 }
 
