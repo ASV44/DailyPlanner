@@ -83,16 +83,6 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
         eventInfo["description"] = JSON(eventDescription.text!)
         eventInfo["done"] = JSON(false)
         showAlert()
-        performSegue(withIdentifier: "addNewEvent", sender: self)
-    }
-
-    @IBAction func backToCalendar(_ sender: Any) {
-        performSegue(withIdentifier: "backToCalendar", sender: self)
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! CalendarViewController
-//        vc.mainView.translatesAutoresizingMaskIntoConstraints = true
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

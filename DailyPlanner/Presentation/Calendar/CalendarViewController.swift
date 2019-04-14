@@ -23,17 +23,15 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var plannerStackView: UIStackView!
     @IBOutlet weak var eventsTableView: UITableView!
 
+    var presenter: CalendarPresenter =  CalendarPresenter()
     var events: JSON!
     var initialSearchBarFrame: CGRect!
     var eventState: EventState!
     var eventToEdit: JSON!
     var eventToEditIndex: Int!
 
-    let formatter = DateFormatter()
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         AppUtility.lockOrientation(.portrait)
     }
 
@@ -41,13 +39,11 @@ class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupCalendar()
         setupSearchBar()
 
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
-
         events = EventsUtils.getCachedEvents()
     }
 
@@ -87,14 +83,8 @@ class CalendarViewController: UIViewController {
 
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
-
-        formatter.dateFormat = "yyyy"
-        let year = formatter.string(from: date)
-
-        formatter.dateFormat = "MMMM"
-        let month = formatter.string(from: date)
-
-        //print(month, year)
+        let year = presenter.formatter.string(.year, from: date)
+        let month = presenter.formatter.string(.monthName, from: date)
         monthYearLabel.text = month + " " + year
     }
 
@@ -117,14 +107,13 @@ class CalendarViewController: UIViewController {
 
     func handleEvents(view: JTAppleCell?,for date: Date) {
         guard let validCell = view as? CalendarViewCell else { return }
-        let keyDate = getEventKey(for: date)
+        let keyDate = presenter.formatter.string(.dateMonthYear, from: date)
         validCell.activityDot.isHidden = !events[keyDate].exists()
     }
 
     func setupPlannerViews(for date: Date, with cellState: CellState) {
         self.plannerView.date.text = cellState.text
-        formatter.dateFormat = "EEEE"
-        let day = formatter.string(from: date)
+        let day = presenter.formatter.string(.dayName, from: date)
         self.plannerView.day.text = day
     }
 
@@ -137,8 +126,7 @@ class CalendarViewController: UIViewController {
     }
 
     func addNewEvent(_ eventInfo: JSON) {
-        formatter.dateFormat = "dd-MM-yyyy"
-        let date = getEventKey(for: calendarView.selectedDates[0])
+        let date = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
         if(!events[date].exists()) {
             events[date] = JSON([])
             let cellState = calendarView.cellStatus(for: calendarView.selectedDates[0])
@@ -161,9 +149,7 @@ class CalendarViewController: UIViewController {
         if sender.state == .ended {
             let cell = sender.view as! EventsTableCell
             self.eventState = EventState.EDIT
-            formatter.dateFormat = "dd-MM-yyyy"
-            let selectedDate = calendarView.selectedDates[0]
-            let date = formatter.string(from: selectedDate)
+            let date = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
             for i in 0...events[date].count {
                 if events[date][i]["title"].stringValue == cell.title.text! {
                     self.eventToEdit = events[date][i]
@@ -178,11 +164,6 @@ class CalendarViewController: UIViewController {
 
     }
 
-    func getEventKey(for date: Date) -> String {
-        formatter.dateFormat = "dd-MM-yyyy"
-        return formatter.string(from: date)
-    }
-
     func markEvent(keyDate: String, item: Int, isDone: Bool) {
         events[keyDate][item]["done"] = JSON(isDone)
         EventsUtils.cacheEvents(events)
@@ -190,10 +171,11 @@ class CalendarViewController: UIViewController {
 
     func initAddEventViewController() -> AddEventViewController  {
         let vc = AddEventViewController.instantiate()
+        vc.interactor = AddEventInteractor()
         vc.selectedDate = calendarView.selectedDates[0]
         vc.state = self.eventState!
         switch self.eventState! {
-        case AddEventViewController.State.EDIT:
+        case EventState.EDIT:
             vc.eventToEdit = self.eventToEdit
             break
         default:
@@ -230,13 +212,10 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
 
     //Display cell
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-
-        formatter.dateFormat = "yyyy MM dd"
-
-        let startDate = formatter.date(from: "2016 02 01")! // You can use date generated from a formatter
-        //let endDate = formatter.date(from: "2017 02 01")!                              // You can also use dates created from this function
+        let startDate = presenter.formatter.date(.yearMonthDate, from: "2016 02 01") // You can use date generated from a formatter
+        let endDate = presenter.formatter.date(.yearMonthDate, from: "2025 12 31")  // You can also use dates created from this function
         let parameters = ConfigurationParameters(startDate: startDate,
-                                                 endDate: Date(),
+                                                 endDate: endDate,
                                                  firstDayOfWeek: .monday)
 
         return parameters
@@ -285,7 +264,7 @@ extension CalendarViewController: UITableViewDataSource {
         guard calendarView.selectedDates.count > 0 else {
             return 0
         }
-        let keyDate = getEventKey(for: calendarView.selectedDates[0])
+        let keyDate = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
 
         return events[keyDate].count
     }
@@ -308,7 +287,7 @@ extension CalendarViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let eventCell = cell as! EventsTableCell
-        let keyDate = getEventKey(for: calendarView.selectedDates[0])
+        let keyDate = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
 
         eventCell.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action:  #selector(modifyEvent(sender:))))
         eventCell.keyDate = keyDate
