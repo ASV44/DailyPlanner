@@ -11,6 +11,10 @@
 		157CA883F18BA1E493669FF2 /* Pods_DailyPlanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3FE75C716C708E0330D90C /* Pods_DailyPlanner.framework */; };
 		3D0BAF2B225F913E006E795B /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D0BAF2A225F913E006E795B /* AddEvent.storyboard */; };
 		3D0BAF33225F9B3F006E795B /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0BAF32225F9B3F006E795B /* StoryboardInstantiable.swift */; };
+		3D59541122637D1C00CC3300 /* AddEventInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59541022637D1C00CC3300 /* AddEventInteractor.swift */; };
+		3D59541322637D3500CC3300 /* EventState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59541222637D3500CC3300 /* EventState.swift */; };
+		3D5954162263834700CC3300 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5954152263834700CC3300 /* DateFormatter.swift */; };
+		D60035561F9CFC9700C66502 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60035551F9CFC9700C66502 /* CellView.swift */; };
 		BC63D9370CBFCF722DF5A6F7 /* Pods_DailyPlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781DD5B44AB1111FBF9FA9B5 /* Pods_DailyPlannerTests.framework */; };
 		D60035561F9CFC9700C66502 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60035551F9CFC9700C66502 /* CalendarViewCell.swift */; };
 		D62CDA3F203E310600632DE9 /* EventsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CDA3E203E310600632DE9 /* EventsTableCell.swift */; };
@@ -53,6 +57,9 @@
 		0ADDBDDB4199982FD1026AAA /* Pods-LAB2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LAB2UITests.debug.xcconfig"; path = "Target Support Files/Pods-LAB2UITests/Pods-LAB2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3D0BAF2A225F913E006E795B /* AddEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEvent.storyboard; sourceTree = "<group>"; };
 		3D0BAF32225F9B3F006E795B /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
+		3D59541022637D1C00CC3300 /* AddEventInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventInteractor.swift; sourceTree = "<group>"; };
+		3D59541222637D3500CC3300 /* EventState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventState.swift; sourceTree = "<group>"; };
+		3D5954152263834700CC3300 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		494265AFBEC074C20944B1BC /* Pods-LAB2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LAB2UITests.release.xcconfig"; path = "Target Support Files/Pods-LAB2UITests/Pods-LAB2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FECB07228F89AA4F00EF652 /* Pods-DailyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPlanner.release.xcconfig"; path = "Target Support Files/Pods-DailyPlanner/Pods-DailyPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		781DD5B44AB1111FBF9FA9B5 /* Pods_DailyPlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyPlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +179,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		3D59540C22637C1B00CC3300 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3D59540F22637CEA00CC3300 /* AddEvent */,
+				3D5954142263832A00CC3300 /* Extensions */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3D59540F22637CEA00CC3300 /* AddEvent */ = {
+			isa = PBXGroup;
+			children = (
+				3D59541022637D1C00CC3300 /* AddEventInteractor.swift */,
+				3D59541222637D3500CC3300 /* EventState.swift */,
+			);
+			path = AddEvent;
+			sourceTree = "<group>";
+		};
+		3D5954142263832A00CC3300 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3D5954152263834700CC3300 /* DateFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		93EF9D00C1F111342D5A6D65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +271,7 @@
 			children = (
 				D6EE7D191F8E11010064808B /* AppDelegate.swift */,
 				D6B64B801FDB78E0009DB65F /* NotificationCenter.swift */,
+				3D59540C22637C1B00CC3300 /* Domain */,
 				3D0BAF2C225F9917006E795B /* Presentation */,
 				3D0BAF29225F910E006E795B /* Layout */,
 				D6EE7D201F8E11010064808B /* Assets.xcassets */,
@@ -508,13 +542,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6EB48CD203F95F60047BE1C /* AnimationUtils.swift in Sources */,
+				3D59541122637D1C00CC3300 /* AddEventInteractor.swift in Sources */,
 				D6A7352C1FAA62B60021AD42 /* PlannerView.swift in Sources */,
 				D68F7F8B1FC10CC2004F31D9 /* AddEventViewController.swift in Sources */,
 				D62CDA3F203E310600632DE9 /* EventsTableCell.swift in Sources */,
 				D6FF620F202FB03900856A1E /* EventsUtils.swift in Sources */,
 				D6B64B811FDB78E0009DB65F /* NotificationCenter.swift in Sources */,
+				3D59541322637D3500CC3300 /* EventState.swift in Sources */,
 				D6EE7D1C1F8E11010064808B /* CalendarViewController.swift in Sources */,
 				D6A897331FAC917B00BCDBCA /* AppUtility.swift in Sources */,
+				3D5954162263834700CC3300 /* DateFormatter.swift in Sources */,
 				D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */,
 				3D0BAF33225F9B3F006E795B /* StoryboardInstantiable.swift in Sources */,
 				D60035561F9CFC9700C66502 /* CalendarViewCell.swift in Sources */,
