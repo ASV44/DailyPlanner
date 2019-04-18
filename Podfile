@@ -8,7 +8,6 @@ target 'DailyPlanner' do
   # Pods for DailyPlanner
   pod 'JTAppleCalendar', '~> 7.1.7'
   pod 'SkyFloatingLabelTextField', '~> 3.6.0'
-  pod 'SwiftyJSON', '~> 4.3.0'
   pod 'BEMCheckBox', '~> 1.4.1'
 
   target 'DailyPlannerTests' do

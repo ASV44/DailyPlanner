@@ -8,7 +8,6 @@
 
 import UIKit
 import JTAppleCalendar
-import SwiftyJSON
 import UserNotifications
 
 class CalendarViewController: UIViewController {
@@ -24,10 +23,10 @@ class CalendarViewController: UIViewController {
     @IBOutlet var eventsTableView: UITableView!
 
     var presenter: CalendarPresenter =  CalendarPresenter()
-    var events: JSON!
+    var calendarEvents: EventListing!
     var initialSearchBarFrame: CGRect!
     var eventState: EventState!
-    var eventToEdit: JSON!
+    var eventToEdit: Event!
     var eventToEditIndex: Int!
 
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +41,7 @@ class CalendarViewController: UIViewController {
         setupCalendar()
         setupSearchBar()
         
-        events = EventsUtils.getCachedEvents()
+        calendarEvents = EventListing().restore()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -105,8 +104,7 @@ class CalendarViewController: UIViewController {
 
     func handleEvents(view: JTAppleCell?,for date: Date) {
         guard let validCell = view as? CalendarViewCell else { return }
-        let keyDate = presenter.formatter.string(.dateMonthYear, from: date)
-        validCell.activityDot.isHidden = !events[keyDate].exists()
+        validCell.activityDot.isHidden = calendarEvents.eventsList(for: date).isEmpty
     }
 
     func setupPlannerViews(for date: Date, with cellState: CellState) {
@@ -115,30 +113,22 @@ class CalendarViewController: UIViewController {
         self.plannerView.day.text = day
     }
 
-    @IBAction func getEventData(for segue: UIStoryboardSegue) {
-        if segue.identifier == "addNewEvent"{
-            let vc = segue.source as! AddEventViewController
-            addNewEvent(vc.eventInfo)
-        }
-    }
-
-    func addNewEvent(_ eventInfo: JSON) {
-        let date = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
-        if(!events[date].exists()) {
-            events[date] = JSON([])
+    func addNewEvent(_ event: Event) {
+        let date = calendarView.selectedDates[0]
+        if(calendarEvents.eventsList(for: date).isEmpty) {
             let cellState = calendarView.cellStatus(for: calendarView.selectedDates[0])
             let selectedDateCell = cellState?.cell() as! CalendarViewCell
             selectedDateCell.activityDot.isHidden = false
         }
         switch self.eventState! {
         case EventState.ADD:
-            events[date].appendArray(json: eventInfo)
+            calendarEvents.add(event, for: date)
             break
         case EventState.EDIT:
-            events[date][eventToEditIndex] = eventInfo
+            //TODO: perform edit of already created event
             break
         }
-        EventsUtils.cacheEvents(events)
+        calendarEvents.persist()
         eventsTableView.reloadData()
     }
 
@@ -146,14 +136,13 @@ class CalendarViewController: UIViewController {
         if sender.state == .ended {
             let cell = sender.view as! EventsTableCell
             self.eventState = EventState.EDIT
-            let date = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
-            for i in 0...events[date].count {
-                if events[date][i]["title"].stringValue == cell.title.text! {
-                    self.eventToEdit = events[date][i]
-                    self.eventToEditIndex = i
+            let date = calendarView.selectedDates[0]
+            for event in calendarEvents.eventsList(for: date) {
+                if event.title == cell.title.text! {
+                    self.eventToEdit = event
+//                    self.eventToEditIndex = i
                 }
             }
-            performSegue(withIdentifier: "AddEvent", sender: self)
         }
     }
 
@@ -161,9 +150,9 @@ class CalendarViewController: UIViewController {
 
     }
 
-    func markEvent(keyDate: String, item: Int, isDone: Bool) {
-        events[keyDate][item]["done"] = JSON(isDone)
-        EventsUtils.cacheEvents(events)
+    func markEvent(date: Date, item: Int, isDone: Bool) {
+//        calendarEvents.eventsList(for: date)[item].isCompleted = true
+        calendarEvents.persist()
     }
 
     func initAddEventViewController() -> AddEventViewController  {
@@ -258,17 +247,12 @@ extension CalendarViewController: UISearchBarDelegate {
 // MARK: Implement UITableView Data source for planner view
 extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard calendarView.selectedDates.count > 0 else {
-            return 0
-        }
-        let keyDate = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
-
-        return events[keyDate].count
+        guard calendarView.selectedDates.count > 0 else { return 0 }
+        return calendarEvents.eventsList(for: calendarView.selectedDates[0]).count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.eventsTableView.dequeueReusableCell(withIdentifier: "cell")!
-
         return cell
     }
 
@@ -287,28 +271,12 @@ extension CalendarViewController: UITableViewDelegate {
         let keyDate = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
 
         eventCell.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action:  #selector(modifyEvent(sender:))))
-        eventCell.keyDate = keyDate
-        eventCell.item = indexPath.item
-        eventCell.addCheckBoxListener(self.markEvent)
-        eventCell.title.text = events[keyDate][indexPath.item]["title"].stringValue
-        eventCell.checkBox.on = events[keyDate][indexPath.item]["done"].boolValue
-        eventCell.checkBox.reload()
-    }
-}
-
-extension JSON {
-
-    mutating func appendArray(json:JSON){
-        if var arr = self.array{
-            arr.append(json)
-            self = JSON(arr);
-        }
-    }
-
-    mutating func appendDictionary(key:String,json:JSON){
-        if var dict = self.dictionary{
-            dict[key] = json;
-            self = JSON(dict);
-        }
+        //TODO: refactor populating of cell with data
+//        eventCell.keyDate = keyDate
+//        eventCell.item = indexPath.item
+//        eventCell.addCheckBoxListener(self.markEvent)
+//        eventCell.title.text = events[keyDate][indexPath.item]["title"].stringValue
+//        eventCell.checkBox.on = events[keyDate][indexPath.item]["done"].boolValue
+//        eventCell.checkBox.reload()
     }
 }

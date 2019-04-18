@@ -10,14 +10,12 @@ import Foundation
 
 protocol Cacheable where Self: Codable {
     var fileName: String { get }
-
-    func restore(from data: Data) -> Self
 }
 
 extension Cacheable {
-    func getFileUrl(_ name: String,
-                    in directory: FileManager.SearchPathDirectory,
-                    with domainMask: FileManager.SearchPathDomainMask) -> URL {
+    private func getFileUrl(_ name: String,
+                            in directory: FileManager.SearchPathDirectory,
+                            with domainMask: FileManager.SearchPathDomainMask) -> URL {
         let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(directory, domainMask, true).first!
         let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
         let filePath = documentsDirectoryPath.appendingPathComponent(name)
@@ -37,7 +35,8 @@ extension Cacheable {
     }
 
     func restore() -> Self {
-        guard let data = restoreData() else { return self }
-        return restore(from: data)
+        guard let data = restoreData(),
+              let instance = try? JSONDecoder().decode(Self.self, from: data) else { return self }
+        return instance
     }
 }

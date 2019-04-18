@@ -8,7 +8,6 @@
 
 import UIKit
 import SkyFloatingLabelTextField
-import SwiftyJSON
 import UserNotifications
 
 class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFieldDelegate {
@@ -22,9 +21,9 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
 
     var interactor: AddEventInteractor!
     var selectedDate: Date!
-    var eventInfo = JSON()
+    var event: Event!
 
-    var eventToEdit: JSON!
+    var eventToEdit: Event!
     var state: EventState!
 
     override func viewDidLoad() {
@@ -35,14 +34,9 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
 
         if state == .EDIT {
             // TODO: delete old notification when event is edited
-            eventTitle.text! = eventToEdit["title"].string!
-            eventDescription.text! = eventToEdit["description"] .string!
-            let time = eventToEdit["time"].string!
-            let delimiter = time.firstIndex(of: ":")!
-            let hour = time[time.startIndex..<delimiter]
-            let minutes = time[time.index(after: delimiter)..<time.endIndex]
-            let date = setTimeOfDate(self.selectedDate, hour: Int(hour)!, minute: Int(minutes)!)
-            dateTimePicker.setDate(date, animated: false)
+            eventTitle.text! = eventToEdit.title
+            eventDescription.text! = eventToEdit.description
+            dateTimePicker.setDate(eventToEdit.date, animated: false)
             addEventButton.setTitle("Edit", for: UIControl.State.normal)
         }
     }
@@ -77,11 +71,7 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
     }
 
     @IBAction func addButtonClick(_ sender: Any) {
-        let date = dateTimePicker.date
-        eventInfo["time"] = JSON(interactor.formatter.format(pattern: .time).string(from: date))
-        eventInfo["title"] = JSON(eventTitle.text!)
-        eventInfo["description"] = JSON(eventDescription.text!)
-        eventInfo["done"] = JSON(false)
+        event = Event(date: dateTimePicker.date, title: eventTitle.text!, description: eventDescription.text!)
         showAlert()
     }
 
