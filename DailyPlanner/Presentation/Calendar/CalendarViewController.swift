@@ -12,16 +12,16 @@ import SwiftyJSON
 import UserNotifications
 
 class CalendarViewController: UIViewController {
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var day: UILabel!
-    @IBOutlet weak var calendarView: JTAppleCalendarView!
-    @IBOutlet weak var calendarStackView: UIStackView!
-    @IBOutlet weak var monthYearLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var plannerView: PlannerView!
+    @IBOutlet var date: UILabel!
+    @IBOutlet var day: UILabel!
+    @IBOutlet var calendarView: JTAppleCalendarView!
+    @IBOutlet var calendarStackView: UIStackView!
+    @IBOutlet var monthYearLabel: UILabel!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var plannerView: PlannerView!
     @IBOutlet var mainView: UIView!
-    @IBOutlet weak var plannerStackView: UIStackView!
-    @IBOutlet weak var eventsTableView: UITableView!
+    @IBOutlet var plannerStackView: UIStackView!
+    @IBOutlet var eventsTableView: UITableView!
 
     var presenter: CalendarPresenter =  CalendarPresenter()
     var events: JSON!
@@ -41,9 +41,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         setupCalendar()
         setupSearchBar()
-
-        eventsTableView.delegate = self
-        eventsTableView.dataSource = self
+        
         events = EventsUtils.getCachedEvents()
     }
 
@@ -120,7 +118,6 @@ class CalendarViewController: UIViewController {
     @IBAction func getEventData(for segue: UIStoryboardSegue) {
         if segue.identifier == "addNewEvent"{
             let vc = segue.source as! AddEventViewController
-            //print(vc.eventInfo)
             addNewEvent(vc.eventInfo)
         }
     }

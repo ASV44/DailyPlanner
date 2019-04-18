@@ -15,10 +15,10 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
 
     static let storyboardName = "AddEvent"
 
-    @IBOutlet weak var dateTimePicker: UIDatePicker!
-    @IBOutlet weak var eventTitle: SkyFloatingLabelTextField!
-    @IBOutlet weak var eventDescription: SkyFloatingLabelTextField!
-    @IBOutlet weak var addEventButton: UIButton!
+    @IBOutlet var dateTimePicker: UIDatePicker!
+    @IBOutlet var eventTitle: SkyFloatingLabelTextField!
+    @IBOutlet var eventDescription: SkyFloatingLabelTextField!
+    @IBOutlet var addEventButton: UIButton!
 
     var interactor: AddEventInteractor!
     var selectedDate: Date!

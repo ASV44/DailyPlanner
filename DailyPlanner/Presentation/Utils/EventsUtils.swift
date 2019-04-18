@@ -27,7 +27,6 @@ class EventsUtils {
     
     static func getCachedEvents() -> JSON {
         let jsonFilePath = getFileUrl(EVENTS_FILE_NAME, in: .documentDirectory, with: .userDomainMask)
-        
         var events = JSON()
         
         if FileManager.default.fileExists(atPath: jsonFilePath.path) {
@@ -45,7 +44,6 @@ class EventsUtils {
     static func getFileUrl(_ name: String,
                             in directory: FileManager.SearchPathDirectory,
                             with domainMask: FileManager.SearchPathDomainMask) -> URL {
-        
         let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(directory, domainMask, true).first!
         let documentsDirectoryPath = URL(fileURLWithPath: documentsDirectoryPathString)
         let filePath = documentsDirectoryPath.appendingPathComponent(name)

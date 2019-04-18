@@ -14,6 +14,9 @@
 		3D59541122637D1C00CC3300 /* AddEventInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59541022637D1C00CC3300 /* AddEventInteractor.swift */; };
 		3D59541322637D3500CC3300 /* EventState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59541222637D3500CC3300 /* EventState.swift */; };
 		3D5954162263834700CC3300 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5954152263834700CC3300 /* DateFormatter.swift */; };
+		3DBF70422268D0440016D8AE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF70412268D0440016D8AE /* Event.swift */; };
+		3DBF70462268DC410016D8AE /* EventListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF70452268DC410016D8AE /* EventListing.swift */; };
+		3DBF70492268DE6D0016D8AE /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF70482268DE6D0016D8AE /* Cacheable.swift */; };
 		BC63D9370CBFCF722DF5A6F7 /* Pods_DailyPlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781DD5B44AB1111FBF9FA9B5 /* Pods_DailyPlannerTests.framework */; };
 		D60035561F9CFC9700C66502 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60035551F9CFC9700C66502 /* CalendarViewCell.swift */; };
 		D62CDA3F203E310600632DE9 /* EventsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62CDA3E203E310600632DE9 /* EventsTableCell.swift */; };
@@ -58,6 +61,9 @@
 		3D59541022637D1C00CC3300 /* AddEventInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventInteractor.swift; sourceTree = "<group>"; };
 		3D59541222637D3500CC3300 /* EventState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventState.swift; sourceTree = "<group>"; };
 		3D5954152263834700CC3300 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		3DBF70412268D0440016D8AE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		3DBF70452268DC410016D8AE /* EventListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListing.swift; sourceTree = "<group>"; };
+		3DBF70482268DE6D0016D8AE /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
 		4FECB07228F89AA4F00EF652 /* Pods-DailyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPlanner.release.xcconfig"; path = "Target Support Files/Pods-DailyPlanner/Pods-DailyPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		781DD5B44AB1111FBF9FA9B5 /* Pods_DailyPlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyPlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8113F1173CDDC59E1DB54B58 /* Pods-DailyPlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPlannerTests.debug.xcconfig"; path = "Target Support Files/Pods-DailyPlannerTests/Pods-DailyPlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +184,8 @@
 		3D59540C22637C1B00CC3300 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3DBF70472268DE630016D8AE /* Protocols */,
+				3DBF70402268D0250016D8AE /* Models */,
 				3D59540F22637CEA00CC3300 /* AddEvent */,
 				3D5954142263832A00CC3300 /* Extensions */,
 			);
@@ -199,6 +207,23 @@
 				3D5954152263834700CC3300 /* DateFormatter.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3DBF70402268D0250016D8AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DBF70412268D0440016D8AE /* Event.swift */,
+				3DBF70452268DC410016D8AE /* EventListing.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3DBF70472268DE630016D8AE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3DBF70482268DE6D0016D8AE /* Cacheable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		93EF9D00C1F111342D5A6D65 /* Frameworks */ = {
@@ -538,7 +563,10 @@
 				D68F7F8B1FC10CC2004F31D9 /* AddEventViewController.swift in Sources */,
 				D62CDA3F203E310600632DE9 /* EventsTableCell.swift in Sources */,
 				D6FF620F202FB03900856A1E /* EventsUtils.swift in Sources */,
+				3DBF70492268DE6D0016D8AE /* Cacheable.swift in Sources */,
+				3DBF70462268DC410016D8AE /* EventListing.swift in Sources */,
 				D6B64B811FDB78E0009DB65F /* NotificationCenter.swift in Sources */,
+				3DBF70422268D0440016D8AE /* Event.swift in Sources */,
 				3D59541322637D3500CC3300 /* EventState.swift in Sources */,
 				D6EE7D1C1F8E11010064808B /* CalendarViewController.swift in Sources */,
 				D6A897331FAC917B00BCDBCA /* AppUtility.swift in Sources */,
@@ -717,7 +745,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GEW7T3V9U6;
+				DEVELOPMENT_TEAM = HW4PX7GDB5;
 				INFOPLIST_FILE = DailyPlanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -734,7 +762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GEW7T3V9U6;
+				DEVELOPMENT_TEAM = HW4PX7GDB5;
 				INFOPLIST_FILE = DailyPlanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
