@@ -20,14 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().delegate = AppDelegate.delegate
+            let center = UNUserNotificationCenter.current()
+            center.delegate = AppDelegate.delegate
+            let options: UNAuthorizationOptions = [.alert, .sound]
+            center.requestAuthorization(options: options, completionHandler: { _,_  in })
         } else {
             // Fallback on earlier versions
             let notificationTypes: UIUserNotificationType = [.alert, .badge, .sound]
-            let notificationSettings: UIUserNotificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+            let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
             UIApplication.shared.registerUserNotificationSettings(notificationSettings)
-            
-        };
+            UIApplication.shared.registerForRemoteNotifications()
+        }
         return true
     }
     
@@ -63,8 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable : Any],
-                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
-    {
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
     }
 }

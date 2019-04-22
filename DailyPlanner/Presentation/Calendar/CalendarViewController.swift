@@ -25,9 +25,7 @@ class CalendarViewController: UIViewController {
     var presenter: CalendarPresenter =  CalendarPresenter()
     var calendarEvents: EventListing!
     var initialSearchBarFrame: CGRect!
-    var eventState: EventState!
     var eventToEdit: Event!
-    var eventToEditIndex: Int!
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -62,24 +60,19 @@ class CalendarViewController: UIViewController {
     func setupCalendar() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
-
-        calendarView.visibleDates() { visibleDates in
-            self.setupViewOfCalendar(from: visibleDates)
-        }
-
+        calendarView.visibleDates(setupViewOfCalendar)
         calendarView.scrollToDate(Date(), animateScroll: false)
         calendarView.selectDates([Date()])
     }
 
     func setupSearchBar() {
-        searchBar.delegate = self
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.white.cgColor
         initialSearchBarFrame = searchBar.frame
     }
 
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo) {
-        let date = visibleDates.monthDates.first!.date
+        guard let date = visibleDates.monthDates.first?.date else { return }
         let year = presenter.formatter.string(.year, from: date)
         let month = presenter.formatter.string(.monthName, from: date)
         monthYearLabel.text = month + " " + year
@@ -94,11 +87,9 @@ class CalendarViewController: UIViewController {
     func handleTextColor(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CalendarViewCell else { return }
         let gray: CGFloat = 216 / 255
-
         let color = cellState.isSelected ? .white :
                     cellState.dateBelongsTo == .thisMonth ? .black :
                     UIColor(red: gray, green: gray, blue: gray, alpha: 1)
-
         validCell.dayLabel.textColor = color
     }
 
@@ -113,36 +104,10 @@ class CalendarViewController: UIViewController {
         self.plannerView.day.text = day
     }
 
-    func addNewEvent(_ event: Event) {
-        let date = calendarView.selectedDates[0]
-        if(calendarEvents.eventsList(for: date).isEmpty) {
-            let cellState = calendarView.cellStatus(for: calendarView.selectedDates[0])
-            let selectedDateCell = cellState?.cell() as! CalendarViewCell
-            selectedDateCell.activityDot.isHidden = false
-        }
-        switch self.eventState! {
-        case EventState.ADD:
-            calendarEvents.add(event, for: date)
-            break
-        case EventState.EDIT:
-            //TODO: perform edit of already created event
-            break
-        }
-        calendarEvents.persist()
-        eventsTableView.reloadData()
-    }
-
     @objc func modifyEvent(sender: UILongPressGestureRecognizer) {
         if sender.state == .ended {
             let cell = sender.view as! EventsTableCell
-            self.eventState = EventState.EDIT
             let date = calendarView.selectedDates[0]
-            for event in calendarEvents.eventsList(for: date) {
-                if event.title == cell.title.text! {
-                    self.eventToEdit = event
-//                    self.eventToEditIndex = i
-                }
-            }
         }
     }
 
@@ -159,21 +124,24 @@ class CalendarViewController: UIViewController {
         let vc = AddEventViewController.instantiate()
         vc.interactor = AddEventInteractor()
         vc.selectedDate = calendarView.selectedDates[0]
-        vc.state = self.eventState!
-        switch self.eventState! {
-        case EventState.EDIT:
-            vc.eventToEdit = self.eventToEdit
-            break
-        default:
-            break
-        }
 
         return vc
     }
 
     @IBAction func addEvent(_ sender: UIButton) {
-        self.eventState = EventState.ADD
         navigationController?.pushViewController(initAddEventViewController(), animated: true)
+    }
+}
+
+extension CalendarViewController: CalendarView {
+    func updatePlannedEventsView() {
+        let date = calendarView.selectedDates[0]
+        if(calendarEvents.eventsList(for: date).isEmpty) {
+            let cellState = calendarView.cellStatus(for: calendarView.selectedDates[0])
+            let selectedDateCell = cellState?.cell() as! CalendarViewCell
+            selectedDateCell.activityDot.isHidden = false
+        }
+        eventsTableView.reloadData()
     }
 }
 

@@ -17,6 +17,9 @@
 		3DBF70422268D0440016D8AE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF70412268D0440016D8AE /* Event.swift */; };
 		3DBF70462268DC410016D8AE /* EventListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF70452268DC410016D8AE /* EventListing.swift */; };
 		3DBF70492268DE6D0016D8AE /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF70482268DE6D0016D8AE /* Cacheable.swift */; };
+		3DBF704B226A06A70016D8AE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF704A226A06A70016D8AE /* CalendarView.swift */; };
+		3DBF704D226DF2880016D8AE /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF704C226DF2880016D8AE /* String.swift */; };
+		3DBF704F226DF36C0016D8AE /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBF704E226DF36C0016D8AE /* Date.swift */; };
 		BC63D9370CBFCF722DF5A6F7 /* Pods_DailyPlannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781DD5B44AB1111FBF9FA9B5 /* Pods_DailyPlannerTests.framework */; };
 		D60035561F9CFC9700C66502 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60035551F9CFC9700C66502 /* CalendarViewCell.swift */; };
 		D61D33E92269259500D97FB3 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D61D33E82269259500D97FB3 /* Collections.swift */; };
@@ -64,6 +67,9 @@
 		3DBF70412268D0440016D8AE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		3DBF70452268DC410016D8AE /* EventListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListing.swift; sourceTree = "<group>"; };
 		3DBF70482268DE6D0016D8AE /* Cacheable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
+		3DBF704A226A06A70016D8AE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		3DBF704C226DF2880016D8AE /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3DBF704E226DF36C0016D8AE /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		4FECB07228F89AA4F00EF652 /* Pods-DailyPlanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPlanner.release.xcconfig"; path = "Target Support Files/Pods-DailyPlanner/Pods-DailyPlanner.release.xcconfig"; sourceTree = "<group>"; };
 		781DD5B44AB1111FBF9FA9B5 /* Pods_DailyPlannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyPlannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8113F1173CDDC59E1DB54B58 /* Pods-DailyPlannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyPlannerTests.debug.xcconfig"; path = "Target Support Files/Pods-DailyPlannerTests/Pods-DailyPlannerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D6CD2F612263F2B00014DF78 /* CalendarPresenter.swift */,
+				3DBF704A226A06A70016D8AE /* CalendarView.swift */,
 				D6EE7D1B1F8E11010064808B /* CalendarViewController.swift */,
 				3D0BAF2F225F9A0B006E795B /* Cells */,
 				D6A7352B1FAA62B60021AD42 /* PlannerView.swift */,
@@ -206,6 +213,8 @@
 			children = (
 				3D5954152263834700CC3300 /* DateFormatter.swift */,
 				D61D33E82269259500D97FB3 /* Collections.swift */,
+				3DBF704C226DF2880016D8AE /* String.swift */,
+				3DBF704E226DF36C0016D8AE /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -556,6 +565,7 @@
 			files = (
 				D6EB48CD203F95F60047BE1C /* AnimationUtils.swift in Sources */,
 				3D59541122637D1C00CC3300 /* AddEventInteractor.swift in Sources */,
+				3DBF704D226DF2880016D8AE /* String.swift in Sources */,
 				D6A7352C1FAA62B60021AD42 /* PlannerView.swift in Sources */,
 				D6CD2F622263F2B00014DF78 /* CalendarPresenter.swift in Sources */,
 				D68F7F8B1FC10CC2004F31D9 /* AddEventViewController.swift in Sources */,
@@ -566,8 +576,10 @@
 				3DBF70422268D0440016D8AE /* Event.swift in Sources */,
 				3D59541322637D3500CC3300 /* EventState.swift in Sources */,
 				D6EE7D1C1F8E11010064808B /* CalendarViewController.swift in Sources */,
+				3DBF704B226A06A70016D8AE /* CalendarView.swift in Sources */,
 				D6A897331FAC917B00BCDBCA /* AppUtility.swift in Sources */,
 				3D5954162263834700CC3300 /* DateFormatter.swift in Sources */,
+				3DBF704F226DF36C0016D8AE /* Date.swift in Sources */,
 				D6EE7D1A1F8E11010064808B /* AppDelegate.swift in Sources */,
 				3D0BAF33225F9B3F006E795B /* StoryboardInstantiable.swift in Sources */,
 				D61D33E92269259500D97FB3 /* Collections.swift in Sources */,

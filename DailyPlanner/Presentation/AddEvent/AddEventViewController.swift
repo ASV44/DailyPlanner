@@ -23,56 +23,30 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
     var selectedDate: Date!
     var event: Event!
 
-    var eventToEdit: Event!
-    var state: EventState!
-
     override func viewDidLoad() {
         self.title = "Add Your Event"
         super.viewDidLoad()
         setupDateTimePicker()
-        setCurrentTime()
-
-        if state == .EDIT {
-            // TODO: delete old notification when event is edited
-            eventTitle.text! = eventToEdit.title
-            eventDescription.text! = eventToEdit.description
-            dateTimePicker.setDate(eventToEdit.date, animated: false)
-            addEventButton.setTitle("Edit", for: UIControl.State.normal)
-        }
+        setUpView()
+        // TODO: delete old notification when event is edited
     }
 
     func setupDateTimePicker() {
         dateTimePicker.locale = Locale(identifier: "en_GB")
         dateTimePicker.minimumDate = self.selectedDate
-        dateTimePicker.maximumDate = setTimeOfDate(selectedDate, hour: 23, minute: 59)
+        dateTimePicker.maximumDate = Date.setTime(of: selectedDate, hour: 23, minute: 59)
     }
 
-    func setupEventUIElements() {
-        eventTitle.delegate = self
-        eventDescription.delegate = self
-        eventTitle.returnKeyType = UIReturnKeyType.done
-        eventDescription.returnKeyType = UIReturnKeyType.done
-    }
-
-    func setCurrentTime() {
-        let calendar = Calendar.current
-        let currentTime = calendar.dateComponents([.hour, .minute], from: Date())
-        let dateWithCurrentTime = setTimeOfDate(selectedDate, hour: currentTime.hour!, minute: currentTime.minute!)
-        dateTimePicker.setDate(dateWithCurrentTime, animated: false)
-    }
-
-    func setTimeOfDate(_ date: Date, hour: Int, minute: Int) -> Date {
-        let calendar = Calendar.current
-        var comp = calendar.dateComponents(in: TimeZone.current, from: date)
-        comp.hour = hour
-        comp.minute = minute
-
-        return calendar.date(from: comp)!
+    func setUpView() {
+        eventTitle.text! = event?.title ?? .empty
+        eventDescription.text! = event?.description ?? .empty
+        dateTimePicker.setDate(event?.date ?? Date(), animated: false)
+        addEventButton.setTitle("Edit", for: UIControl.State.normal)
     }
 
     @IBAction func addButtonClick(_ sender: Any) {
         event = Event(date: dateTimePicker.date, title: eventTitle.text!, description: eventDescription.text!)
-        showAlert()
+        registerNotification()
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -80,61 +54,36 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
         return true
     }
 
-    func showAlert() {
-        if #available(iOS 10.0, *) {
-
-            let center = UNUserNotificationCenter.current()
-            let options: UNAuthorizationOptions = [.alert, .sound];
-
-            center.requestAuthorization(options: options) {
-                (granted, error) in
-                if !granted {
-                    print("Something went wrong")
-                }
-            }
-
-            let content = UNMutableNotificationContent()
-            content.title = eventTitle.text!
-            content.body = eventDescription.text!
-            content.sound = UNNotificationSound(named: convertToUNNotificationSoundName("clockAlarm.caf"))
-
-            let calendar = Calendar.current
-            let components = calendar.dateComponents([.hour, .minute, .day, .month, .year], from: dateTimePicker.date)
-            print(components)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
-            print(trigger.dateComponents)
-
-            let identifier = "localNotification"
-            let request = UNNotificationRequest(identifier: identifier,
-                                                content: content, trigger: trigger)
-            center.add(request, withCompletionHandler: { (error) in
-                if error != nil {
-                    // Something went wrong
-                }
-            })
-
+    func registerNotification() {
+        guard #available(iOS 10.0, *) else {
+            createDelayedNotificationOld()
+            return
         }
-        else {
-
-            // ios 9
-
-            let type: UIUserNotificationType = [UIUserNotificationType.badge, UIUserNotificationType.alert, UIUserNotificationType.sound]
-            let setting = UIUserNotificationSettings(types: type, categories: nil)
-            UIApplication.shared.registerUserNotificationSettings(setting)
-            UIApplication.shared.registerForRemoteNotifications()
-
-            _ = UILocalNotification()
-//            notification.fireDate = NSDate(timeIntervalSinceNow: TimeInterval(delay)) as Date
-//            notification.alertBody = "Nottification with Delay"
-//            notification.alertAction = "This notification has \(delay) second delay"
-//            notification.soundName = UILocalNotificationDefaultSoundName
-//            UIApplication.shared.scheduleLocalNotification(notification)
-
-        }
+        createDelayedNotification()
     }
-}
 
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUNNotificationSoundName(_ input: String) -> UNNotificationSoundName {
-	return UNNotificationSoundName(rawValue: input)
+    @available(iOS 10.0, *)
+    func createDelayedNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = eventTitle.text!
+        content.body = eventDescription.text!
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "clockAlarm.caf"))
+        let components = Calendar.current.dateComponents([.hour, .minute, .day, .month, .year],
+                                                         from: dateTimePicker.date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        let identifier = "localNotification"
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content,
+                                            trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: { _ in })
+    }
+
+    func createDelayedNotificationOld() {// ios 9
+        let notification = UILocalNotification()
+        notification.fireDate = Date(timeIntervalSinceNow: dateTimePicker.date - Date())
+        notification.alertBody = eventTitle.text!
+        notification.alertAction = eventDescription.text!
+        notification.soundName = "clockAlarm.caf"
+        UIApplication.shared.scheduleLocalNotification(notification)
+    }
 }
