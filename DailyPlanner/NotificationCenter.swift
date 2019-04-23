@@ -13,13 +13,15 @@ import UserNotifications
 @available(iOS 10.0, *)
 class NotificationCenter: NSObject, UNUserNotificationCenterDelegate{
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
         print("Tapped in notification")
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                with completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         print("Notification being triggered")
         if notification.request.identifier == "localNotification"{

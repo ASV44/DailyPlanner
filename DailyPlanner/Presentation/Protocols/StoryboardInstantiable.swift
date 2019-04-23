@@ -8,10 +8,9 @@
 
 import UIKit
 
-public protocol StoryboardInstantiable where Self: UIViewController {
+public protocol StoryboardInstantiable: Identifiable where Self: UIViewController {
     static var bundle: Bundle { get }
     static var storyboardName: String { get }
-    static var identifier: String { get }
     static func instantiate() -> Self
 }
 
@@ -22,10 +21,6 @@ public extension StoryboardInstantiable {
 
     private static var storyboard: UIStoryboard {
         return UIStoryboard(name: storyboardName, bundle: bundle)
-    }
-
-    static var identifier: String {
-        return String(describing: self)
     }
 
     static func instantiate() -> Self {

@@ -38,6 +38,7 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         setupCalendar()
         setupSearchBar()
+        setupPlannerView()
         
         calendarEvents = EventListing().restore()
     }
@@ -69,6 +70,10 @@ class CalendarViewController: UIViewController {
         searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.white.cgColor
         initialSearchBarFrame = searchBar.frame
+    }
+
+    func setupPlannerView() {
+        eventsTableView.register(EventsTableCell.self)
     }
 
     func setupViewOfCalendar(from visibleDates: DateSegmentInfo) {
@@ -160,7 +165,8 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
 
 // MARK: Implement JTAppleCalendar Delegate
 extension CalendarViewController: JTAppleCalendarViewDelegate {
-    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell,
+                  forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
 
     }
 
@@ -220,31 +226,24 @@ extension CalendarViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.eventsTableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = tableView.dequeue(EventsTableCell.self, for: indexPath)
+        cell.populate(with: EventsTableCellData(event: calendarEvents.eventsList(for: Date())[indexPath.row],
+                                                checkAction: { _, _, _ in }))
         return cell
     }
-
 
 }
 
 // MARK: Implement UITableView delegate for planner view
 extension CalendarViewController: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let eventCell = cell as! EventsTableCell
-        let keyDate = presenter.formatter.string(.dateMonthYear, from: calendarView.selectedDates[0])
 
-        eventCell.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action:  #selector(modifyEvent(sender:))))
-        //TODO: refactor populating of cell with data
-//        eventCell.keyDate = keyDate
-//        eventCell.item = indexPath.item
-//        eventCell.addCheckBoxListener(self.markEvent)
-//        eventCell.title.text = events[keyDate][indexPath.item]["title"].stringValue
-//        eventCell.checkBox.on = events[keyDate][indexPath.item]["done"].boolValue
-//        eventCell.checkBox.reload()
+        eventCell.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
+                                                                    action:  #selector(modifyEvent(sender:))))
     }
 }

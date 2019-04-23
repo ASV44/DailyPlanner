@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventsTableCell" id="PR3-oa-CEb" customClass="EventsTableCell" customModule="DailyPlanner" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="281" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PR3-oa-CEb" id="Eyn-ja-ixV">
+                <rect key="frame" x="0.0" y="0.0" width="281" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9u-hY-dBr">
+                        <rect key="frame" x="46" y="12" width="301.5" height="26.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="v9u-hY-dBr" secondAttribute="height" multiplier="239:21" id="SoG-U2-JWg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxc-NR-ss4" customClass="BEMCheckBox">
+                        <rect key="frame" x="16" y="15" width="21" height="21"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="hxc-NR-ss4" secondAttribute="height" multiplier="1:1" id="qW8-KO-mCw"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
+                                <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="v9u-hY-dBr" firstAttribute="top" secondItem="Eyn-ja-ixV" secondAttribute="top" constant="12" id="0v4-WY-29n"/>
+                    <constraint firstAttribute="bottom" secondItem="v9u-hY-dBr" secondAttribute="bottom" constant="11" id="7h9-bM-1Y1"/>
+                    <constraint firstItem="hxc-NR-ss4" firstAttribute="leading" secondItem="Eyn-ja-ixV" secondAttribute="leadingMargin" id="Zda-Yc-1kQ"/>
+                    <constraint firstAttribute="trailing" secondItem="v9u-hY-dBr" secondAttribute="trailing" id="fbe-rh-1GY"/>
+                    <constraint firstItem="v9u-hY-dBr" firstAttribute="leading" secondItem="hxc-NR-ss4" secondAttribute="trailing" constant="9" id="ngq-rB-pA8"/>
+                    <constraint firstItem="hxc-NR-ss4" firstAttribute="top" secondItem="Eyn-ja-ixV" secondAttribute="topMargin" constant="4" id="qzS-bQ-svN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="hxc-NR-ss4" secondAttribute="bottom" constant="3" id="rTs-gL-OOM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="checkBox" destination="hxc-NR-ss4" id="eWj-as-s1w"/>
+                <outlet property="title" destination="v9u-hY-dBr" id="XeU-BV-GZy"/>
+            </connections>
+            <point key="canvasLocation" x="250" y="-72"/>
+        </tableViewCell>
+    </objects>
+</document>

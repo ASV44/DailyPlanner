@@ -252,69 +252,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uci-sq-Rxx" secondAttribute="height" multiplier="139:100" id="NPf-fW-3xd"/>
                                                 </constraints>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QBX-wD-9pi" customClass="EventsTableCell" customModule="DailyPlanner" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="281" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QBX-wD-9pi" id="1ez-Bp-SIc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="281" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpC-Mk-nJL">
-                                                                    <rect key="frame" x="38" y="12.333333333333336" width="239" height="21"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="CpC-Mk-nJL" secondAttribute="height" multiplier="239:21" id="Ma9-yv-f62"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nts-OA-Oyb" customClass="BEMCheckBox">
-                                                                    <rect key="frame" x="8" y="12.333333333333336" width="21" height="21"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="nts-OA-Oyb" secondAttribute="height" multiplier="1:1" id="ioC-UL-lRv"/>
-                                                                    </constraints>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="onFillColor">
-                                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="onCheckColor">
-                                                                            <color key="value" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="onTintColor">
-                                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="offFillColor">
-                                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
-                                                                            <real key="value" value="2"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
-                                                                </view>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstItem="CpC-Mk-nJL" firstAttribute="leading" secondItem="nts-OA-Oyb" secondAttribute="trailing" constant="9" id="4Pv-oe-aBM"/>
-                                                                <constraint firstItem="nts-OA-Oyb" firstAttribute="leading" secondItem="1ez-Bp-SIc" secondAttribute="leadingMargin" id="AJX-ik-nS1"/>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="nts-OA-Oyb" secondAttribute="bottom" constant="3" id="DaL-SY-DVX"/>
-                                                                <constraint firstItem="nts-OA-Oyb" firstAttribute="top" secondItem="1ez-Bp-SIc" secondAttribute="topMargin" constant="4" id="SdP-TQ-xpr"/>
-                                                                <constraint firstItem="CpC-Mk-nJL" firstAttribute="top" secondItem="1ez-Bp-SIc" secondAttribute="top" constant="12" id="TlM-Sj-hQN"/>
-                                                                <constraint firstAttribute="bottom" secondItem="CpC-Mk-nJL" secondAttribute="bottom" constant="11" id="cwa-BA-au9"/>
-                                                                <constraint firstAttribute="trailing" secondItem="CpC-Mk-nJL" secondAttribute="trailing" id="dIz-gT-wcn"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <outlet property="checkBox" destination="nts-OA-Oyb" id="euH-uk-6Q3"/>
-                                                            <outlet property="title" destination="CpC-Mk-nJL" id="ibZ-Fg-98B"/>
-                                                        </connections>
-                                                    </tableViewCell>
-                                                </prototypes>
                                                 <connections>
                                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="rFZ-gR-LHo"/>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="O32-uK-2Ot"/>

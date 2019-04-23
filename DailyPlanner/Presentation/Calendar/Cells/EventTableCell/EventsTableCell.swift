@@ -9,14 +9,13 @@
 import UIKit
 import BEMCheckBox
 
-class EventsTableCell: UITableViewCell {
-    
+class EventsTableCell: UITableViewCell, NibLoadable {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var checkBox: BEMCheckBox!
     
-    private var checkBoxListener: ((String, Int, Bool) -> ())!
+    private var checkBoxAction: ((String, Int, Bool) -> ())?
     
-    var keyDate: String!
+    var event: Event!
     var item: Int!
     
     override func awakeFromNib() {
@@ -32,15 +31,27 @@ class EventsTableCell: UITableViewCell {
         selectedBackgroundView = bgColorView
     }
     
-    func addCheckBoxListener(_ listener: @escaping (String, Int, Bool) -> ()) {
-        self.checkBoxListener = listener
+    func addCheckBoxListener(_ action: @escaping (String, Int, Bool) -> ()) {
+        checkBoxAction = action
+    }
+}
+
+//MARK: Implement Populatable protocol
+extension EventsTableCell: Populatable {
+    func populate<T>(with data: T) {
+        guard let data = data as? EventsTableCellData else { return }
+                event = data.event
+                checkBoxAction = data.checkAction
+                title.text = event.title
+                checkBox.on = event.isCompleted
+                checkBox.reload()
+        //        eventCell.item = indexPath.item
     }
 }
 
 //MARK: Implement check box delegate
 extension EventsTableCell: BEMCheckBoxDelegate {
-    
     func didTap(_ checkBox: BEMCheckBox) {
-        checkBoxListener(keyDate, item, checkBox.on)
+//        checkBoxAction(keyDate, item, checkBox.on)
     }
 }
