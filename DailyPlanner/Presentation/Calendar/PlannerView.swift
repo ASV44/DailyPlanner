@@ -1,9 +1,9 @@
 //
 //  DateViewController.swift
-//  LAB2
+//  DailyPlanner
 //
-//  Created by Hackintosh on 11/1/17.
-//  Copyright © 2017 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 11/1/17.
+//  Copyright © 2017 Alexandr Vdovicenco. All rights reserved.
 //
 
 import UIKit

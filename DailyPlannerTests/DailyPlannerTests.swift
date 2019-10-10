@@ -1,9 +1,9 @@
 //
-//  LAB2Tests.swift
-//  LAB2Tests
+//  DailyPlannerTests.swift
+//  DailyPlannerTests
 //
-//  Created by Hackintosh on 10/11/17.
-//  Copyright © 2017 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 10/11/17.
+//  Copyright © 2017 Alexandr Vdovicenco. All rights reserved.
 //
 
 import XCTest

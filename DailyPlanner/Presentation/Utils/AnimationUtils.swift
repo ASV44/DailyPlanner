@@ -1,9 +1,9 @@
 //
 //  AnimationUtils.swift
-//  LAB2
+//  DailyPlanner
 //
-//  Created by Hackintosh on 2/23/18.
-//  Copyright © 2018 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 2/23/18.
+//  Copyright © 2018 Alexandr Vdovicenco. All rights reserved.
 //
 
 import UIKit
@@ -40,8 +40,8 @@ class AnimationUtils {
         borderColorAnimation(for: searchBar.layer, from: borderColor,
                              to: color, withDuration: 1.5)
         UIView.animate(withDuration: 1,
-                       animations: {searchBar.frame = frame},
+                       animations: { searchBar.frame = frame },
                        completion: { finished in
-                       searchBar.layer.borderColor = color.cgColor})
+                        searchBar.layer.borderColor = color.cgColor })
     }
 }
