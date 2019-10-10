@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  LAB2
+//  DailyPlanner
 //
-//  Created by Hackintosh on 10/11/17.
-//  Copyright © 2017 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 10/11/17.
+//  Copyright © 2017 Alexandr Vdovicenco. All rights reserved.
 //
 
 import UIKit
@@ -32,10 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.shared.registerForRemoteNotifications()
         }
         return true
-    }
-    
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        UIApplication.shared.registerForRemoteNotifications()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

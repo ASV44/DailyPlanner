@@ -1,11 +1,11 @@
 PODS:
   - BEMCheckBox (1.4.1)
-  - JTAppleCalendar (7.1.7)
+  - JTAppleCalendar (8.0.2)
   - SkyFloatingLabelTextField (3.6.0)
 
 DEPENDENCIES:
   - BEMCheckBox (~> 1.4.1)
-  - JTAppleCalendar (~> 7.1.7)
+  - JTAppleCalendar (~> 8.0.2)
   - SkyFloatingLabelTextField (~> 3.6.0)
 
 SPEC REPOS:
@@ -16,9 +16,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
-  JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
+  JTAppleCalendar: bb3dd3752e2bcc85cb798ab763fbdd6e142715fc
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
 
-PODFILE CHECKSUM: 0b2ae43b290f3a60ba97a5191dfebc8729b67a82
+PODFILE CHECKSUM: 3cdc7d049591eaf710deef4ce5b771de2f4359c5
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5

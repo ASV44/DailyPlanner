@@ -1,15 +1,15 @@
 //
 //  CellView.swift
-//  LAB2
+//  DailyPlanner
 //
-//  Created by Hackintosh on 10/22/17.
-//  Copyright © 2017 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 10/22/17.
+//  Copyright © 2017 Alexandr Vdovicenco. All rights reserved.
 //
 
 import Foundation
 import JTAppleCalendar
 
-class CalendarViewCell: JTAppleCell {
+class CalendarViewCell: JTACDayCell {
     
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var selectedView: UIView!

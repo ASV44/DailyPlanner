@@ -3,7 +3,7 @@
 //  DailyPlanner
 //
 //  Created by Alexandr Vdovicenco on 4/11/19.
-//  Copyright © 2019 Hackintosh. All rights reserved.
+//  Copyright © 2019 Alexandr Vdovicenco. All rights reserved.
 //
 
 import UIKit

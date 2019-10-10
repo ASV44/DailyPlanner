@@ -2,8 +2,8 @@
 //  AddEventViewController.swift
 //  DailyPlanner
 //
-//  Created by Hackintosh on 11/19/17.
-//  Copyright © 2017 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 11/19/17.
+//  Copyright © 2017 Alexandr Vdovicenco. All rights reserved.
 //
 
 import UIKit
@@ -55,10 +55,6 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
     }
 
     func registerNotification() {
-        guard #available(iOS 10.0, *) else {
-            createDelayedNotificationOld()
-            return
-        }
         createDelayedNotification()
     }
 
@@ -76,14 +72,5 @@ class AddEventViewController: UIViewController, StoryboardInstantiable, UITextFi
                                             content: content,
                                             trigger: trigger)
         UNUserNotificationCenter.current().add(request, withCompletionHandler: { _ in })
-    }
-
-    func createDelayedNotificationOld() {// ios 9
-        let notification = UILocalNotification()
-        notification.fireDate = Date(timeIntervalSinceNow: dateTimePicker.date - Date())
-        notification.alertBody = eventTitle.text!
-        notification.alertAction = eventDescription.text!
-        notification.soundName = "clockAlarm.caf"
-        UIApplication.shared.scheduleLocalNotification(notification)
     }
 }

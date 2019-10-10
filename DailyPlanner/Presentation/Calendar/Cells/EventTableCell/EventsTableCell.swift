@@ -1,9 +1,9 @@
 //
 //  EventsTableCell.swift
-//  LAB2
+//  DailyPlanner
 //
-//  Created by Hackintosh on 2/22/18.
-//  Copyright © 2018 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 2/22/18.
+//  Copyright © 2018 Alexandr Vdovicenco. All rights reserved.
 //
 
 import UIKit

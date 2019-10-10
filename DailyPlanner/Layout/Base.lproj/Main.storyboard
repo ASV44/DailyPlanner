@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hJw-hK-LfE">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hJw-hK-LfE">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,8 +40,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ASg-de-1ir">
+                                    <searchBar contentMode="scaleToFill" id="ASg-de-1ir">
                                         <rect key="frame" x="307" y="0.0" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="K6k-HI-1z6"/>
@@ -130,7 +129,7 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yEk-Qw-bBq" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yEk-Qw-bBq" customClass="JTACMonthView" customModule="JTAppleCalendar">
                                                         <rect key="frame" x="0.0" y="20.333333333333343" width="339.33333333333331" height="287.33333333333326"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GPv-Si-9Ra">
@@ -167,13 +166,13 @@
                                                                             </variation>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufG-NO-00A">
-                                                                            <rect key="frame" x="26.666666666666671" y="23" width="42" height="20"/>
+                                                                            <rect key="frame" x="27.666666666666671" y="23" width="40" height="20.333333333333329"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnZ-8M-66B">
-                                                                            <rect key="frame" x="45" y="50.333333333333336" width="5" height="5"/>
+                                                                            <rect key="frame" x="45" y="50.666666666666664" width="5" height="5"/>
                                                                             <color key="backgroundColor" red="0.30344793199999998" green="0.75570023060000002" blue="0.93644559380000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="5" id="9Z8-9y-Guw"/>
@@ -202,8 +201,8 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                         <connections>
-                                                            <outlet property="ibCalendarDataSource" destination="BYZ-38-t0r" id="6R2-Az-gu2"/>
-                                                            <outlet property="ibCalendarDelegate" destination="BYZ-38-t0r" id="bBE-hp-SRg"/>
+                                                            <outlet property="ibCalendarDataSource" destination="BYZ-38-t0r" id="MIk-l8-Llo"/>
+                                                            <outlet property="ibCalendarDelegate" destination="BYZ-38-t0r" id="Jyp-CS-e6D"/>
                                                         </connections>
                                                     </collectionView>
                                                 </subviews>
@@ -296,7 +295,7 @@
                     <navigationItem key="navigationItem" id="aEY-c9-wyG"/>
                     <connections>
                         <outlet property="calendarStackView" destination="RmM-Hy-iN2" id="e4K-1F-gGm"/>
-                        <outlet property="calendarView" destination="yEk-Qw-bBq" id="KZf-06-FJX"/>
+                        <outlet property="calendarView" destination="yEk-Qw-bBq" id="Rp8-wy-meC"/>
                         <outlet property="eventsTableView" destination="uci-sq-Rxx" id="UEM-d9-exZ"/>
                         <outlet property="mainView" destination="jfz-JC-dph" id="gpN-mu-Ctj"/>
                         <outlet property="monthYearLabel" destination="ZFJ-E4-s8V" id="cCU-Co-wC6"/>

@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  LAB2
+//  DailyPlanner
 //
-//  Created by Hackintosh on 10/11/17.
-//  Copyright © 2017 Hackintosh. All rights reserved.
+//  Created by Alexandr Vdovicenco on 10/11/17.
+//  Copyright © 2017 Alexandr Vdovicenco. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ import UserNotifications
 class CalendarViewController: UIViewController {
     @IBOutlet var date: UILabel!
     @IBOutlet var day: UILabel!
-    @IBOutlet var calendarView: JTAppleCalendarView!
+    @IBOutlet var calendarView: JTACMonthView!
     @IBOutlet var calendarStackView: UIStackView!
     @IBOutlet var monthYearLabel: UILabel!
     @IBOutlet var searchBar: UISearchBar!
@@ -83,13 +83,13 @@ class CalendarViewController: UIViewController {
         monthYearLabel.text = month + " " + year
     }
 
-    func handleTextSelected(view: JTAppleCell?, cellState: CellState) {
+    func handleTextSelected(view: JTACDayCell?, cellState: CellState) {
         guard let validCell = view as? CalendarViewCell else { return }
         validCell.selectedView.isHidden = !cellState.isSelected
         handleTextColor(view: view, cellState: cellState)
     }
 
-    func handleTextColor(view: JTAppleCell?, cellState: CellState) {
+    func handleTextColor(view: JTACDayCell?, cellState: CellState) {
         guard let validCell = view as? CalendarViewCell else { return }
         let gray: CGFloat = 216 / 255
         let color = cellState.isSelected ? .white :
@@ -98,7 +98,7 @@ class CalendarViewController: UIViewController {
         validCell.dayLabel.textColor = color
     }
 
-    func handleEvents(view: JTAppleCell?,for date: Date) {
+    func handleEvents(view: JTACDayCell?,for date: Date) {
         guard let validCell = view as? CalendarViewCell else { return }
         validCell.activityDot.isHidden = calendarEvents.eventsList(for: date).isEmpty
     }
@@ -151,27 +151,25 @@ extension CalendarViewController: CalendarView {
 }
 
 // MARK: Implement JTAppleCalendar Data source
-extension CalendarViewController: JTAppleCalendarViewDataSource {
-
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+extension CalendarViewController: JTACMonthViewDataSource {
+    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         let cell = calendar.dequeueReusableCell(withReuseIdentifier: "CellView", for: indexPath) as! CalendarViewCell
         cell.dayLabel.text = cellState.text
         handleTextSelected(view: cell, cellState: cellState)
         handleEvents(view: cell, for: date)
         return cell
     }
-
 }
 
 // MARK: Implement JTAppleCalendar Delegate
-extension CalendarViewController: JTAppleCalendarViewDelegate {
-    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell,
+extension CalendarViewController: JTACMonthViewDelegate {
+    func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell,
                   forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
 
     }
 
     //Display cell
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
+    func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         let startDate = presenter.formatter.date(.yearMonthDate, from: "2016 02 01") // You can use date generated from a formatter
         let endDate = presenter.formatter.date(.yearMonthDate, from: "2025 12 31")  // You can also use dates created from this function
         let parameters = ConfigurationParameters(startDate: startDate,
@@ -181,18 +179,20 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         return parameters
     }
 
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date,
+                  cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         handleTextSelected(view: cell, cellState: cellState)
         setupPlannerViews(for: date, with: cellState)
         searchBar.endEditing(true)
         eventsTableView.reloadData()
     }
 
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date,
+                  cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         handleTextSelected(view: cell, cellState: cellState)
     }
 
-    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+    func calendar(_ calendar: JTACMonthView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewOfCalendar(from: visibleDates)
         searchBar.endEditing(true)
     }
